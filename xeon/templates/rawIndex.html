@@ -1,0 +1,2863 @@
+{% extends "base.html" %} 
+ {% block sitenav %}
+<nav id="site-nav">
+ <div class="category" state="0">
+  <a href="http://{{host}}:{{port}}/index">
+   Optimization Guide
+  </a>
+ </div>
+ <div class="category" state="0">
+  <a href="http://{{host}}:{{port}}/summary">
+   Optimization Guide Summary
+  </a>
+ </div>
+ <ul>
+  <li>
+   <div class="section-link" state="1">
+    <a href="#introduction.section">
+     1. Introduction
+    </a>
+   </div>
+  </li>
+  <li>
+   <div class="section-link" state="1">
+    <a href="#id-1.3">
+     2.  Intel MIC architecture &amp; system overview
+    </a>
+   </div>
+  </li>
+  <li>
+   <div class="section-link" state="1">
+    <a href="#section-native">
+     3.  Native compilation
+    </a>
+   </div>
+  </li>
+  <li>
+   <div class="section-link" state="1">
+    <a href="#section-offload">
+     4. Intel compiler’s offload pragmas
+    </a>
+   </div>
+  </li>
+  <li>
+   <div class="section-link" state="1">
+    <a href="#id-1.6">
+     5.  OpenMP and hybrid
+    </a>
+   </div>
+  </li>
+  <li>
+   <div class="section-link" state="1">
+    <a href="#id-1.7">
+     6. MPI
+    </a>
+   </div>
+  </li>
+  <li>
+   <div class="section-link" state="1">
+    <a href="#id-1.8">
+     7. Intel MKL (Math Kernel Library)
+    </a>
+   </div>
+  </li>
+  <li>
+   <div class="section-link" state="1">
+    <a href="#id-1.9">
+     8. TBB: Intel Threading Building Blocks
+    </a>
+   </div>
+  </li>
+  <li>
+   <div class="section-link" state="1">
+    <a href="#id-1.10">
+     9. IPP: The Intel Integrated Performance Primitives
+    </a>
+   </div>
+  </li>
+  <li>
+   <div class="section-link" state="1">
+    <a href="#id-1.11">
+     10. Further programming models
+    </a>
+   </div>
+  </li>
+  <li>
+   <div class="section-link" state="1">
+    <a href="#id-1.12">
+     11. Debugging
+    </a>
+   </div>
+  </li>
+  <li>
+   <div class="section-link" state="1">
+    <a href="#id-1.13">
+     12. Tuning
+    </a>
+   </div>
+  </li>
+  <li>
+   <div class="section-link" state="1">
+    <a href="#id-1.14">
+     13.  Performance analysis tools
+    </a>
+   </div>
+  </li>
+ </ul>
+</nav>
+ {% endblock %} 
+{% block content %}
+<div id="contents-container">
+ <article id="contents">
+  <div class="topic concept nested1" id="introduction.section" xml:lang="en-US">
+   <a name="introduction.section" shape="rect">
+   </a>
+   <h2 class="title topictitle1">
+    <a href="http://www.prace-ri.eu/best-practice-guide-intel-xeon-phi-html/#introduction.section" name="introduction.section" shape="rect">
+     1. Introduction
+    </a>
+   </h2>
+   <div class="body conbody">
+    <ul class="ul">
+     <li class="li">
+      This best practice guide provides information about Intel’s MIC architecture and programming models for the Intel Xeon Phi coprocessor in
+order to enable programmers to achieve good performance of
+their applications.
+     </li>
+     <li class="li">
+      The guide covers a wide range of topics from the
+description of the hardware of the Intel Xeon Phi coprocessor through information about the
+basic programming models
+as well as information about porting programs
+up to tools and strategies how to analyze and
+improve the performance of applications.
+     </li>
+     <li class="li">
+      This initial version of the guide contains contributions from CSC, KTH, LRZ, and NCSA.
+     </li>
+     <li class="li">
+      It also includes several informations from publicly available Intel documents and Intel webinars [11].
+     </li>
+     <li class="li">
+      In 2013 the first books about programming the Intel Xeon Phi coprocessor [1] [2] [3] have been published.
+     </li>
+     <li class="li">
+      We also recommend a book about structured parallel programming [4].
+     </li>
+     <li class="li">
+      Useful online documentation about the Intel Xeon Phi coprocessor can be found in Intel’s developer zone for Xeon Phi Programming [6] and the Intel Many Integrated Core Architecture User Forum [7].
+     </li>
+     <li class="li">
+      To get things going quickly have a look on the Intel Xeon Phi Coprocessor Developer’s Quick Start Guide [15] and also on the paper [24].
+     </li>
+     <li class="li">
+      Various experiences with application enabling for Intel Xeon Phi gained within PRACE on the
+EURORA-cluster at CINECA (Italy) in late 2013 can be found in whitepapers available
+online at [16].
+     </li>
+    </ul>
+   </div>
+  </div>
+  <div class="topic concept nested1" id="id-1.3" xml:lang="en-US">
+   <a name="id-1.3" shape="rect">
+   </a>
+   <h2 class="title topictitle1">
+    <a href="http://www.prace-ri.eu/best-practice-guide-intel-xeon-phi-html/#id-1.3" name="id-1.3" shape="rect">
+     2.  Intel MIC architecture &amp; system overview
+    </a>
+   </h2>
+   <div class="body conbody">
+    <ul class="ul">
+     <li class="li">
+      The Intel Xeon Phi coprocessor consists of up to 61 cores connected by a
+high performance on-die bidirectional interconnect.
+     </li>
+     <li class="li">
+      The coprocessor runs a
+Linux operating system and supports all important Intel development tools,
+like C/C++ and Fortran compiler, MPI and OpenMP, high performance libraries
+like MKL, debugger and tracing tools like Intel VTune Amplifier XE.
+     </li>
+     <li class="li">
+      Traditional UNIX tools on the coprocessor are supported via BusyBox, which combines tiny versions of many common UNIX utilities into a single small executable.
+     </li>
+     <li class="li">
+      The coprocessor is connected to an Intel Xeon processor – the “host” – via the PCI Express (PICe) bus.
+     </li>
+     <li class="li">
+      The implementation of a virtualized TCP/IP stack allows to access the coprocessor like a network node.
+     </li>
+     <li class="li">
+      Summarized information about the hardware architecture can be found in [17].
+     </li>
+     <li class="li">
+      In the following we cite the most important properties of the MIC architecture from the System Software Developers Guide [18], which includes many details about the MIC architecture:
+
+The following picture (from [18]) illustrates the building blocks of the architecture.
+     </li>
+     <li class="li">
+      Details about the L1 and L2 cache can be found in the System Software Developers Guide [18].
+     </li>
+     <li class="li">
+      We only cite the most important features here.
+     </li>
+     <li class="li">
+      The L1 cache has a 32 KB L1 instruction cache and 32 KB L1 data cache.
+     </li>
+     <li class="li">
+      Associativity is 8-way, with a cache line-size of 64 byte.
+     </li>
+     <li class="li">
+      It has a load-to-use latency of 1 cycle, which means that an integer value loaded from the L1 cache can be used in the next clock by an integer instruction.
+     </li>
+     <li class="li">
+      (Vector instructions have different latencies than integer instructions.)
+     </li>
+     <li class="li">
+      The L2 cache is a unified cache which is inclusive of the L1 data and instruction caches.
+     </li>
+     <li class="li">
+      Each core contributes 512 KB of L2 to the total global shared L2 cache storage.
+     </li>
+     <li class="li">
+      If no cores share any data or code, then the effective total L2 size of the chip is up to 31 MB.
+     </li>
+     <li class="li">
+      On the other hand, if every core shares exactly the same code and data in perfect synchronization, then the effective total L2 size of the chip is only 512 KB.
+     </li>
+     <li class="li">
+      The actual size of the workload-perceived L2 storage is a function of the degree of code and data sharing among cores and thread.
+     </li>
+     <li class="li">
+      Like for the L1 cache, associativity is 8-way, with a cache line-size of 64 byte.
+     </li>
+     <li class="li">
+      The raw latency is 11 clock cycles.
+     </li>
+     <li class="li">
+      It has a streaming hardware prefetcher and supports ECC correction.
+     </li>
+     <li class="li">
+      The main properties of the L1 and L2 caches are summarized in the following table (from [18]):
+
+
+
+
+
+
+
+
+
+
+
+
+
+Details about the system startup and the network configuration can be
+found in [19] and in the documentation coming with the
+Intel Manycore Platform Software Stack (Intel MPSS) [10].
+     </li>
+     <li class="li">
+      To start the Intel MPSS stack and initialize the Xeon Phi coprocessor the following command has to be executed as root or during host system start-up:
+
+During start-up details are logged to  /var/log/messages.
+     </li>
+     <li class="li">
+      If MPSS with OFED support is needed, further the following commands have to be executed as root:
+
+Per default IP addresses 172.31.1.254 , 172.31.2.254 , 172.31.3.254 etc.
+     </li>
+     <li class="li">
+      are then assigned to the attached Intel Xeon Phi coprocessors.
+     </li>
+     <li class="li">
+      The IP addresses of the attached coprocessors can be listed via the traditional  ifconfig  Linux program.
+     </li>
+     <li class="li">
+      Further information can be obtained by running the  micinfo  program on the host.
+     </li>
+     <li class="li">
+      To get also PCIe related details the command has to be run with root privileges.
+     </li>
+     <li class="li">
+      Here is an example output for a C0 stepping Intel Xeon Phi prototype:
+
+Users can log in directly onto the Xeon Phi coprocessor via ssh.
+     </li>
+     <li class="li">
+      Per default the home directory on the coprocessor is  /home/username .
+     </li>
+     <li class="li">
+      Since the access to the coprocessor is ssh-key based users have to generate a private/public key pair via  ssh-keygen before accessing the coprocessor for the first time.
+     </li>
+     <li class="li">
+      After the keys have been generated, the following commands have to be executed as root to populate the filesystem image for the coprocessor on the host (/opt/intel/mic/filesystem/mic0/home) with the new keys.
+     </li>
+     <li class="li">
+      Since the coprocessor has to be restarted to copy the new image to the coprocessor, the following commands have to be used (preferrably only by the system administrator) with care.
+     </li>
+     <li class="li">
+      On production systems access to reserved cards might be realized by the job scheduler.
+     </li>
+     <li class="li">
+      Informations how to set up and configure a cluster with hosts containing Intel
+Xeon Phi coprocessors, based on how Intel configured its own Endeavor cluster
+can be found in [20].
+     </li>
+     <li class="li">
+      Since a Linux kernel is running on the coprocessor, further information about the cores, memory etc.
+     </li>
+     <li class="li">
+      can be obtained from the virtual Linux /proc or /sys filesystems:
+
+To run MKL, OpenMP or MPI based programs on the coprocessor, some libraries (exact path and filenames may differ depending on the version) need to be copied to the coprocessor.
+     </li>
+     <li class="li">
+      On production systems the libraries might be installed or mounted on the coprocessor already.
+     </li>
+     <li class="li">
+      Root privileges are necessary for the destination directories given in the following example:
+     </li>
+    </ul>
+   </div>
+  </div>
+  <div class="topic concept nested1" id="section-native" xml:lang="en-US">
+   <a name="section-native" shape="rect">
+   </a>
+   <h2 class="title topictitle1">
+    <a href="http://www.prace-ri.eu/best-practice-guide-intel-xeon-phi-html/#section-native" name="section-native" shape="rect">
+     3.  Native compilation
+    </a>
+   </h2>
+   <div class="body conbody">
+    <ul class="ul">
+     <li class="li">
+      The simplest model of running applications on the Intel Xeon Phi coprocessor is native mode.
+     </li>
+     <li class="li">
+      Detailed information about building a native application for Intel Xeon Phi coprocessors can be found in [26].
+     </li>
+     <li class="li">
+      In native mode an application is compiled on the host using the compiler switch  -mmic  to generate code for the MIC architecture.
+     </li>
+     <li class="li">
+      The binary can then be copied to the coprocessor and has to be started there.
+     </li>
+     <li class="li">
+      To achieve good performance one should mind the following items.
+     </li>
+     <li class="li">
+      Data should be for the MIC architecture, in contrast to 32 Bytes (256 Bits) for AVX and 16 Bytes (128 Bits) for SSE.
+     </li>
+     <li class="li">
+      Due to the large SIMD width of 64 Bytes  The MIC architecture offers new instructions like gather/scatter, fused multiply-add, masked vector instructions etc.
+     </li>
+     <li class="li">
+      which allow more loops to be parallelized on the coprocessor than on an Intel Xeon based host.
+     </li>
+     <li class="li">
+      Use pragmas like  #pragma ivdep, #pragma vector always, #pragma vector aligned, #pragma simd etc.
+     </li>
+     <li class="li">
+      to achieve autovectorization.
+     </li>
+     <li class="li">
+      Autovectorization is enabled at default optimization level  -O2 .
+     </li>
+     <li class="li">
+      Requirements for vectorizable loops can be found in [43].
+     </li>
+     <li class="li">
+      Let the compiler generate vectorization reports using the compiler option  -vecreport2 to see if loops were vectorized for MIC (Message “*MIC* Loop was vectorized” etc).
+     </li>
+     <li class="li">
+      The options  -opt-report-phase hlo (High Level Optimizer Report) or  -opt-report-phase ipo_inl (Inlining report) may also be useful.
+     </li>
+     <li class="li">
+      Explicit vector programming is also possible via Intel Cilk Plus language extensions (C/C++ array notation, vector elemental functions, …) or the new SIMD constructs from OpenMP 4.0 RC1.
+     </li>
+     <li class="li">
+      Vector elemental functions can be declared by using __attributes__((vector)).
+     </li>
+     <li class="li">
+      The compiler then generates a vectorized version of a scalar function which can be called from a vectorized loop.
+     </li>
+     <li class="li">
+      One can use intrinsics to have full control over the vector registers and the instruction set.
+     </li>
+     <li class="li">
+      Include  &lt;immintrin.h&gt; for using intrinsics.
+     </li>
+     <li class="li">
+      Hardware prefetching from the L2 cache is enabled per default.
+     </li>
+     <li class="li">
+      In addition, software prefetching is on by default at compiler optimization level  -O2  and above.
+     </li>
+     <li class="li">
+      Since Intel Xeon Phi is an inorder architecture, care about prefetching is more important than on out-of-order architectures.
+     </li>
+     <li class="li">
+      The compiler prefetching can be influenced by setting the compiler switch  -opt-prefetch=n.
+     </li>
+     <li class="li">
+      Manual prefetching can be done by using intrinsics (_mm_prefetch()) or pragmas (#pragma prefetch var).
+     </li>
+    </ul>
+   </div>
+  </div>
+  <div class="topic concept nested1" id="section-offload" xml:lang="en-US">
+   <a name="section-offload" shape="rect">
+   </a>
+   <h2 class="title topictitle1">
+    <a href="http://www.prace-ri.eu/best-practice-guide-intel-xeon-phi-html/#section-offload" name="section-offload" shape="rect">
+     4. Intel compiler’s offload pragmas
+    </a>
+   </h2>
+   <div class="body conbody">
+    <ul class="ul">
+     <li class="li">
+      One can simply add OpenMP-like pragmas to C/C++ or Fortran code to mark regions of code that should be offloaded to the Intel Xeon Phi Coprocessor and be run there.
+     </li>
+     <li class="li">
+      This approach is quite similar to the accelerator pragmas introduced by the PGI compiler, CAPS HMPP or OpenACC to offload code to GPGPUs.
+     </li>
+     <li class="li">
+      When the Intel compiler encounters an offload pragma, it generates code for both the coprocessor and the host.
+     </li>
+     <li class="li">
+      Code to transfer the data to the coprocessor is automatically created by the compiler, however the programmer can influence the data transfer by adding data clauses to the offload pragma.
+     </li>
+     <li class="li">
+      Details can be found under “Offload Using a Pragma” in the Intel compiler documentation [30].
+     </li>
+     <li class="li">
+      In the following we show a simple example how to offload a matrix-matrix computation to the coprocessor.
+     </li>
+     <li class="li">
+      This example (with quite bad performance) shows how to offload the matrix computation to the coprocessor using the #pragma offload target(mic).
+     </li>
+     <li class="li">
+      One could also specify the specific coprocessor  num  in a system with multiple coprocessors by using  #pragma offload target(mic:num).
+     </li>
+     <li class="li">
+      Since the matrices have been dynamically allocated using posix_memalign(), their sizes must be specified via the length() clause.
+     </li>
+     <li class="li">
+      Using in, out and  inout  one can specify which data has to be copied in which direction.
+     </li>
+     <li class="li">
+      It is recommended that for Intel Xeon Phi data is 64-byte aligned.
+     </li>
+     <li class="li">
+      #pragma vector aligned  tells the compiler that all array data accessed in the loop is properly aligned.
+     </li>
+     <li class="li">
+      #pragma ivdep  discards any data dependencies assumed by the compiler.
+     </li>
+     <li class="li">
+      Offloading is enabled per default for the Intel compiler.
+     </li>
+     <li class="li">
+      Use  -no-offload  to disable the generation of offload code.
+     </li>
+     <li class="li">
+      Using the compiler option  -vec-report2  one can see which loops have been vectorized on the host and the MIC coprocessor:
+
+By setting the environment variable OFFLOAD_REPORT  one can obtain information about performance and data transfers at runtime:
+
+If a function is called within the offloaded code block, this function has to be declared with  __attribute__((target(mic))) .
+     </li>
+     <li class="li">
+      For example one could put the matrix-matrix multiplication of the previous example into a subroutine and call that routine within an offloaded block region:
+
+Mind the C99 restrict keyword that specifies that the vectors do not overlap.
+     </li>
+     <li class="li">
+      (Compile with -std=c99)
+
+
+
+
+
+
+
+
+
+The following offload pragmas are available (from [11]):
+
+
+
+The following clauses can be used to control data transfers:
+
+
+
+The following (optional) modifiers are specified:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+To explicitly share work between the coprocessor and the host one can use OpenMP sections to manually distribute the work.
+     </li>
+     <li class="li">
+      In the following example both the host and the coporcessor will run a matrix-matrix multiplication in parallel.
+     </li>
+     <li class="li">
+      The main bottleneck of accelerator based programming are data transfers over the slow PCIe bus from the host to the accelerator and vice versa.
+     </li>
+     <li class="li">
+      To increase the performance one should minimize data transfers as much as possible and keep the data on the coprocessor between computations using the same data.
+     </li>
+     <li class="li">
+      Defining the following macros
+
+one can simply use the following notation:
+
+
+to allocate data and keep it for the next offload
+
+#pragma offload target(mic) in (p:length(l) ALLOC RETAIN)
+
+to reuse the data and still keep it on the coprocessor
+
+#pragma offload target(mic) in (p:length(l) REUSE RETAIN)
+
+to reuse the data again and free the memory.
+     </li>
+     <li class="li">
+      (FREE is the default, and does not need to be explicitly specified)
+
+#pragma offload target(mic) in (p:length(l) REUSE FREE)
+
+
+
+More information can be found in the section “Managing Memory Allocation for Pointer Variables” under “Offload Using a Pragma” in the compiler documentation [30] .
+     </li>
+     <li class="li">
+      The implementation of the matrix-matrix multiplication given in Section 4.1 can be optimized by defining appropriate ROWCHUNK and COLCHUNK chunk sizes, rewriting the code with 6 nested loops (using OpenMP collapse for the 2 outermost loops) and some manual loop unrolling (thanks to A. Heinecke for input for this section).
+     </li>
+     <li class="li">
+      Using intrinsics with manual data prefetching and register blocking can still considerably increase the performance.
+     </li>
+     <li class="li">
+      Generally speaking, the programmer should try to get a suitable vectorization and write cache and register efficient code, i.e.
+     </li>
+     <li class="li">
+      values stored in registers should be reused as often as possible in order to avoid cache and memory access.
+     </li>
+     <li class="li">
+      The tuning techniques for native implementations discussed in Section 3 also apply for offloaded code, of course.
+     </li>
+     <li class="li">
+      More complex data structures can be handled by Virtual Shared Memory.
+     </li>
+     <li class="li">
+      In this case the same virtual address space is used on both the host and the coprocessor, enabling a seamless sharing of data.
+     </li>
+     <li class="li">
+      Virtual shared data is specified using the  _Cilk_shared  allocation specifier.
+     </li>
+     <li class="li">
+      This model is integrated in Intel Cilk Plus parallel extensions and is only available in C/C++.
+     </li>
+     <li class="li">
+      There are also Cilk functions to specify offloading of functions and  _Cilk_for loops.
+     </li>
+     <li class="li">
+      More information on Intel Cilk Plus can be found online under [12].
+     </li>
+    </ul>
+   </div>
+  </div>
+  <div class="topic concept nested1" id="id-1.6" xml:lang="en-US">
+   <a name="id-1.6" shape="rect">
+   </a>
+   <h2 class="title topictitle1">
+    <a href="http://www.prace-ri.eu/best-practice-guide-intel-xeon-phi-html/#id-1.6" name="id-1.6" shape="rect">
+     5.  OpenMP and hybrid
+    </a>
+   </h2>
+   <div class="body conbody">
+    <ul class="ul">
+     <li class="li">
+      OpenMP parallelization on an Intel Xeon + Xeon Phi coprocessor machine can be
+applied both on the host and on the device with the  -openmp  compiler option.
+     </li>
+     <li class="li">
+      It can run on the Xeon host, natively on the Xeon Phi coprocessor and also in different offload schemes.
+     </li>
+     <li class="li">
+      It is introduced with regular pragma statements in the code for either case.
+     </li>
+     <li class="li">
+      In applications that run both on the host and on the Xeon Phi coprocessor OpenMP threads do not interfere with each other and offload statements are executed on the device based on the available resources.
+     </li>
+     <li class="li">
+      If there are no free threads on the Xeon Phi coprocessor or less than requested, the parallel region will be executed on the host.
+     </li>
+     <li class="li">
+      Offload pragma statements and OpenMP pragma statements are independent from each other and must both be present in the code.
+     </li>
+     <li class="li">
+      Within the latter construct apply usual semantics of shared and private data.
+     </li>
+     <li class="li">
+      There are 16 threads available on every Xeon host CPU and 4 times the number of cores threads on every Xeon Phi coprocessor.
+     </li>
+     <li class="li">
+      For offload schemes the maximal amount of threads that can be used on the device is 4 times the number of cores minus one, because one core is reserved for the OS and its services.
+     </li>
+     <li class="li">
+      Offload to the Xeon Phi coprocessor can be done at any time by multiple host CPUs until filling the resources available.
+     </li>
+     <li class="li">
+      If there are no free threads, the task meant to be offloaded may be done on the host.
+     </li>
+     <li class="li">
+      The Xeon Phi coprocessor supports 4 threads per core.
+     </li>
+     <li class="li">
+      Unlike some CPU-intensive HPC applications that are run on Xeon architecture, which do not benefit from hyperthreading, applications run on Xeon Phi coprocessors do and using more than one thread per core is recommended.
+     </li>
+     <li class="li">
+      The most important considerations for OpenMP threading and affinity are the total number of threads that should be utilized and the scheme for binding threads to processor cores.
+     </li>
+     <li class="li">
+      These are controlled with the environmental variables  OMP_NUM_THREADS and KMP_AFFINITY.
+     </li>
+     <li class="li">
+      The default settings are as follows:
+
+
+
+For host-only and native-only execution the number of threads and all other environmental variables are set as usual:
+
+Setting affinity to “compact” will place OpenMP threads by filling cores one by one, while “scatter” will place one thread in every core until reaching the total number of cores and then continue with the first core.
+     </li>
+     <li class="li">
+      When using “balanced”, it is similar to “scatter”, but threads with adjacent numbers will be placed on the same core.
+     </li>
+     <li class="li">
+      “Balanced” is only available for the Xeon Phi coprocessor.
+     </li>
+     <li class="li">
+      Another useful option is the verbosity modifier:
+
+With compiler version 13.1.0 and newer one can use the KMP_PLACE_THREADS variable to point out the topology of the system to the OpenMP runtime, for example:
+
+meaning that 60 cores and 3 threads per core should be used.
+     </li>
+     <li class="li">
+      Still one should use the KMP_AFFINITY variable to bind the threads to the cores.
+     </li>
+     <li class="li">
+      If OpenMP regions exist on the host and on the part of the code offloaded to the Phi, two separate OpenMP runtimes exist.
+     </li>
+     <li class="li">
+      Environment variables for controlling OpenMP behavior are to be set for both runtimes, for example the KMP_AFFINITY variable which can be used to assign a particular thread to a particular physical node.
+     </li>
+     <li class="li">
+      For Phi it can be done like this:
+
+If MIC_ENV_PREFIX is not set and KMP_AFFINITY is set to “balanced” it will be ignored by the runtime.
+     </li>
+     <li class="li">
+      One can also use special API calls to set the environment for the coprocessor only, e.g.
+     </li>
+     <li class="li">
+      OpenMP accepts four different kinds of loop scheduling – static, dynamic, guided and auto.
+     </li>
+     <li class="li">
+      In this way the amount of iterations done by different threads can be controlled.
+     </li>
+     <li class="li">
+      The schedule clause can be used to set the loop scheduling at compile time.
+     </li>
+     <li class="li">
+      Another way to control this feature is to specify schedule(runtime) in your code and select the loop scheduling at runtime through setting the OMP_SCHEDULE environment variable.
+     </li>
+     <li class="li">
+      If the amount of work that should be done by each thread is non-trivial and consists of nested for-loops, one might use the  collapse()  directive to specify how many for-loops are associated with the OpenMP loop construct.
+     </li>
+     <li class="li">
+      This often improves scalability of OpenMP applications (see Section 4.4.3).
+     </li>
+     <li class="li">
+      Another way to improve scalability is to reduce barrier synchronization overheads by using the nowait directive.
+     </li>
+     <li class="li">
+      The effect of it is that the threads will not synchronize after they have completed their individual pieces of work.
+     </li>
+     <li class="li">
+      This approach is applicable combined with static loop scheduling because all threads will execute the same amount of iterations in each loop but is also a potential threat on the correctness of the code.
+     </li>
+     <li class="li">
+      For hybrid OpenMP/MPI programming there are two major approaches: an MPI
+offload approach, where MPI ranks reside on the host CPU and work is offloaded to the Xeon Phi coprocessor and a symmetric approach in which MPI ranks reside both on the CPU and on the Xeon Phi.
+     </li>
+     <li class="li">
+      An MPI program can be structured using either model.
+     </li>
+     <li class="li">
+      When assigning MPI ranks, one should take into account that there is a data transfer overhead over the PCIe, so minimizing the communication from and to the Xeon Phi is a good idea.
+     </li>
+     <li class="li">
+      Another consideration is that there is limited amount of memory on the coprocessor which favors the shared memory parallelism ideology so placing 120 MPI ranks on the coprocessor each of which starts 2 threads might be less effective than placing less ranks but allowing them to start more threads.
+     </li>
+     <li class="li">
+      Note that MPI directives cannot be called within a pragma offload statement.
+     </li>
+     <li class="li">
+      For hybrid OpenMP/MPI applications use the thread safe version of the Intel MPI Library by using the -mt_mpi compiler driver option.
+     </li>
+     <li class="li">
+      A desired process pinning scheme can be set with the I_MPI_PIN_DOMAIN environment variable.
+     </li>
+     <li class="li">
+      It is recommended to use the following setting:
+
+By setting this to omp, one sets the process pinning domain size to be to OMP_NUM_THREADS.
+     </li>
+     <li class="li">
+      In this way, every MPI process is able to create OMP_NUM_THREADS number of threads that will run within the corresponding domain.
+     </li>
+     <li class="li">
+      If this variable is not set, each process will create a number of threads per MPI process equal to the number of cores, because it will be treated as a separate domain.
+     </li>
+     <li class="li">
+      Further, to pin OpenMP threads within a particular domain, one could use the KMP_AFFINITY environment variable.
+     </li>
+    </ul>
+   </div>
+  </div>
+  <div class="topic concept nested1" id="id-1.7" xml:lang="en-US">
+   <a name="id-1.7" shape="rect">
+   </a>
+   <h2 class="title topictitle1">
+    <a href="http://www.prace-ri.eu/best-practice-guide-intel-xeon-phi-html/#id-1.7" name="id-1.7" shape="rect">
+     6. MPI
+    </a>
+   </h2>
+   <div class="body conbody">
+    <ul class="ul">
+     <li class="li">
+      Details about using the Intel MPI library on Xeon Phi coprocessor systems can be found in [21].
+     </li>
+     <li class="li">
+      The following commands have to be executed to set up the MPI environment:
+
+The following network fabrics are available for the Intel Xeon Phi coprocessor:
+
+
+
+The Intel MPI library tries to automatically use the best available network fabric detected (usually shm for intra-node communication and InfiniBand (dapl, ofa) for inter-node communication).
+     </li>
+     <li class="li">
+      The default can be changed by setting the  I_MPI_FABRICS  environment variable to I_MPI_FABRICS=&lt;fabric&gt; or I_MPI_FABRICS=&lt;intra-node fabric&gt;:&lt;inter-nodes fabric&gt;.
+     </li>
+     <li class="li">
+      The availability is checked in the following order: shm:dapl, shm:ofa, shm:tcp.
+     </li>
+     <li class="li">
+      Intel MPI for the Xeon Phi coprocessors offers various MPI programming models:
+
+
+
+
+
+
+
+
+
+To build and run an application in coprocessor-only mode, the following commands have to be executed:
+
+
+
+
+
+
+
+
+
+
+To build and run an application in symmetric mode, the following commands have to be executed:
+
+
+
+
+
+
+
+
+
+
+To build and run an application in host-only mode, the following commands have to be executed:
+
+
+
+
+
+
+
+
+
+
+
+Instead of specifying the hosts and coprocessors via  -n hostname one can also put the names into a hostfile and launch the jobs via
+
+Mind that the executable must have the same name on the hosts and the coprocessors in this case.
+     </li>
+     <li class="li">
+      If one sets
+
+the .mix postfix is automatically added to the executable name by mpirun, so in the case of the example above  test  is launched on the host and  test.mic on the coprocessors.
+     </li>
+     <li class="li">
+      It is also possible to specify a prefix using
+
+In this case  ./MIC/test  will be launched on the coprocessor.
+     </li>
+     <li class="li">
+      This is specially useful if the host and the coprocessors share the same NFS filesystem.
+     </li>
+    </ul>
+   </div>
+  </div>
+  <div class="topic concept nested1" id="id-1.8" xml:lang="en-US">
+   <a name="id-1.8" shape="rect">
+   </a>
+   <h2 class="title topictitle1">
+    <a href="http://www.prace-ri.eu/best-practice-guide-intel-xeon-phi-html/#id-1.8" name="id-1.8" shape="rect">
+     7. Intel MKL (Math Kernel Library)
+    </a>
+   </h2>
+   <div class="body conbody">
+    <ul class="ul">
+     <li class="li">
+      The Intel Xeon Phi coprocessor is supported since MKL 11.0.
+     </li>
+     <li class="li">
+      Details on using MKL with Intel Xeon Phi coprocessors can be found in [27], [28] and [29].
+     </li>
+     <li class="li">
+      Also the MKL developer zone [8] contains useful information.
+     </li>
+     <li class="li">
+      All functions can be used on the Xeon Phi, however the optimization level for wider 512-bit SIMD instructions differs.
+     </li>
+     <li class="li">
+      As of Intel MKL 11.0 Update 2 the following functions are highly optimized for the Intel Xeon Phi coprocessor:
+
+
+BLAS Level 3, and much of Level 1 &amp; 2
+Sparse BLAS: ?CSRMV, ?CSRMM
+Some important LAPACK routines (LU, QR, Cholesky)
+Fast Fourier Transformations
+Vector Math Library
+Random number generators in the Vector Statistical Library
+
+
+Intel plans to optimize a wider range of functions in future MKL releases.
+     </li>
+     <li class="li">
+      The following 3 usage models of MKL are available for the Xeon Phi:
+
+
+Automatic Offload
+Compiler Assisted Offload
+Native Execution
+
+
+
+
+
+
+
+
+
+
+In the case of automatic offload the user does not have to change the code at all.
+     </li>
+     <li class="li">
+      For automatic offload enabled functions the runtime may automatically download data to the Xeon Phi coprocessor and execute (all or part of) the computations there.
+     </li>
+     <li class="li">
+      The data transfer and the execution management is completely automatic and transparent for the user.
+     </li>
+     <li class="li">
+      As of Intel MKL 11.0.2 only the following functions are enabled for automatic offload:
+
+
+Level-3 BLAS functions
+
+
+?GEMM (for m,n &gt; 2048, k &gt; 256)
+?TRSM (for M,N &gt; 3072)
+?TRMM (for M,N &gt; 3072)
+?SYMM (for M,N &gt; 2048)
+
+
+
+LAPACK functions
+
+
+LU (M,N &gt; 8192)
+QR
+Cholesky
+
+
+
+
+
+In the above list also the matrix sizes for which MKL decides to offload the computation are given in brackets.
+     </li>
+     <li class="li">
+      To enable automatic offload either the function
+
+mkl_mic_enable()
+
+has to be called within the source code or the environment variable
+
+MKL_MIC_ENABLE=1
+
+has to be set.
+     </li>
+     <li class="li">
+      If no Xeon Phi coprocessor is detected the application runs on the host without penalty.
+     </li>
+     <li class="li">
+      To build a program for automatic offload, the same way of building code as on the Xeon host is used:
+
+By default, the MKL library decides when to offload and also tries to determine the optimal work division between the host and the targets (MKL can take advantage of multiple coprocessors).
+     </li>
+     <li class="li">
+      In case of the BLAS routines the user can specify the work division between the host and the coprocessor by calling the routine
+
+or by setting the environment variable
+
+Both examples specify to offload 50% of computation only to the 1st card (card #0).
+     </li>
+     <li class="li">
+      In this mode of MKL the offloading is explicitly controlled by compiler pragmas or directives.
+     </li>
+     <li class="li">
+      In contrast to the automatic offload mode, all MKL function can be offloaded in CAO-mode.
+     </li>
+     <li class="li">
+      A big advantage of this mode is that it allows for data persistence on the device.
+     </li>
+     <li class="li">
+      For Intel compilers it is possible to use AO and CAO in the same program, however the work division must be explicitly set for AO in this case.
+     </li>
+     <li class="li">
+      Otherwise, all MKL AO calls are executed on the host.
+     </li>
+     <li class="li">
+      MKL functions are offloaded in the same way as any other offloaded function (see section Section 4).
+     </li>
+     <li class="li">
+      An example for offloading MKL’s sgemm routine looks as follows:
+
+To build a program for compiler assisted offload, the following command is recommended by Intel:
+
+To avoid using the OS core, it is recommended to use the following environment setting (in case of a 61-core coprocessor):
+
+Setting larger pages by the environment setting  MIC_USE_2MB_BUFFERS=16K usually increases performance.
+     </li>
+     <li class="li">
+      It is also recommended to exploit data persistence with CAO.
+     </li>
+     <li class="li">
+      In this mode of MKL the Intel Xeon Phi coprocessor is used as an independent compute node.
+     </li>
+     <li class="li">
+      To build a program for native mode, the following compiler settings should be used:
+
+The binary must then be manually copied to the coprocessor via ssh and directly started on the coprocessor.
+     </li>
+     <li class="li">
+      Example code can be found under  $MKLROOT/examples/mic_ao  and  $MKLROOT/examples/mic_offload .
+     </li>
+     <li class="li">
+      To determine the appropriate link line for MKL the Intel Math Kernel Library Link Line Advisor available under [9] has been extended to include support for the Intel Xeon Phi specific options.
+     </li>
+    </ul>
+   </div>
+  </div>
+  <div class="topic concept nested1" id="id-1.9" xml:lang="en-US">
+   <a name="id-1.9" shape="rect">
+   </a>
+   <h2 class="title topictitle1">
+    <a href="http://www.prace-ri.eu/best-practice-guide-intel-xeon-phi-html/#id-1.9" name="id-1.9" shape="rect">
+     8. TBB: Intel Threading Building Blocks
+    </a>
+   </h2>
+   <div class="body conbody">
+    <ul class="ul">
+     <li class="li">
+      The Intel TBB library is a template based runtime library for C++ code using threads that allows us to fully utilize the scaling capabilities within our code by increasing the number of threads and supporting task oriented load balancing.
+     </li>
+     <li class="li">
+      Intel TBB is open source and available on many different platforms with most operating systems and processors.
+     </li>
+     <li class="li">
+      It is already popular in the C++ community.
+     </li>
+     <li class="li">
+      You should be able to use it with any compiler supporting ISO C++.
+     </li>
+     <li class="li">
+      So this is one of the advantages of Intel TBB when you intend to keep your code as easily portable as possible.
+     </li>
+     <li class="li">
+      Typically as a rule of thumb an application must scale well past one hundred threads on Intel Xeon processors to profit from the possible higher parallel performance offered with e.g.
+     </li>
+     <li class="li">
+      the Intel Xeon Phi coprocessor.
+     </li>
+     <li class="li">
+      To check if the scaling would profit from utilising the highly parallel capabilities of the MIC architecture, you should start to create a simple performance graph with a varying number of threads (from one up to the number of cores).
+     </li>
+     <li class="li">
+      From a programming standpoint we treat the coprocessor as a 64-bit x86 SMP-on-a-chip with an high-speed bi-directional ring interconnect, (up to) four hardware threads per core and 512-bit SIMD instructions.
+     </li>
+     <li class="li">
+      With the available number of cores we have easily 200 hardware threads at hand on a single coprocessor.
+     </li>
+     <li class="li">
+      The multi-threading on each core is primarily used to hide latencies that come implicitly with an in-order microarchitecture.
+     </li>
+     <li class="li">
+      Unlike hyper-threading these hardware threads cannot be switched off and should never be ignored.
+     </li>
+     <li class="li">
+      Generally it should be impossible for a single thread per core to approach the memory or floating point capability limit.
+     </li>
+     <li class="li">
+      Highly tuned codesnippets may reach saturation already at two threads, but in general a minimum of three or four active threads per cores will be needed.
+     </li>
+     <li class="li">
+      This is one of the reasons why the number of threads per core should be parameterized as well as the number of cores.
+     </li>
+     <li class="li">
+      The other reason is of course to be future compatible.
+     </li>
+     <li class="li">
+      TBB offers programming methods that support creating this many threads in a program.
+     </li>
+     <li class="li">
+      In the easiest way the one main production loop is transformed by adding a single directive or pragma enabling the code for many threads.
+     </li>
+     <li class="li">
+      The chunk size used is chosen automatically.
+     </li>
+     <li class="li">
+      The new Intel Cilk Plus which offers support for a simpler set of tasking capabilities fully interoperates with Intel TBB.
+     </li>
+     <li class="li">
+      Apart from that Intel Cilk Plus also supports vectorization.
+     </li>
+     <li class="li">
+      So shared memory programmers have Intel TBB and Intel Cilk Plus to assist them with built-in tasking models.
+     </li>
+     <li class="li">
+      Intel Cilk Plus extends Intel TBB to offer C programmers a solution as well as help with vectorization in C and C++ programs.
+     </li>
+     <li class="li">
+      Intel TBB itself does not offer any explicit vectorization support.
+     </li>
+     <li class="li">
+      However it does not interfere with any vectorization solution either.
+     </li>
+     <li class="li">
+      In relevance to the Intel Xeon Phi coprocessor TBB is just one available runtime-based parallel programming model alongside OpenMP, Intel Cilk Plus and pthreads that are also already available on the host system.
+     </li>
+     <li class="li">
+      Any code running natively on the coprocessor can put them to use just like it would on the host with the only difference being the larger number of threads.
+     </li>
+     <li class="li">
+      There exists a variety of approaches to parallel programming, but there are several advantages to using Intel TBB when writing scalable applications:
+
+
+TBB relies on generic programming: Writing the best possible algorithms with the fewest possible constraints enables to deliver high performance algorithms which can be applied in a broader context.
+     </li>
+     <li class="li">
+      Other more traditional libraries specify interfaces in terms of particular types or base classes.
+     </li>
+     <li class="li">
+      Intel TBB specifies the requirements on the types instead and in this way keeps the algorithms themselves generic and easily adaptable to different data representations.
+     </li>
+     <li class="li">
+      It is easy to start: You don’t have to be a threading expert to leverage multi-core performance with the help of TBB.
+     </li>
+     <li class="li">
+      Normally you can successfully thread some programs just by adding a single directive or pragma to the main production loop.
+     </li>
+     <li class="li">
+      It obeys to logical parallelism: Since with TBB you specify tasks instead of threads, you automatically produce more portable code which emphasizes scalable, data parallel programming.
+     </li>
+     <li class="li">
+      You are not bound to platform-dependent threading primitives; most threading packages require you to directly code on low-level constructs close to the hardware.
+     </li>
+     <li class="li">
+      Direct programming on raw thread level is error-prone, tedious and typically hard work since it forces you to efficiently map logical tasks into threads and it is not always leading to the desired results.
+     </li>
+     <li class="li">
+      With the higher level of data-parallel programming on the other hand, where you have multiple threads working on different parts of a collection, performance continues to increase as you add more cores since for a larger number of processors the collections are just divided into smaller chunks.
+     </li>
+     <li class="li">
+      This is a great feature when it comes to portability.
+     </li>
+     <li class="li">
+      TBB is compatible with other programming models: Since the library is not designed to address all kinds of threading problems, it can coexist seamlessly with other threading packages.
+     </li>
+     <li class="li">
+      The template-based approach allows Intel TBB to make no excuses for performance.
+     </li>
+     <li class="li">
+      Other general-purpose threading packages tend to be low-level tools that are still far from the actual solution, while at the same time supporting many different kinds of threading.
+     </li>
+     <li class="li">
+      In TBB every template solves a computationally intensive problem in a generic, simple way instead.
+     </li>
+     <li class="li">
+      All of these advantages make TBB popular and easily portable while at the same time facilitating data parallel programming.
+     </li>
+     <li class="li">
+      Further advanced concepts in TBB that are not MIC specific can be found in
+the Intel TBB User Guide or in the Reference Manual, both available under [14].
+     </li>
+     <li class="li">
+      Code that runs natively on the Intel Xeon Phi coprocessor can apply the TBB parallel programming model just as they would on the host, with no unusual complications beyond the larger number of threads.
+     </li>
+     <li class="li">
+      In order to initialize your compiler environment variables needed to set up TBB correctly, typically the
+ /opt/intel/composerxe/tbb/bin/tbbvars.csh or tbbvars.sh script with intel64 as the argument is called by the /opt/intel/composerxe/bin/compilervars.csh or compilervars.sh script with intel64 as argument.
+     </li>
+     <li class="li">
+      (e.g.
+     </li>
+     <li class="li">
+      source /opt/intel/composerxe/bin/compilervars.sh intel64)
+Normally there is no need to call the tbbvars script directly and it is not advisable either since the  compilervars  script also calls other subscripts taking i.e.
+     </li>
+     <li class="li">
+      care of the debugger or Intel MKL and running the subscripts out of order might result in unpredictable behavior.
+     </li>
+     <li class="li">
+      A minimal C++ TBB example looks as follows:
+
+The using directive imports the namespace tbb where all of the library’s classes and functions are found.
+     </li>
+     <li class="li">
+      The namespace is explicit in the first mention of a component, but implicit afterwards.
+     </li>
+     <li class="li">
+      So with the using namespace statement present you can use the library component identifiers without having to write out the namespace prefix tbb before each of them.
+     </li>
+     <li class="li">
+      The task scheduler is initialized by instantiating a task_scheduler_init object in the main function.
+     </li>
+     <li class="li">
+      The definition for the task_scheduler_init class is included from the corresponding header file.
+     </li>
+     <li class="li">
+      Actually any thread using one of the provided TBB template algorithms must have such an initialized task_scheduler_init object.
+     </li>
+     <li class="li">
+      The default constructor for the task_scheduler_init  object informs the task scheduler that the thread is participating in task execution, and the destructor informs the scheduler that the thread no longer needs the scheduler.
+     </li>
+     <li class="li">
+      With the newer versions of Intel TBB as used in a MIC environment the task scheduler is automatically initialized, so there is no need to explicitely initialize it if you don’t need to have control over when the task scheduler is constructed or destroyed.
+     </li>
+     <li class="li">
+      When initializing it you also have the further possibility to tell the task scheduler explicitly how many worker threads there are to be used and what their stack size would be.
+     </li>
+     <li class="li">
+      In the simplest form scalable parallelism can be achieved by parallelizing a loop of iterations that can each run independently from each other.
+     </li>
+     <li class="li">
+      The parallel_for template function replaces a serial loop where it is safe to process each element concurrently.
+     </li>
+     <li class="li">
+      A typical example would be to apply a function Foo on all elements of an array over the iterations space of type size_t going from 0 to n-1:
+
+becomes
+
+This is the TBB short form of a  parallel_for over a loop based on a one-dimensional iteration space consisting of a consecutive range of integers (which is one of the most common cases).
+     </li>
+     <li class="li">
+      The expression parallel_for(first,last,step,f) is synonymous to for(auto i=first; i!=last; i+=step) f(i) except that each f(i) can be evaluated in parallel if resources permit.
+     </li>
+     <li class="li">
+      The omitted step parameter is optional.
+     </li>
+     <li class="li">
+      The short form implicitly uses automatic chunking.
+     </li>
+     <li class="li">
+      The long form would be:
+
+Here the key feature of the TBB library is more clearly revealed.
+     </li>
+     <li class="li">
+      The template function tbb::parallel_for breaks the iteration space into chunks, and runs each chunk on a separate thread.
+     </li>
+     <li class="li">
+      The first parameter of template function call parallel_for is a blocked_range object that describes the entire iteration space from 0 to n-1.
+     </li>
+     <li class="li">
+      The parallel_for divides the iteration space into subspaces for each of the over 200 hardware threads.
+     </li>
+     <li class="li">
+      blocked_range&lt;T&gt;is a template class provided by the TBB library describing a one-dimensional iteration space over type T. The parallel_for class works just as well with other kinds of iteration spaces.
+     </li>
+     <li class="li">
+      The library provides blocked_range2d for two-dimensional spaces.
+     </li>
+     <li class="li">
+      There exists also the possibility to define own spaces.
+     </li>
+     <li class="li">
+      The general constructor of the blocked_range template class is blocked_range&lt;T&gt;(begin,end,grainsize).
+     </li>
+     <li class="li">
+      The T specifies the value type.
+     </li>
+     <li class="li">
+      begin represents the lower bound of the half-open range interval [begin,end) representing the iteration space.
+     </li>
+     <li class="li">
+      end represents the excluded upper bound of this range.
+     </li>
+     <li class="li">
+      The grainsize is the approximate number of elements per sub-range.
+     </li>
+     <li class="li">
+      The default grainsize is 1.
+     </li>
+     <li class="li">
+      A parallel loop construct introduces overhead cost for every chunk of work that it schedules.
+     </li>
+     <li class="li">
+      The MIC adapted Intel TBB library chooses chunk sizes automatically, depending upon load balancing needs.
+     </li>
+     <li class="li">
+      The heuristic normally works well with the default grainsize.
+     </li>
+     <li class="li">
+      It attempts to limit overhead cost while still providing ample opportunities for load balancing.
+     </li>
+     <li class="li">
+      For most use cases automatic chunking is the recommended choice.
+     </li>
+     <li class="li">
+      There might be situations though where controlling the chunk size more precisely might yield better performance.
+     </li>
+     <li class="li">
+      When compiling programs that employ TBB constructs, be sure to link in the Intel TBB shared library with –ltbb.
+     </li>
+     <li class="li">
+      If you don’t undefined references will occur.
+     </li>
+     <li class="li">
+      Afterwards you can use scp to upload the binary and any shared libraries required by your application to the coprocessor.
+     </li>
+     <li class="li">
+      On the coprocessor you can then export the library path and run the application.
+     </li>
+     <li class="li">
+      The Intel TBB header files are not available on the Intel MIC target environment by default (the same is also true for Intel Cilk Plus).
+     </li>
+     <li class="li">
+      To make them available on the coprocessor the header files have to be wrapped with #pragma offload directives as demonstrated in the example below:
+
+Functions called from within the offloaded construct and global data required on the Intel Xeon Phi coprocessor should be appended by the special function attribute  __attribute__((target(mic))).
+     </li>
+     <li class="li">
+      Codes using Intel TBB with an offload should be compiled with -tbb flag instead of -ltbb.
+     </li>
+     <li class="li">
+      The TBB library provides support for parallel algorithms,
+concurrent containers, tasks, synchronization, memory allocation
+and thread control.
+     </li>
+     <li class="li">
+      Amongst it, the templates cover well-known
+parallel-programming patterns like parallel loops or reduction
+operations, task-based constructs or pipelines.
+     </li>
+     <li class="li">
+      An easy and
+flexible formulation of parallel computations is possible.
+     </li>
+     <li class="li">
+      The
+programmer’s task is mainly to expose a high degree of parallelism
+to the processor, to allow or support the vectorization of
+calculations, and to maximize the cache-locality of algorithms.
+     </li>
+     <li class="li">
+      Principles of vectorization and striving for implementations with
+high cache-locality are general topics of performance
+optimization.
+     </li>
+     <li class="li">
+      The concrete parallelization of a certain algorithm is of course
+dependent on the specific floating-point operations used, its
+memory access pattern, the possible decoupling into parallel
+operations resp.
+     </li>
+     <li class="li">
+      vice-versa the dependencies between the
+calculations.
+     </li>
+     <li class="li">
+      However, some estimation can be made what degree
+the needed parallelism should have in order to achieve efficient
+execution on the coprocessor.
+     </li>
+     <li class="li">
+      Xeon Phi processors can execute 4 hyperthreads on each core.
+     </li>
+     <li class="li">
+      That results in 240 threads active at the same time on the 60
+cores of the coprocessor.
+     </li>
+     <li class="li">
+      A rule of thumb is that one should
+have about 10 computational tasks per thread in order to
+compensate delays from load imbalances.
+     </li>
+     <li class="li">
+      That results in 2400
+parallel tasks.
+     </li>
+     <li class="li">
+      Efficient calculations have to apply the vector
+units that can process 16 single precision floating-point
+numbers in one instruction.
+     </li>
+     <li class="li">
+      Therefore, we would need several ten
+thousand operations that can be executed independently from each
+other in order to keep the processor busy.
+     </li>
+     <li class="li">
+      On the other hand, good load balancing or the placement of
+several MPI tasks on the Xeon Phi can lower the needed degree of
+parallelism.
+     </li>
+     <li class="li">
+      Considerations also have to be made if it would
+really increase the performance to use all 4 hyperthreads of a
+core.
+     </li>
+     <li class="li">
+      Those hyperthreads share certain hardware resources, and
+depending on the algorithm, competition for the resources can
+occur causing an increase of the overall execution speed.
+     </li>
+     <li class="li">
+      8.4.1.1.
+     </li>
+     <li class="li">
+      Parallelisation with the task construct
+
+
+
+This example shows how one can implement a multi-threaded,
+task-oriented algorithm.
+     </li>
+     <li class="li">
+      Nevertheless, there is no need to
+deal with the subtleties of thread creation and their control
+for the implementer of the algorithm.
+     </li>
+     <li class="li">
+      The class tbb:task represents a low-level
+task with low overhead.
+     </li>
+     <li class="li">
+      It will be used by higher-level
+constructs like parallel_for or
+task_group.
+     </li>
+     <li class="li">
+      Our example shows the use of task groups in a walkthrough
+through a binary tree.
+     </li>
+     <li class="li">
+      The sum of values stored in each node
+will be calculated during this walkthrough.
+     </li>
+     <li class="li">
+      The tree nodes are defined as follows:
+
+The serial implementation could be written as:
+
+A TTB task that performs the same computation is given with
+the following class ParallelSumTask.
+     </li>
+     <li class="li">
+      It
+must contain a method exec().
+     </li>
+     <li class="li">
+      This method
+does either a serial computation of the value sum if its
+subtree has a depth lower than 10 levels or creates two
+subtasks that calculate the value sums of the left resp.
+     </li>
+     <li class="li">
+      right
+child tree.
+     </li>
+     <li class="li">
+      These tasks will be added to the task list of the
+active scheduler.
+     </li>
+     <li class="li">
+      After their termination will the current
+task add the value sums of both child trees and their own
+value and terminate itself.
+     </li>
+     <li class="li">
+      The calculation of the value sum could be started in the
+following way:
+
+
+
+
+
+
+8.4.1.2.
+     </li>
+     <li class="li">
+      Loop parallelisation
+
+
+
+TBB provides several algorithms that can be used for the
+parallelisation of loops, again without forcing the
+implementer do deal with the details of low-level threads.
+     </li>
+     <li class="li">
+      The
+following example provides the details how a loop can be
+parallelized with the parallel_for
+template.
+     </li>
+     <li class="li">
+      The implemented algorithm shall calculate the sum of
+the vector elements.
+     </li>
+     <li class="li">
+      The serial implementation could be written as follows:
+
+The parallel algorithm shall compute the partial sums of
+partial vectors.
+     </li>
+     <li class="li">
+      The overall sum of all partial vectors will
+be computed as sum of these partial sums.
+     </li>
+     <li class="li">
+      The TBB template parallel_reduce provides
+the basic implementation of subdividing a range to iterate
+over into several subranges.
+     </li>
+     <li class="li">
+      The subranges will be assigned to
+different threads that perform the iterations on them.
+     </li>
+     <li class="li">
+      The
+program has to provide a “loop body” that that will
+be applied to each array element as well as a function that
+processes the results of the iterations over the subranges of
+the vector.
+     </li>
+     <li class="li">
+      These functionality for the vector summation will be provided
+in the class adder.
+     </li>
+     <li class="li">
+      The transformation
+function working on the vector elements has to be provided as
+operator() method.
+     </li>
+     <li class="li">
+      The function that
+reduces the results of the parallel work on different
+subvectors has to be implemented as method
+join(), which takes a reference to another
+instance of the adder class as argument.
+     </li>
+     <li class="li">
+      Finally, we have to
+equip the adder class with a copy constructor because each
+thread will get one copy of the originally provided adder
+instance.
+     </li>
+     <li class="li">
+      The listing shows how the partial sum will be calculated by
+iterating over the elements of the subvector in
+operator().
+     </li>
+     <li class="li">
+      The reduction of two partial
+sums to one value is implemented in join().
+     </li>
+     <li class="li">
+      The summation of all array elements can be performed with the
+following code piece:
+
+
+
+
+
+
+
+
+
+
+
+Vectorization and cache-locality should be used in order to
+increase the program efficiency.
+     </li>
+     <li class="li">
+      Many details and examples are
+given in the programming and compilation guide of the MIC
+architecture [25].
+     </li>
+     <li class="li">
+      Vectorization can be achieved by
+auto
+vectorization and checked with the
+vec-report
+option.
+     </li>
+     <li class="li">
+      There is the possibility to apply
+user
+mandated vectorization for constructs that are not
+covered by automatic vectorization.
+     </li>
+     <li class="li">
+      Users of Cilk Plus also have
+an option to use
+extensions
+for array notation.
+     </li>
+     <li class="li">
+      Using work-stealing for task scheduling means that idle threads
+will take over tasks from other busy threads.
+     </li>
+     <li class="li">
+      This approach has
+been mentioned already above when it was said that there should
+be a certain amount of tasks per thread available in order to
+compensate load imbalances.
+     </li>
+     <li class="li">
+      The scheduler could keep idle
+processors busy if sufficient many tasks are available.
+     </li>
+     <li class="li">
+      Work-sharing as method of the task scheduling is worthwhile for
+well-balanced workloads.
+     </li>
+     <li class="li">
+      Work-sharing is typically implemented
+as task pool and achieves near optimal occupancy for balanced
+workload.
+     </li>
+    </ul>
+   </div>
+  </div>
+  <div class="topic concept nested1" id="id-1.10" xml:lang="en-US">
+   <a name="id-1.10" shape="rect">
+   </a>
+   <h2 class="title topictitle1">
+    <a href="http://www.prace-ri.eu/best-practice-guide-intel-xeon-phi-html/#id-1.10" name="id-1.10" shape="rect">
+     9. IPP: The Intel Integrated Performance Primitives
+    </a>
+   </h2>
+   <div class="body conbody">
+    <ul class="ul">
+     <li class="li">
+      This section gives a
+general overview about IPP based on version 8.0, the latest version
+at the moment of writing.
+     </li>
+     <li class="li">
+      IPP cannot be used on Xeon Phi devices at
+the moment.
+     </li>
+     <li class="li">
+      There is not yet a decision whether or when IPP will be
+supported in the coprocessors.
+     </li>
+     <li class="li">
+      The latest release, published in
+September 2013, contains a technology preview of asynchronous
+implementations as well as algorithms that have been implemented in
+the OpenCL programming language in order to support processing on
+GPU.
+     </li>
+     <li class="li">
+      is a software library, which provides a large collection of
+functions for signal processing and multimedia processing.
+     </li>
+     <li class="li">
+      It is
+useable on MS-Windows, Linux, and Mac OS X platforms.
+     </li>
+     <li class="li">
+      The covered topics are
+
+
+Signal processing, including
+
+
+FFT, FIR, Transformations, Convolutions etc
+
+
+
+Image &amp; frame processing, including
+
+
+Transformations, filters, color manipulation
+
+
+
+General functionality, including
+
+
+Statistical functions
+Vector, matrix and linear algebra for small matrices.
+     </li>
+     <li class="li">
+      The functions in this library are optimised to use advanced
+features of the processors like SSE and AVX instruction sets.
+     </li>
+     <li class="li">
+      Many
+functions are internally parallelised using OpenMP.
+     </li>
+     <li class="li">
+      IPP requires
+support of Streaming SIMD extensions (SSE) or Advanced Vector
+Extensions (AVX).
+     </li>
+     <li class="li">
+      The validated operating systems include newer
+versions of MS Windows (Windows 2003, Windows 7, Windows 2008),
+Redhat Enterpreise Linux (RHEL) 5 and 6, and Mac OS X 10.6 or
+higher.
+     </li>
+     <li class="li">
+      More detailed information can be found in the product
+documentation.
+     </li>
+     <li class="li">
+      The library is compatible to Intel, Microsoft, GNU and cctools
+compilers.
+     </li>
+     <li class="li">
+      It contains freely distributable runtime libraries in
+order to allow the execution of programs for users without having
+the need to install the development tools.
+     </li>
+     <li class="li">
+      The following example has been taken from the IPP
+User’s Guide [31].
+     </li>
+     <li class="li">
+      This program contains three steps.
+     </li>
+     <li class="li">
+      The initialisation with
+ippInit() makes sure that the best possible
+implementation of IPP functions will be used during the program
+execution.
+     </li>
+     <li class="li">
+      The next step provides nformation about the used
+library version, and finally will be the enabled hardware
+features listed.
+     </li>
+     <li class="li">
+      The
+first step to build the program is to provide the correct
+environment settings for the compiler.
+     </li>
+     <li class="li">
+      Intel’s default solution
+is a shellscript compilervars.sh in the bin directory of the
+installation that should be executed.
+     </li>
+     <li class="li">
+      Some other software like
+the modules environment is available on some HPC computer
+systems too.
+     </li>
+     <li class="li">
+      Please refer to the locally available
+documentation.
+     </li>
+     <li class="li">
+      The program, saved in the file ipptest.cpp can be compiled and
+linked with the following command line:
+
+The executable can be started with the following command:
+
+
+
+
+
+
+
+
+
+
+IPP contains different implementations of each function that
+provide the best performance on different processor
+architectures.
+     </li>
+     <li class="li">
+      They will be selected by means of dispatching
+while the programmer uses always the same API.
+     </li>
+     <li class="li">
+      Dynamic
+linking of IPP can be achieved by using Intel’s compiler switch
+-ipp or by linking with the default libraries
+that have names that do not end in _l resp.
+     </li>
+     <li class="li">
+      _t.
+     </li>
+     <li class="li">
+      The dynamic libraries use internally
+OpenMP in order to achive multi-threaded execution.
+     </li>
+     <li class="li">
+      The
+multithreading within the IPP routines can be turned off by
+calling the function ippSetNumThreads(1).
+     </li>
+     <li class="li">
+      Other options are static single-threaded linking or to build a
+single-threaded shared library from the static single-threaded
+libraries.
+     </li>
+     <li class="li">
+      The libraries
+with names ending in _l must be used for
+static single- threaded linking, while the libraries with names
+ending in _t provide will provide
+multi-threaded implementations based again on OpenMP.
+     </li>
+     <li class="li">
+      The exact
+choice of the linking model depends on several factors like
+intended processor architectures for the execution, useable
+memory size during the execution, installation aspects and more.
+     </li>
+     <li class="li">
+      A white paper available online focuses on such aspects and
+provides an in-depth discussion of the topic.
+     </li>
+     <li class="li">
+      The use of treads within the IPP should also be taken into
+consideration by the application developer.
+     </li>
+     <li class="li">
+      IPP uses OpenMP in order to achieve internally a
+multi-threaded execution as mentioned in the section about
+linking.
+     </li>
+     <li class="li">
+      IPP uses processors up to the minimum of
+$OMP_NUM_THREADS and the number of
+available processors.
+     </li>
+     <li class="li">
+      Another possibility to get and set the
+number of used processors are the functions
+ippSetNumThreads(int n) and
+ippGetNumThreads().
+     </li>
+     <li class="li">
+      Some functions (for example FFT) are designed to use two
+threads that should be mapped onto the same die in order to
+use a shared L2 cache if available.
+     </li>
+     <li class="li">
+      The user should set the
+following environment variable when using processors with more
+than two cores per die in order to ensure best performance:
+KMP_AFFINITY=compact.
+     </li>
+     <li class="li">
+      There is a risk of thread oversubscription and performance
+degradation in the case that an application uses OpenMP
+additionally.
+     </li>
+     <li class="li">
+      The use of threads within IPP can be turned off
+by calling ippSetNumThreads(1).
+     </li>
+     <li class="li">
+      However,
+some OpenMP-related functionality could be active regardless
+of that.
+     </li>
+     <li class="li">
+      Therefore, single-threaded execution can be achieved
+best by using the single-threaded libraries.
+     </li>
+     <li class="li">
+      Intel Software Documentation Library [32].
+     </li>
+     <li class="li">
+      Technical information:
+Selecting
+the Intel Integrated Performance Primitives (Intel IPP) libraries
+needed by your application [33].
+     </li>
+    </ul>
+   </div>
+  </div>
+  <div class="topic concept nested1" id="id-1.11" xml:lang="en-US">
+   <a name="id-1.11" shape="rect">
+   </a>
+   <h2 class="title topictitle1">
+    <a href="http://www.prace-ri.eu/best-practice-guide-intel-xeon-phi-html/#id-1.11" name="id-1.11" shape="rect">
+     10. Further programming models
+    </a>
+   </h2>
+   <div class="body conbody">
+    <ul class="ul">
+     <li class="li">
+      The programming models OpenCL and OpenACC have become popular to program
+GPGPUs and have also been enabled for the Intel MIC architecture.
+     </li>
+     <li class="li">
+      OpenCL (Open Computing Language) [34] is the first open, royalty-free
+standard for cross-platform, parallel programming of modern processors
+found in personal computers, servers and handheld/embedded devices.
+     </li>
+     <li class="li">
+      OpenCL is maintained by the non-profit technology consortium
+Khronos Group.
+     </li>
+     <li class="li">
+      It has been adopted by Apple, Intel, Qualcomm, Advanced Micro
+Devices (AMD), Nvidia, Altera, Samsung, Vivante and ARM Holdings.
+     </li>
+     <li class="li">
+      OpenCL 2.0 is the latest significant evolution of the OpenCL standard, designed to further simplify cross-platform programming, while enabling a rich range of algorithms and programming patterns to be easily accelerated.
+     </li>
+     <li class="li">
+      A coding guide for developing OpenCL applications for the Intel Xeon Phi
+coprocessor can be found in [35].
+     </li>
+     <li class="li">
+      More details are provided in the Intel SDK for OpenCL Applications XE – Optimization Guide [36].
+     </li>
+     <li class="li">
+      The OpenACC Application Program Interface [37]
+describes a collection of compiler directives to specify loops and regions of
+code in standard C, C++ and Fortran to be offloaded from a host CPU to an
+attached accelerator, providing portability across operating systems, host
+CPUs and accelerators.
+     </li>
+     <li class="li">
+      OpenACC is designed for portability across a wide range
+of accelerators and coprocessors, including APUs, GPUs, many-core and
+multi-core implementations.
+     </li>
+     <li class="li">
+      The standard is developed by Cray, CAPS, Nvidia and PGI.
+     </li>
+     <li class="li">
+      Intel Xeon Phi support is provided by the French company CAPS [38].
+     </li>
+     <li class="li">
+      Based on the directive-based OpenACC and OpenHMPP standards, CAPS compilers enable developers to incrementally build portable applications for various many-core systems such as NVIDIA and AMD GPUs, and Intel Xeon Phi.
+     </li>
+    </ul>
+   </div>
+  </div>
+  <div class="topic concept nested1" id="id-1.12" xml:lang="en-US">
+   <a name="id-1.12" shape="rect">
+   </a>
+   <h2 class="title topictitle1">
+    <a href="http://www.prace-ri.eu/best-practice-guide-intel-xeon-phi-html/#id-1.12" name="id-1.12" shape="rect">
+     11. Debugging
+    </a>
+   </h2>
+   <div class="body conbody">
+    <ul class="ul">
+     <li class="li">
+      Information about debugging on Intel Xeon Phi coprocessors can be found in [22].
+     </li>
+     <li class="li">
+      The GNU debugger (gdb) has been enabled by Intel to support the Intel Xeon Phi coprocessor.
+     </li>
+     <li class="li">
+      The debugger is now part of the recent MPSS release and does not have to be downloaded separately any more.
+     </li>
+     <li class="li">
+      There are 2 different modes of debugging supported: native debugging on the coprocessor or remote cross-debugging on the host.
+     </li>
+     <li class="li">
+      Run gdb on the coprocessor
+
+
+One can then attach to a running application with process ID pid via
+
+
+or alternatively start an application from within gdb via
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Run the special gdb version with Xeon Phi support on the host
+
+
+Start the gdbserver on the coprocessor by typing on the host gdb
+
+
+Attach to a remotely running application with the remote process ID pid
+
+
+It is also possible to run an application directly from the host gdb
+     </li>
+    </ul>
+   </div>
+  </div>
+  <div class="topic concept nested1" id="id-1.13" xml:lang="en-US">
+   <a name="id-1.13" shape="rect">
+   </a>
+   <h2 class="title topictitle1">
+    <a href="http://www.prace-ri.eu/best-practice-guide-intel-xeon-phi-html/#id-1.13" name="id-1.13" shape="rect">
+     12. Tuning
+    </a>
+   </h2>
+   <div class="body conbody">
+    <ul class="ul">
+     <li class="li">
+      Information and material on performance tuning from Intel can
+be found in [40] and
+[41].
+     </li>
+     <li class="li">
+      A single Xeon Phi core is slower than a Xeon core due to lower
+clock frequency, smaller caches and lack of sophisticated features
+such as out-of-order execution and branch prediction.
+     </li>
+     <li class="li">
+      To fully
+exploit the processing power of a Xeon Phi, parallelism on both
+intruction level (SIMD) and thread level (OpenMP) is
+needed.
+     </li>
+     <li class="li">
+      The following sections describe a few basic methodologies for
+improving the performance of a code on a Xeon Phi.
+     </li>
+     <li class="li">
+      As a
+first step, we consider methods for improving the performance on a
+single core.
+     </li>
+     <li class="li">
+      We then continue by thread-level parallelization in
+shared memory.
+     </li>
+     <li class="li">
+      Xeon Phi can only perform memory reads/writes on 64-byte
+aligned data.
+     </li>
+     <li class="li">
+      Any unaligned data will fetched and stored by
+performing a masked unpack or pack operation on the first and
+last unaligned bytes.
+     </li>
+     <li class="li">
+      This may cause performance degredation,
+especially if the data to be operated on is small in size and
+mostly unaligned.
+     </li>
+     <li class="li">
+      In the following, we list a few of the most
+common ways to let the compiler to align the data or to assume
+that the data has been aligned.
+     </li>
+     <li class="li">
+      Compiler flags for alignment
+
+Compiler directives for alignment
+
+Allocation of aligned dynamic memory
+
+For a more detailed description of memory alignment on
+Xeon Phi,
+see [45].
+     </li>
+     <li class="li">
+      Each Xeon Phi core has a 512-bit VPU unit which is capable
+of performing 16SP flops or 8 DP flops per clock cycle.
+     </li>
+     <li class="li">
+      VPU
+units are also capable of Fused Multiply-Add (FMA) or Fused
+Multiply-Subtract (FMS) operations which effectively double the
+theoretical floating point performance.
+     </li>
+     <li class="li">
+      Intel compilers have several directives to aid
+vectorization of loops.
+     </li>
+     <li class="li">
+      These are listed in the following in
+short.
+     </li>
+     <li class="li">
+      For details, refer to the compiler manuals.
+     </li>
+     <li class="li">
+      Let the compiler know there are no loop carried
+dependencies, but only affect compiler heuristics.
+     </li>
+     <li class="li">
+      Let the compiler know the loop should be
+vectorized, but only affect compiler heuristics.
+     </li>
+     <li class="li">
+      Force the compiler vectorize a loop, independent of
+heuristics.
+     </li>
+     <li class="li">
+      In order to aid vectorization, Intel compilers can report
+details on whether vectorization is successful or not.
+     </li>
+     <li class="li">
+      The
+reports can be generated with -vec-reportN compiler
+flag, where N denotes the report level.
+     </li>
+     <li class="li">
+      The
+vector report levels are:
+
+For a more detailed description of SIMD vectorization with
+Intel Xeon Phi,
+see [47] and references therein.
+     </li>
+     <li class="li">
+      Threading parallelism with Intel Xeon Phi can be readily
+exploited with OpenMP.
+     </li>
+     <li class="li">
+      All threading constructs are equivalent
+for both offload and native models.
+     </li>
+     <li class="li">
+      We expect the basic concepts
+and syntax of OpenMP to be known.
+     </li>
+     <li class="li">
+      For OpenMP, see for instance
+“Using OpenMP” By Chapman et
+al [5], the OpenMP
+forum [13], and references therein.
+     </li>
+     <li class="li">
+      The high level of parallelism available on a Xeon Phi
+available is very likely to reveal any performance problems
+related to threading previously been unnoticed in the code.
+     </li>
+     <li class="li">
+      In
+the following, we introduce a few of the most common OpenMP
+performance problems and suggest some ways to correct them.
+     </li>
+     <li class="li">
+      We
+begin by considering thread to core affinity and thread
+placement among the cores.
+     </li>
+     <li class="li">
+      For further details, we refer to
+[48] .
+     </li>
+     <li class="li">
+      Each Xeon Phi card contains a shared-memory environment
+with approximately 60 physical cores which, in turn, are divided into
+4 logical cores each.
+     </li>
+     <li class="li">
+      We refer to this as node topology.
+     </li>
+     <li class="li">
+      Each memory bank resides closer to some of the cores in
+the topology and therefore access to data laying in a memory
+bank attached to another socket is generally more
+expensive.
+     </li>
+     <li class="li">
+      Such a non-uniform memory access (NUMA) can create
+performance issues if threads are allowed to migrate from one
+logical core to another during their execution.
+     </li>
+     <li class="li">
+      In order to extract maximum performance, consider binding
+OpenMP threads to logical and physical cores across different
+sockets on a single Xeon Phi card.
+     </li>
+     <li class="li">
+      The layout of this binding in
+respect to the node topology has performance implications
+depending on the computational task and is referred as thread
+affinity.
+     </li>
+     <li class="li">
+      We now briefly show how to set thread affinity using Intel
+compilers and OpenMP-library.
+     </li>
+     <li class="li">
+      For a complete description, see
+“Thread affinity interface” in the Intel compiler manual.
+     </li>
+     <li class="li">
+      The thread affinity interface of the Intel runtime library
+can be controlled by using the KMP_AFFINITY
+environment variable or by using a proprietary Intel API.
+     </li>
+     <li class="li">
+      We now
+focus on the former.
+     </li>
+     <li class="li">
+      A standardized method for setting affinity
+is available with OpenMP 4.0.
+     </li>
+     <li class="li">
+      KMP_AFFINITY=[modifier,…]&lt;type&gt;[,&lt;permute&gt;][,&lt;offset&gt;]]
+
+In most cases it is sufficient only to specify the
+affinity and granularity.
+     </li>
+     <li class="li">
+      The most important affinity types
+supported by Intel Xeon Phi are
+
+The most important granularity types supported by
+Intel Xeon Phi are
+
+
+
+
+
+
+
+
+
+
+We now consider the effect of thread affinity to
+matrix-matrix multiply.
+     </li>
+     <li class="li">
+      Let A,
+B and C=AB be real
+matrices of size 4000-by-4000.
+     </li>
+     <li class="li">
+      We implement the data
+initialization and multiplication operation in Fortran90
+(without blocking) by using jki loop-ordering and OpenMP as
+follows
+
+Running and timing the matrix-matrix multiplication part on a
+single Intel Xeon Phi 7110 card, we have the following
+results.
+     </li>
+     <li class="li">
+      As seen from the results, changing the thread affinity
+has implications to the performance of even a very simple
+test case.
+     </li>
+     <li class="li">
+      Using affinity none is
+generally not recommended and is the slowest when all
+available threads are being used.
+     </li>
+     <li class="li">
+      Using
+affinity balanced is generally a good
+compromise, especially if one wishes to use less than the
+number of threads available at maximum.
+     </li>
+     <li class="li">
+      Xeon Phi runtime for OpenMP includes an extension for
+placing the threads over the cores on a single card.
+     </li>
+     <li class="li">
+      For a given
+number of cores and threads, the user has control where
+(relative to the first physical core, i.e., core 0) the OpenMP
+threads are placed.
+     </li>
+     <li class="li">
+      In conjunction with offloading from several
+MPI processes to a single Xeon Phi card, such control can be
+very useful to avoid oversubscription of cores.
+     </li>
+     <li class="li">
+      The placement of the threads can be controlled with the
+environment variable
+KMP_PLACE_THREADS.
+     </li>
+     <li class="li">
+      It specifies the number of
+cores to allocate with an optional offset value and number of
+threads per core to use.
+     </li>
+     <li class="li">
+      Effectively
+KMP_PLACE_THREADS defines the node topology
+for KMP_AFFINITY.
+     </li>
+     <li class="li">
+      KMP_PLACE_THREADS=
+( [ “C” | “T” ]
+[  ] | )
+[  [ “T” ] [ 
+] ] [  [ “O” ] ],
+where  is a simple integer
+constant and  is either “,” or
+“x”.
+     </li>
+     <li class="li">
+      As an example, we consider the case
+with OMP_NUM_THREADS=20.
+     </li>
+     <li class="li">
+      Whenever an OpenMP parallel region is encountered, a
+team of threads is formed and launched to execute the
+computations.
+     </li>
+     <li class="li">
+      Whenever the parallel region is ended, threads
+are joined and the computation proceeds with a single
+thread.
+     </li>
+     <li class="li">
+      Between different parallel regions it is up to the
+OpenMP implementation to decide whether the threads are shut
+down or left in an idle state.
+     </li>
+     <li class="li">
+      Intel OpenMP -library leaves the threads in a running
+state for a predefined amount of time before setting them to
+sleep.
+     </li>
+     <li class="li">
+      The time is defined
+by KMP_BLOCKTIME
+and KMP_LIBRARY environment
+variables.
+     </li>
+     <li class="li">
+      The default is 200ms.
+     </li>
+     <li class="li">
+      For more details, see
+Sections “Intel Environment Variables Extensions” and
+“Execution modes” in the Intel compiler manual.
+     </li>
+     <li class="li">
+      Repeatedly forming and disbanding thread-teams and
+setting idle threads to sleep has some overhead associated
+with it.
+     </li>
+     <li class="li">
+      Another common source of threading overhead in
+OpenMP computations are implicit or explicit
+barriers.
+     </li>
+     <li class="li">
+      Recall that many OpenMP constructs have an
+implicit barrier attached to the end of the construct.
+     </li>
+     <li class="li">
+      Then,
+especially if the amount of work done inside an OpenMP
+construct is relatively small, thread synchronization with
+several threads may be a source of significant overhead.
+     </li>
+     <li class="li">
+      If
+the computations are independent, the implicit barrier at
+the end of OpenMP constructs can be removed with the
+optional NOWAIT parameter.
+     </li>
+     <li class="li">
+      We now consider the effect of multiple parallel regions
+and barriers to performance.
+     </li>
+     <li class="li">
+      Let v be a
+vector with real entries with
+size n=1000000.
+     </li>
+     <li class="li">
+      Let f(x)
+denote a function, defined
+as f(x)=x+1.
+     </li>
+     <li class="li">
+      We implement an OpenMP loop to
+apply f(x)
+successively repeats=10000 times to a given
+vector v. We consider three different
+implementations.
+     </li>
+     <li class="li">
+      In the first one, OpenMP parallel region is
+re-initialized for each successive application
+of f(x).
+     </li>
+     <li class="li">
+      The second one initializes the
+parallel region once, but contains two implicit barriers
+from OpenMP constructs.
+     </li>
+     <li class="li">
+      In the third implementation the
+parallel region is initialized once and one barrier is used
+to synchronize the repetitions.
+     </li>
+     <li class="li">
+      Implementation 1: parallel region re-initialized
+repeatedly.
+     </li>
+     <li class="li">
+      Implementation 2: parallel region initialized once,
+two implicit barriers from OpenMP constructs.
+     </li>
+     <li class="li">
+      Implementation 3: parallel region initialized once,
+one explicit barrier from OpenMP construct.
+     </li>
+     <li class="li">
+      The results on a single Intel Xeon Phi 7110 card
+with KMP_AFFINITY=granularity=fine,balanced
+and KMP_BLOCKTIME=200 are presented in
+the following table.
+     </li>
+     <li class="li">
+      As the number of threads used increases, parallel
+threading overhead becomes more apparent.
+     </li>
+     <li class="li">
+      The implementation
+with only one barrier is the fastest by a fair
+margin.
+     </li>
+     <li class="li">
+      Implementation 1 comes out as the second
+fastest.
+     </li>
+     <li class="li">
+      This is due to Implementation 1 having only one
+barrier (at the end of the parallel region) versus two in
+Implementation 2 (at the end of both of the OpenMP
+constructs).
+     </li>
+     <li class="li">
+      With Implementation 1, the parallel region is
+re-initialized immediately after it has ended and thus
+waiting time for threads is less
+than KMP_BLOCKTIME, i.e., the threads are
+not being put to sleep before the next parallel iteration
+begins.
+     </li>
+     <li class="li">
+      On a multiprocessor shared-memory system, each core has
+some local cache, which must be kept coherent the among the
+cores in the system.
+     </li>
+     <li class="li">
+      Processor cache is organized into
+several cache lines, each of which map to some part of the
+main memory.
+     </li>
+     <li class="li">
+      On an Intel Xeon Phi, cache line size is 64
+bytes.
+     </li>
+     <li class="li">
+      For reference and details, see [50]
+.
+     </li>
+     <li class="li">
+      If more than one core accesses the same data in the main
+memory, a cache line is shared.
+     </li>
+     <li class="li">
+      Whenever a shared cache line
+is updated, to maintain coherency an update is forced to the
+caches of all the cores accessing the cache line.
+     </li>
+     <li class="li">
+      False sharing occurs when several cores access and
+update different variables which reside on a single shared
+cache line.
+     </li>
+     <li class="li">
+      The resulting updates to maintain cache
+coherency may cause a significant performance
+degradation.
+     </li>
+     <li class="li">
+      The processors may not be actually sharing any
+data, it is sufficient that the data resides on a same cache
+line, hence the name false sharing.
+     </li>
+     <li class="li">
+      Due to the ring-bus
+architecture of the Xeon Phi, false sharing among the cores can
+cause severe performance degredation.
+     </li>
+     <li class="li">
+      False sharing can be avoided by carefully considering
+write access to shared variables.
+     </li>
+     <li class="li">
+      If a variable is updated
+often, it may be worthwhile to use a private variable in
+stead of a shared one and use reduction at the end of the
+work sharing loop.
+     </li>
+     <li class="li">
+      Given a code with performance problems, false sharing
+may be hard to localize.
+     </li>
+     <li class="li">
+      Intel VTune Performance Analyzer
+can be used to locate false sharing.
+     </li>
+     <li class="li">
+      For details, we refer
+to [49].
+     </li>
+     <li class="li">
+      We now consider a simple example where false sharing
+occurs.
+     </li>
+     <li class="li">
+      Let v be a vector with real
+entries and
+size n=1E+08.
+     </li>
+     <li class="li">
+      Let f(x)
+denote a function which counts the number of entries
+in v which are smaller than
+zero.
+     </li>
+     <li class="li">
+      We implement f(x) with OpenMP in
+two different ways.
+     </li>
+     <li class="li">
+      In the first implementation, each thread
+counts the number of negative entries it has found
+in v to a globally shared array.
+     </li>
+     <li class="li">
+      To
+avoid race conditions, each thread uses its own entry in the
+shared array, uniquely determined by thread id.
+     </li>
+     <li class="li">
+      When a
+thread has finished its portion of vector, a global counter
+is atomically incremented.
+     </li>
+     <li class="li">
+      The second implementation is
+practically equivalent to the first one, except that each
+thread has its own private array for counting the
+data.
+     </li>
+     <li class="li">
+      Implementation 1: False sharing with an array counter.
+     </li>
+     <li class="li">
+      Implementation 2: Private array used to avoid false sharing.
+     </li>
+     <li class="li">
+      We note that a better implementation for this
+particular problem will be given in the next section.
+     </li>
+     <li class="li">
+      The results on a single Intel Xeon Phi 7110 card
+with KMP_AFFINITY=granularity=fine,balanced
+are presented in the following table.
+     </li>
+     <li class="li">
+      We note that to obtain
+the results, we compiled the test code
+with -O1.
+     </li>
+     <li class="li">
+      On optimization
+level -O2 and higher, at least in this
+case, the possibility of false sharing with multiple threads was
+recognized and corrected by the Intel Fortran
+compiler.
+     </li>
+     <li class="li">
+      As expected, Implementation 2 is faster than
+Implementation 1, with a difference of an order of
+magnitude.
+     </li>
+     <li class="li">
+      Although in this case we had to lower the
+optimization level to prevent the compiler from correcting
+the situation, we cannot completely rely on the compiler to
+detect false sharing, especially if the code to be compiled
+is relatively complex.
+     </li>
+     <li class="li">
+      Available memory per core on Xeon Phi is very
+limited.
+     </li>
+     <li class="li">
+      When an application is run using all the available
+threads, approximately 30Mb of memory is available per
+thread assuming none of the data is shared.
+     </li>
+     <li class="li">
+      Excessive memory
+allocation per thread is therefore highly discouraged.
+     </li>
+     <li class="li">
+      Care
+should be also taken when assigning private variables in
+order to avoid unnecessary data duplication among
+threads.
+     </li>
+     <li class="li">
+      We now return to the example given in the previous
+section.
+     </li>
+     <li class="li">
+      In the example, we prevented threads from doing
+false sharing by modifying the definition of the vector
+containing the counters.
+     </li>
+     <li class="li">
+      What is important to note is that
+in doing so, each thread now implicitly allocates a vector
+of length nthreads, i.e., the memory consumption is
+quadratic in terms of the number of threads.
+     </li>
+     <li class="li">
+      A better
+alternative is to let each thread to store the local result
+in a temporary variable and use a reduction to count the
+number of elements smaller than zero.
+     </li>
+     <li class="li">
+      Implementation 3: Temporary variable with reduction used
+to store local results.
+     </li>
+     <li class="li">
+      We have the following results,
+where Implementation 2
+refers to second implementation given in the previous
+section.
+     </li>
+     <li class="li">
+      As previously, results have been computed on a single
+Intel Xeon Phi 7110 card by using
+KMP_AFFINITY=granularity=fine,balanced and
+optimization level -O1.
+     </li>
+     <li class="li">
+      The main difference between Implementation 2 and 3 is
+memory use.
+     </li>
+     <li class="li">
+      This is because Implementation 2 uses a
+private array for storing the result (memory usage grows
+quadratically with the number of threads), whereas in
+Implementation 3 the result is stored a single scalar per
+thread.
+     </li>
+     <li class="li">
+      In total 57600 elements have to be stored in
+Implementation 2 with 240 threads, whereas just 240
+elements suffice in Implementation 3 for the same amount
+of threads.
+     </li>
+     <li class="li">
+      We note that if an array of results is to be
+computed, one should prefer using an implementation where
+the size of the work arrays does grow with the number of
+threads used.
+     </li>
+     <li class="li">
+      Due to the limited amount of memory available, sometimes
+using all available threads on an Intel Xeon Phi to
+parallelize the outer loop of some computation is not
+possible.
+     </li>
+     <li class="li">
+      In some cases this may not be due to inefficient
+structure of the code, but because the data needed for
+computations per thread is too large.
+     </li>
+     <li class="li">
+      In this case, to take
+advantage of all the processing power of the coprocessor, an
+option is to use nested OpenMP parallelism.
+     </li>
+     <li class="li">
+      When nested parallelism is enabled, any inner OpenMP
+parallel region which is enclosed within an outer parallel
+region will be executed with multiple threads.
+     </li>
+     <li class="li">
+      The
+performance impact of using nested parallelism is similar to
+performance impact of using multiple parallel regions and
+barriers.
+     </li>
+     <li class="li">
+      Enabling OpenMP nested parallelism is done by setting
+environment variable OMP_NESTED=TRUE or
+with an API call to omp_set_nested
+-function.
+     </li>
+     <li class="li">
+      The number of nested threads within each OpenMP
+parallel region is done by setting the environment variable
+OMP_NUM_THREADS=n_1,
+n_2,n_3,…,
+where n_j refers to the number of threads
+on the jth level.
+     </li>
+     <li class="li">
+      The number or threads
+within each nesting level can be also set with an API call
+to omp_set_num_threads -function.
+     </li>
+     <li class="li">
+      Consider a case where several independent matrix-matrix
+multiplications have to be computed.
+     </li>
+     <li class="li">
+      Let A
+be an n-by-n matrix and
+let matrix Bk be defined
+as Bk
+= ATA.
+     </li>
+     <li class="li">
+      We
+let m=1000, n=1000
+and k=240 and study the effect of
+parallelizing the computation
+of Bk‘s in three
+different ways.
+     </li>
+     <li class="li">
+      The first case is to use parallelize the
+loop over k with all available threads.
+     </li>
+     <li class="li">
+      A
+second case is to parallelize the computation over
+different k‘s to physical Intel Xeon Phi
+cores and use nested parallelism with varying levels of
+hardware threads in the computation of the matrix-matrix
+multiplications.
+     </li>
+     <li class="li">
+      The third case uses parallelization only
+over physical cores.
+     </li>
+     <li class="li">
+      For this, we have the following
+implementation.
+     </li>
+     <li class="li">
+      Implementation: possibly nested parallel loop for
+computing ATA.
+     </li>
+     <li class="li">
+      The results on a single Intel Xeon Phi 7110 card
+with KMP_AFFINITY=granularity=fine,balanced
+are presented in the following table.
+     </li>
+     <li class="li">
+      Intuitively one would expect using 240 threads to be
+the most efficient in this case.
+     </li>
+     <li class="li">
+      The results show otherwise,
+however.
+     </li>
+     <li class="li">
+      Since the threads are competing for the same cache,
+the performance is lowered.
+     </li>
+     <li class="li">
+      Nested parallelism does not
+offer significant improvements from just using 60 threads in
+a flat fashion.
+     </li>
+     <li class="li">
+      One reason for this might be that with the
+affinity policies used, it is difficult to control the thread
+placement on the second level of thread parallelism.
+     </li>
+     <li class="li">
+      With any parallel processing, some processes or threads
+may require more resources and be more time consuming than
+others.
+     </li>
+     <li class="li">
+      In a regular distributed memory program, load
+balancing requires programming effort to redistribute parts
+of the computation among the processors.
+     </li>
+     <li class="li">
+      In a shared memory
+program with a runtime, such as OpenMP, load balancing can
+be in some cases automatically handled by the runtime itself
+with little overhead.
+     </li>
+     <li class="li">
+      OpenMP loop constructs support an additional
+SCHEDULE-clause.
+     </li>
+     <li class="li">
+      The syntax for this is
+SCHEDULE(&lt;kind&gt;[,chunk_size]),
+
+Different schedule kinds supported by OpenMP runtime
+on a Xeon Phi are
+     </li>
+    </ul>
+   </div>
+  </div>
+  <div class="topic concept nested1" id="id-1.14" xml:lang="en-US">
+   <a name="id-1.14" shape="rect">
+   </a>
+   <h2 class="title topictitle1">
+    <a href="http://www.prace-ri.eu/best-practice-guide-intel-xeon-phi-html/#id-1.14" name="id-1.14" shape="rect">
+     13.  Performance analysis tools
+    </a>
+   </h2>
+   <div class="body conbody">
+    <ul class="ul">
+     <li class="li">
+      The following Intel performance analysis tools have been enabled for the Intel Xeon Phi coprocessor:
+
+
+Intel trace analyzer and collector (ITAC)
+Intel VTune Amplifier XE
+
+
+More information on performance analysis can be found in [39] [42].
+     </li>
+     <li class="li">
+      Details will be included in a future version of this guide.
+     </li>
+     <li class="li">
+      Scalasca [44] is a scalable automatic performance analysis toolset designed to profile large scale parallel Fortran, C and C++ applications that use MPI, OpenMP and hybrid MPI+OpenMP parallelization models.
+     </li>
+     <li class="li">
+      It is portable on Intel Xeon Phi architecture in native, symmetric and offload models.
+     </li>
+     <li class="li">
+      Version 2.x uses the Score-P instrumenter and measurment libraries.
+     </li>
+     <li class="li">
+      The following examples are taken from [51].
+     </li>
+     <li class="li">
+      On the host Scalasca can be normally compiled, while on the device one must perform a cross-compilation and add -mmic compiler option.
+     </li>
+     <li class="li">
+      Instrumentation of the code to be profiled is done with the command skin.
+     </li>
+     <li class="li">
+      This produces the instrumented executable that will be executed on the host, while
+
+produces an executable for the coprocessor.
+     </li>
+     <li class="li">
+      Further, measurement is than performed with the scan command:
+
+It can also be launched on more than one node on the host:
+
+and on more than one coprocessor, if available:
+
+For symmetric execution one can use:
+
+Finally, the collected data can be analyzed with the square command.
+     </li>
+     <li class="li">
+      The scan output would look something like epik_a_2x16_sum for the runs performed on the host and epik_a_mic61x4_sum for those performed on the coprocessor.
+     </li>
+     <li class="li">
+      For data collected on the host and on the device we have:
+
+respectively.
+     </li>
+     <li class="li">
+      To analyze the data collected in a run from a symmetric execution type:
+     </li>
+    </ul>
+   </div>
+  </div>
+ </article>
+</div>
+ {% endblock %} 

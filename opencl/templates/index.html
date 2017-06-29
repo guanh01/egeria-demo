@@ -1,0 +1,4615 @@
+{% extends "base.html" %} 
+ {% block sitenav %}
+<nav id="site-nav">
+ <div class="category" state="0">
+  <a href="http://{{host}}:{{port}}/index">
+   Optimization Guide
+  </a>
+ </div>
+ <div class="category" state="0">
+  <a href="http://{{host}}:{{port}}/summary">
+   Optimization Guide Summary
+  </a>
+ </div>
+ <ul>
+  <li>
+   <div class="section-link" state="1">
+    <a href="#50401315_pgfId-542099">
+     Chapter 1 OpenCL Performance and Optimization
+    </a>
+   </div>
+   <ul>
+    <li>
+     <div class="section-link" state="2">
+      <a href="#50401315_pgfId-444709">
+       1.1 CodeXL GPU Profiler 1-1
+      </a>
+     </div>
+     <ul>
+      <li>
+       <div class="section-link" state="3">
+        <a href="#50401315_pgfId-535338">
+         1.1.1 Collecting OpenCL Application Traces 1-1
+        </a>
+       </div>
+      </li>
+      <li>
+       <div class="section-link" state="3">
+        <a href="#50401315_pgfId-535633">
+         1.1.2 Timeline View 1-2
+        </a>
+       </div>
+      </li>
+      <li>
+       <div class="section-link" state="3">
+        <a href="#50401315_pgfId-535800">
+         1.1.3 Summary Pages View 1-3
+        </a>
+       </div>
+      </li>
+      <li>
+       <div class="section-link" state="3">
+        <a href="#50401315_pgfId-536178">
+         1.1.4 API Trace View 1-4
+        </a>
+       </div>
+      </li>
+      <li>
+       <div class="section-link" state="3">
+        <a href="#50401315_pgfId-536185">
+         1.1.5 Collecting OpenCL GPU Kernel Performance Counters 1-5
+        </a>
+       </div>
+      </li>
+     </ul>
+    </li>
+    <li>
+     <div class="section-link" state="2">
+      <a href="#50401315_pgfId-537554">
+       1.2 AMD APP KernelAnalyzer2 1-6
+      </a>
+     </div>
+     <ul>
+      <li>
+       <div class="section-link" state="3">
+        <a href="#50401315_pgfId-538360">
+         1.2.1 Start KernelAnalyzer2 1-6
+        </a>
+       </div>
+      </li>
+      <li>
+       <div class="section-link" state="3">
+        <a href="#50401315_pgfId-538414">
+         1.2.2 Open Kernel Source 1-7
+        </a>
+       </div>
+      </li>
+      <li>
+       <div class="section-link" state="3">
+        <a href="#50401315_pgfId-539373">
+         1.2.3 Build Options – Choosing Target ASICS 1-8
+        </a>
+       </div>
+      </li>
+      <li>
+       <div class="section-link" state="3">
+        <a href="#50401315_pgfId-538453">
+         1.2.4 Build Options – Defining Kernel Compilation Options 1-9
+        </a>
+       </div>
+      </li>
+      <li>
+       <div class="section-link" state="3">
+        <a href="#50401315_pgfId-538468">
+         1.2.5 Analysis Input Tab 1-9
+        </a>
+       </div>
+      </li>
+      <li>
+       <div class="section-link" state="3">
+        <a href="#50401315_pgfId-538477">
+         1.2.6 Build the Kernel 1-9
+        </a>
+       </div>
+      </li>
+      <li>
+       <div class="section-link" state="3">
+        <a href="#50401315_pgfId-538494">
+         1.2.7 Build Statistics Tab 1-10
+        </a>
+       </div>
+      </li>
+      <li>
+       <div class="section-link" state="3">
+        <a href="#50401315_pgfId-538501">
+         1.2.8 The Analysis Tab 1-10
+        </a>
+       </div>
+      </li>
+     </ul>
+    </li>
+    <li>
+     <div class="section-link" state="2">
+      <a href="#50401315_pgfId-537927">
+       1.3 Analyzing Processor Kernels 1-11
+      </a>
+     </div>
+     <ul>
+      <li>
+       <div class="section-link" state="3">
+        <a href="#50401315_pgfId-446463">
+         1.3.1 Intermediate Language and GPU Disassembly 1-11
+        </a>
+       </div>
+      </li>
+      <li>
+       <div class="section-link" state="3">
+        <a href="#50401315_pgfId-446467">
+         1.3.2 Generating IL and ISA Code 1-11
+        </a>
+       </div>
+      </li>
+     </ul>
+    </li>
+    <li>
+     <div class="section-link" state="2">
+      <a href="#50401315_pgfId-495738">
+       1.4 Estimating Performance 1-12
+      </a>
+     </div>
+     <ul>
+      <li>
+       <div class="section-link" state="3">
+        <a href="#50401315_pgfId-446474">
+         1.4.1 Measuring Execution Time 1-12
+        </a>
+       </div>
+      </li>
+      <li>
+       <div class="section-link" state="3">
+        <a href="#50401315_pgfId-451445">
+         1.4.2 Using the OpenCL timer with Other System Timers 1-13
+        </a>
+       </div>
+      </li>
+      <li>
+       <div class="section-link" state="3">
+        <a href="#50401315_pgfId-446494">
+         1.4.3 Estimating Memory Bandwidth 1-14
+        </a>
+       </div>
+      </li>
+     </ul>
+    </li>
+    <li>
+     <div class="section-link" state="2">
+      <a href="#50401315_pgfId-495909">
+       1.5 OpenCL Memory Objects 1-15
+      </a>
+     </div>
+     <ul>
+      <li>
+       <div class="section-link" state="3">
+        <a href="#50401315_pgfId-502813">
+         1.5.1 Types of Memory Used by the Runtime 1-15
+        </a>
+       </div>
+       <ul>
+        <li>
+         <div class="section-link" state="4">
+          <a href="#50401315_pgfId-532479">
+           Host Memory 1-16
+          </a>
+         </div>
+        </li>
+        <li>
+         <div class="section-link" state="4">
+          <a href="#50401315_pgfId-502946">
+           Pinned Host Memory 1-16
+          </a>
+         </div>
+        </li>
+        <li>
+         <div class="section-link" state="4">
+          <a href="#50401315_pgfId-503174">
+           Device-Visible Host Memory 1-17
+          </a>
+         </div>
+        </li>
+        <li>
+         <div class="section-link" state="4">
+          <a href="#50401315_pgfId-503307">
+           Device Memory 1-17
+          </a>
+         </div>
+        </li>
+        <li>
+         <div class="section-link" state="4">
+          <a href="#50401315_pgfId-503175">
+           Host-Visible Device Memory 1-18
+          </a>
+         </div>
+        </li>
+       </ul>
+      </li>
+      <li>
+       <div class="section-link" state="3">
+        <a href="#50401315_pgfId-503627">
+         1.5.2 Placement 1-18
+        </a>
+       </div>
+      </li>
+      <li>
+       <div class="section-link" state="3">
+        <a href="#50401315_pgfId-503571">
+         1.5.3 Memory Allocation 1-19
+        </a>
+       </div>
+       <ul>
+        <li>
+         <div class="section-link" state="4">
+          <a href="#50401315_pgfId-520796">
+           Using the CPU 1-19
+          </a>
+         </div>
+        </li>
+        <li>
+         <div class="section-link" state="4">
+          <a href="#50401315_pgfId-520798">
+           Using Both CPU and GPU Devices, or using an APU Device 1-20
+          </a>
+         </div>
+        </li>
+        <li>
+         <div class="section-link" state="4">
+          <a href="#50401315_pgfId-520800">
+           Buffers vs Images 1-20
+          </a>
+         </div>
+        </li>
+        <li>
+         <div class="section-link" state="4">
+          <a href="#50401315_pgfId-521010">
+           Choosing Execution Dimensions 1-20
+          </a>
+         </div>
+        </li>
+       </ul>
+      </li>
+      <li>
+       <div class="section-link" state="3">
+        <a href="#50401315_pgfId-520762">
+         1.5.4 Mapping 1-20
+        </a>
+       </div>
+       <ul>
+        <li>
+         <div class="section-link" state="4">
+          <a href="#50401315_pgfId-503784">
+           Zero Copy Memory Objects 1-20
+          </a>
+         </div>
+        </li>
+        <li>
+         <div class="section-link" state="4">
+          <a href="#50401315_pgfId-504154">
+           Copy Memory Objects 1-21
+          </a>
+         </div>
+        </li>
+       </ul>
+      </li>
+      <li>
+       <div class="section-link" state="3">
+        <a href="#50401315_pgfId-504422">
+         1.5.5 Reading, Writing, and Copying 1-23
+        </a>
+       </div>
+      </li>
+      <li>
+       <div class="section-link" state="3">
+        <a href="#50401315_pgfId-504431">
+         1.5.6 Command Queue 1-23
+        </a>
+       </div>
+      </li>
+     </ul>
+    </li>
+    <li>
+     <div class="section-link" state="2">
+      <a href="#50401315_pgfId-502559">
+       1.6 OpenCL Data Transfer Optimization 1-23
+      </a>
+     </div>
+     <ul>
+      <li>
+       <div class="section-link" state="3">
+        <a href="#50401315_pgfId-525051">
+         1.6.1 Definitions 1-24
+        </a>
+       </div>
+      </li>
+      <li>
+       <div class="section-link" state="3">
+        <a href="#50401315_pgfId-501699">
+         1.6.2 Buffers 1-24
+        </a>
+       </div>
+       <ul>
+        <li>
+         <div class="section-link" state="4">
+          <a href="#50401315_pgfId-496787">
+           Regular Device Buffers 1-24
+          </a>
+         </div>
+        </li>
+        <li>
+         <div class="section-link" state="4">
+          <a href="#50401315_pgfId-497032">
+           Zero Copy Buffers 1-25
+          </a>
+         </div>
+        </li>
+        <li>
+         <div class="section-link" state="4">
+          <a href="#50401315_pgfId-518336">
+           Pre-pinned Buffers 1-26
+          </a>
+         </div>
+        </li>
+        <li>
+         <div class="section-link" state="4">
+          <a href="#50401315_pgfId-517669">
+           Application Scenarios and Recommended OpenCL Paths 1-27
+          </a>
+         </div>
+        </li>
+       </ul>
+      </li>
+     </ul>
+    </li>
+    <li>
+     <div class="section-link" state="2">
+      <a href="#50401315_pgfId-531115">
+       1.7 Using Multiple OpenCL Devices 1-31
+      </a>
+     </div>
+     <ul>
+      <li>
+       <div class="section-link" state="3">
+        <a href="#50401315_pgfId-531120">
+         1.7.1 CPU and GPU Devices 1-31
+        </a>
+       </div>
+      </li>
+      <li>
+       <div class="section-link" state="3">
+        <a href="#50401315_pgfId-531299">
+         1.7.2 When to Use Multiple Devices 1-33
+        </a>
+       </div>
+      </li>
+      <li>
+       <div class="section-link" state="3">
+        <a href="#50401315_pgfId-531308">
+         1.7.3 Partitioning Work for Multiple Devices 1-34
+        </a>
+       </div>
+      </li>
+      <li>
+       <div class="section-link" state="3">
+        <a href="#50401315_pgfId-531363">
+         1.7.4 Synchronization Caveats 1-36
+        </a>
+       </div>
+      </li>
+      <li>
+       <div class="section-link" state="3">
+        <a href="#50401315_pgfId-531396">
+         1.7.5 GPU and CPU Kernels 1-38
+        </a>
+       </div>
+      </li>
+      <li>
+       <div class="section-link" state="3">
+        <a href="#50401315_pgfId-531424">
+         1.7.6 Contexts and Devices 1-39
+        </a>
+       </div>
+      </li>
+     </ul>
+    </li>
+   </ul>
+  </li>
+  <li>
+   <div class="section-link" state="1">
+    <a href="#50401334_pgfId-412605">
+     Chapter 2 OpenCL Performance and Optimization for GCN Devices
+    </a>
+   </div>
+   <ul>
+    <li>
+     <div class="section-link" state="2">
+      <a href="#50401334_pgfId-472054">
+       2.1 Global Memory Optimization 2-1
+      </a>
+     </div>
+     <ul>
+      <li>
+       <div class="section-link" state="3">
+        <a href="#50401334_pgfId-472173">
+         2.1.1 Channel Conflicts 2-3
+        </a>
+       </div>
+       <ul>
+        <li>
+         <div class="section-link" state="4">
+          <a href="#50401334_pgfId-472340">
+           Staggered Offsets 2-7
+          </a>
+         </div>
+        </li>
+        <li>
+         <div class="section-link" state="4">
+          <a href="#50401334_pgfId-472385">
+           Reads Of The Same Address 2-9
+          </a>
+         </div>
+        </li>
+       </ul>
+      </li>
+      <li>
+       <div class="section-link" state="3">
+        <a href="#50401334_pgfId-472466">
+         2.1.2 Coalesced Writes 2-9
+        </a>
+       </div>
+      </li>
+     </ul>
+    </li>
+    <li>
+     <div class="section-link" state="2">
+      <a href="#50401334_pgfId-481974">
+       2.2 Local Memory (LDS) Optimization 2-10
+      </a>
+     </div>
+    </li>
+    <li>
+     <div class="section-link" state="2">
+      <a href="#50401334_pgfId-448213">
+       2.3 Constant Memory Optimization 2-12
+      </a>
+     </div>
+    </li>
+    <li>
+     <div class="section-link" state="2">
+      <a href="#50401334_pgfId-449206">
+       2.4 OpenCL Memory Resources: Capacity and Performance 2-14
+      </a>
+     </div>
+    </li>
+    <li>
+     <div class="section-link" state="2">
+      <a href="#50401334_pgfId-538469">
+       2.5 Using LDS or L1 Cache 2-16
+      </a>
+     </div>
+    </li>
+    <li>
+     <div class="section-link" state="2">
+      <a href="#50401334_pgfId-487709">
+       2.6 NDRange and Execution Range Optimization 2-17
+      </a>
+     </div>
+     <ul>
+      <li>
+       <div class="section-link" state="3">
+        <a href="#50401334_pgfId-473708">
+         2.6.1 Hiding ALU and Memory Latency 2-17
+        </a>
+       </div>
+      </li>
+      <li>
+       <div class="section-link" state="3">
+        <a href="#50401334_pgfId-452280">
+         2.6.2 Resource Limits on Active Wavefronts 2-18
+        </a>
+       </div>
+       <ul>
+        <li>
+         <div class="section-link" state="4">
+          <a href="#50401334_pgfId-452285">
+           GPU Registers 2-18
+          </a>
+         </div>
+        </li>
+        <li>
+         <div class="section-link" state="4">
+          <a href="#50401334_pgfId-458289">
+           Specifying the Default Work-Group Size at Compile-Time 2-19
+          </a>
+         </div>
+        </li>
+        <li>
+         <div class="section-link" state="4">
+          <a href="#50401334_pgfId-458253">
+           Local Memory (LDS) Size 2-19
+          </a>
+         </div>
+        </li>
+       </ul>
+      </li>
+      <li>
+       <div class="section-link" state="3">
+        <a href="#50401334_pgfId-458820">
+         2.6.3 Partitioning the Work 2-20
+        </a>
+       </div>
+       <ul>
+        <li>
+         <div class="section-link" state="4">
+          <a href="#50401334_pgfId-452491">
+           Global Work Size 2-21
+          </a>
+         </div>
+        </li>
+        <li>
+         <div class="section-link" state="4">
+          <a href="#50401334_pgfId-452494">
+           Local Work Size (#Work-Items per Work-Group) 2-21
+          </a>
+         </div>
+        </li>
+        <li>
+         <div class="section-link" state="4">
+          <a href="#50401334_pgfId-457158">
+           Work-Group Dimensions vs Size 2-22
+          </a>
+         </div>
+        </li>
+       </ul>
+      </li>
+      <li>
+       <div class="section-link" state="3">
+        <a href="#50401334_pgfId-457368">
+         2.6.4 Summary of NDRange Optimizations 2-22
+        </a>
+       </div>
+      </li>
+     </ul>
+    </li>
+    <li>
+     <div class="section-link" state="2">
+      <a href="#50401334_pgfId-451154">
+       2.7 Instruction Selection Optimizations 2-24
+      </a>
+     </div>
+     <ul>
+      <li>
+       <div class="section-link" state="3">
+        <a href="#50401334_pgfId-459510">
+         2.7.1 Instruction Bandwidths 2-24
+        </a>
+       </div>
+      </li>
+      <li>
+       <div class="section-link" state="3">
+        <a href="#50401334_pgfId-459722">
+         2.7.2 AMD Media Instructions 2-25
+        </a>
+       </div>
+      </li>
+      <li>
+       <div class="section-link" state="3">
+        <a href="#50401334_pgfId-459778">
+         2.7.3 Math Libraries 2-25
+        </a>
+       </div>
+      </li>
+      <li>
+       <div class="section-link" state="3">
+        <a href="#50401334_pgfId-451159">
+         2.7.4 Compiler Optimizations 2-26
+        </a>
+       </div>
+      </li>
+     </ul>
+    </li>
+    <li>
+     <div class="section-link" state="2">
+      <a href="#50401334_pgfId-520751">
+       2.8 Additional Performance Guidance 2-26
+      </a>
+     </div>
+     <ul>
+      <li>
+       <div class="section-link" state="3">
+        <a href="#50401334_pgfId-448804">
+         2.8.1 Loop Unroll  pragma  2-26
+        </a>
+       </div>
+      </li>
+      <li>
+       <div class="section-link" state="3">
+        <a href="#50401334_pgfId-495342">
+         2.8.2 Memory Tiling 2-27
+        </a>
+       </div>
+      </li>
+      <li>
+       <div class="section-link" state="3">
+        <a href="#50401334_pgfId-446673">
+         2.8.3 General Tips 2-28
+        </a>
+       </div>
+      </li>
+      <li>
+       <div class="section-link" state="3">
+        <a href="#50401334_pgfId-521164">
+         2.8.4 Guidance for CUDA Programmers Using OpenCL 2-30
+        </a>
+       </div>
+      </li>
+      <li>
+       <div class="section-link" state="3">
+        <a href="#50401334_pgfId-446698">
+         2.8.5 Guidance for CPU Programmers Using OpenCL to Program GPUs 2-30
+        </a>
+       </div>
+      </li>
+      <li>
+       <div class="section-link" state="3">
+        <a href="#50401334_pgfId-521316">
+         2.8.6 Optimizing Kernel Code 2-31
+        </a>
+       </div>
+       <ul>
+        <li>
+         <div class="section-link" state="4">
+          <a href="#50401334_pgfId-521317">
+           Using Vector Data Types 2-31
+          </a>
+         </div>
+        </li>
+        <li>
+         <div class="section-link" state="4">
+          <a href="#50401334_pgfId-521255">
+           Local Memory 2-31
+          </a>
+         </div>
+        </li>
+        <li>
+         <div class="section-link" state="4">
+          <a href="#50401334_pgfId-521257">
+           Using Special CPU Instructions 2-31
+          </a>
+         </div>
+        </li>
+        <li>
+         <div class="section-link" state="4">
+          <a href="#50401334_pgfId-521264">
+           Avoid Barriers When Possible 2-32
+          </a>
+         </div>
+        </li>
+       </ul>
+      </li>
+      <li>
+       <div class="section-link" state="3">
+        <a href="#50401334_pgfId-521246">
+         2.8.7 Optimizing Kernels for Southern Island GPUs 2-32
+        </a>
+       </div>
+       <ul>
+        <li>
+         <div class="section-link" state="4">
+          <a href="#50401334_pgfId-494706">
+           Remove Conditional Assignments 2-32
+          </a>
+         </div>
+        </li>
+        <li>
+         <div class="section-link" state="4">
+          <a href="#50401334_pgfId-494711">
+           Bypass Short-Circuiting 2-32
+          </a>
+         </div>
+        </li>
+        <li>
+         <div class="section-link" state="4">
+          <a href="#50401334_pgfId-494717">
+           Unroll Small Loops 2-32
+          </a>
+         </div>
+        </li>
+        <li>
+         <div class="section-link" state="4">
+          <a href="#50401334_pgfId-494719">
+           Avoid Nested  if s 2-32
+          </a>
+         </div>
+        </li>
+        <li>
+         <div class="section-link" state="4">
+          <a href="#50401334_pgfId-494721">
+           Experiment With  do / while / for Loops 2-33
+          </a>
+         </div>
+        </li>
+       </ul>
+      </li>
+     </ul>
+    </li>
+    <li>
+     <div class="section-link" state="2">
+      <a href="#50401334_pgfId-521515">
+       2.9 Specific Guidelines for Southern Islands GPUs 2-33
+      </a>
+     </div>
+    </li>
+   </ul>
+  </li>
+  <li>
+   <div class="section-link" state="1">
+    <a href="#50401371_pgfId-412605">
+     Chapter 3 OpenCL Performance and
+Optimization for Evergreen and Northern Islands Devices
+    </a>
+   </div>
+   <ul>
+    <li>
+     <div class="section-link" state="2">
+      <a href="#50401371_pgfId-472054">
+       3.1 Global Memory Optimization 3-1
+      </a>
+     </div>
+     <ul>
+      <li>
+       <div class="section-link" state="3">
+        <a href="#50401371_pgfId-472079">
+         3.1.1 Two Memory Paths 3-3
+        </a>
+       </div>
+       <ul>
+        <li>
+         <div class="section-link" state="4">
+          <a href="#50401371_pgfId-472083">
+           Performance Impact of FastPath and CompletePath 3-3
+          </a>
+         </div>
+        </li>
+        <li>
+         <div class="section-link" state="4">
+          <a href="#50401371_pgfId-472136">
+           Determining The Used Path 3-4
+          </a>
+         </div>
+        </li>
+       </ul>
+      </li>
+      <li>
+       <div class="section-link" state="3">
+        <a href="#50401371_pgfId-472173">
+         3.1.2 Channel Conflicts 3-6
+        </a>
+       </div>
+       <ul>
+        <li>
+         <div class="section-link" state="4">
+          <a href="#50401371_pgfId-472340">
+           Staggered Offsets 3-9
+          </a>
+         </div>
+        </li>
+        <li>
+         <div class="section-link" state="4">
+          <a href="#50401371_pgfId-472385">
+           Reads Of The Same Address 3-10
+          </a>
+         </div>
+        </li>
+       </ul>
+      </li>
+      <li>
+       <div class="section-link" state="3">
+        <a href="#50401371_pgfId-472397">
+         3.1.3 Float4 Or Float1 3-11
+        </a>
+       </div>
+      </li>
+      <li>
+       <div class="section-link" state="3">
+        <a href="#50401371_pgfId-472466">
+         3.1.4 Coalesced Writes 3-12
+        </a>
+       </div>
+      </li>
+      <li>
+       <div class="section-link" state="3">
+        <a href="#50401371_pgfId-472569">
+         3.1.5 Alignment 3-14
+        </a>
+       </div>
+      </li>
+      <li>
+       <div class="section-link" state="3">
+        <a href="#50401371_pgfId-472647">
+         3.1.6 Summary of Copy Performance 3-16
+        </a>
+       </div>
+      </li>
+     </ul>
+    </li>
+    <li>
+     <div class="section-link" state="2">
+      <a href="#50401371_pgfId-481974">
+       3.2 Local Memory (LDS) Optimization 3-16
+      </a>
+     </div>
+    </li>
+    <li>
+     <div class="section-link" state="2">
+      <a href="#50401371_pgfId-448213">
+       3.3 Constant Memory Optimization 3-19
+      </a>
+     </div>
+    </li>
+    <li>
+     <div class="section-link" state="2">
+      <a href="#50401371_pgfId-449206">
+       3.4 OpenCL Memory Resources: Capacity and Performance 3-20
+      </a>
+     </div>
+    </li>
+    <li>
+     <div class="section-link" state="2">
+      <a href="#50401371_pgfId-487708">
+       3.5 Using LDS or L1 Cache 3-22
+      </a>
+     </div>
+    </li>
+    <li>
+     <div class="section-link" state="2">
+      <a href="#50401371_pgfId-487709">
+       3.6 NDRange and Execution Range Optimization 3-23
+      </a>
+     </div>
+     <ul>
+      <li>
+       <div class="section-link" state="3">
+        <a href="#50401371_pgfId-473708">
+         3.6.1 Hiding ALU and Memory Latency 3-23
+        </a>
+       </div>
+      </li>
+      <li>
+       <div class="section-link" state="3">
+        <a href="#50401371_pgfId-452280">
+         3.6.2 Resource Limits on Active Wavefronts 3-24
+        </a>
+       </div>
+       <ul>
+        <li>
+         <div class="section-link" state="4">
+          <a href="#50401371_pgfId-452285">
+           GPU Registers 3-25
+          </a>
+         </div>
+        </li>
+        <li>
+         <div class="section-link" state="4">
+          <a href="#50401371_pgfId-458289">
+           Specifying the Default Work-Group Size at Compile-Time 3-26
+          </a>
+         </div>
+        </li>
+        <li>
+         <div class="section-link" state="4">
+          <a href="#50401371_pgfId-458253">
+           Local Memory (LDS) Size 3-27
+          </a>
+         </div>
+        </li>
+       </ul>
+      </li>
+      <li>
+       <div class="section-link" state="3">
+        <a href="#50401371_pgfId-458820">
+         3.6.3 Partitioning the Work 3-28
+        </a>
+       </div>
+       <ul>
+        <li>
+         <div class="section-link" state="4">
+          <a href="#50401371_pgfId-452491">
+           Global Work Size 3-28
+          </a>
+         </div>
+        </li>
+        <li>
+         <div class="section-link" state="4">
+          <a href="#50401371_pgfId-452494">
+           Local Work Size (#Work-Items per Work-Group) 3-28
+          </a>
+         </div>
+        </li>
+        <li>
+         <div class="section-link" state="4">
+          <a href="#50401371_pgfId-452498">
+           Moving Work to the Kernel 3-29
+          </a>
+         </div>
+        </li>
+        <li>
+         <div class="section-link" state="4">
+          <a href="#50401371_pgfId-457158">
+           Work-Group Dimensions vs Size 3-30
+          </a>
+         </div>
+        </li>
+       </ul>
+      </li>
+      <li>
+       <div class="section-link" state="3">
+        <a href="#50401371_pgfId-452785">
+         3.6.4 Optimizing for Cedar 3-31
+        </a>
+       </div>
+      </li>
+      <li>
+       <div class="section-link" state="3">
+        <a href="#50401371_pgfId-457368">
+         3.6.5 Summary of NDRange Optimizations 3-32
+        </a>
+       </div>
+      </li>
+     </ul>
+    </li>
+    <li>
+     <div class="section-link" state="2">
+      <a href="#50401371_pgfId-463371">
+       3.7 Using Multiple OpenCL Devices 3-32
+      </a>
+     </div>
+     <ul>
+      <li>
+       <div class="section-link" state="3">
+        <a href="#50401371_pgfId-463382">
+         3.7.1 CPU and GPU Devices 3-32
+        </a>
+       </div>
+      </li>
+      <li>
+       <div class="section-link" state="3">
+        <a href="#50401371_pgfId-463540">
+         3.7.2 When to Use Multiple Devices 3-35
+        </a>
+       </div>
+      </li>
+      <li>
+       <div class="section-link" state="3">
+        <a href="#50401371_pgfId-463544">
+         3.7.3 Partitioning Work for Multiple Devices 3-35
+        </a>
+       </div>
+      </li>
+      <li>
+       <div class="section-link" state="3">
+        <a href="#50401371_pgfId-463566">
+         3.7.4 Synchronization Caveats 3-37
+        </a>
+       </div>
+      </li>
+      <li>
+       <div class="section-link" state="3">
+        <a href="#50401371_pgfId-463571">
+         3.7.5 GPU and CPU Kernels 3-38
+        </a>
+       </div>
+      </li>
+      <li>
+       <div class="section-link" state="3">
+        <a href="#50401371_pgfId-463581">
+         3.7.6 Contexts and Devices 3-40
+        </a>
+       </div>
+      </li>
+     </ul>
+    </li>
+    <li>
+     <div class="section-link" state="2">
+      <a href="#50401371_pgfId-451154">
+       3.8 Instruction Selection Optimizations 3-41
+      </a>
+     </div>
+     <ul>
+      <li>
+       <div class="section-link" state="3">
+        <a href="#50401371_pgfId-459510">
+         3.8.1 Instruction Bandwidths 3-41
+        </a>
+       </div>
+      </li>
+      <li>
+       <div class="section-link" state="3">
+        <a href="#50401371_pgfId-459722">
+         3.8.2 AMD Media Instructions 3-42
+        </a>
+       </div>
+      </li>
+      <li>
+       <div class="section-link" state="3">
+        <a href="#50401371_pgfId-459778">
+         3.8.3 Math Libraries 3-42
+        </a>
+       </div>
+      </li>
+      <li>
+       <div class="section-link" state="3">
+        <a href="#50401371_pgfId-459906">
+         3.8.4 VLIW and SSE Packing 3-43
+        </a>
+       </div>
+      </li>
+      <li>
+       <div class="section-link" state="3">
+        <a href="#50401371_pgfId-451159">
+         3.8.5 Compiler Optimizations 3-45
+        </a>
+       </div>
+      </li>
+     </ul>
+    </li>
+    <li>
+     <div class="section-link" state="2">
+      <a href="#50401371_pgfId-517108">
+       3.9 Clause Boundaries 3-46
+      </a>
+     </div>
+    </li>
+    <li>
+     <div class="section-link" state="2">
+      <a href="#50401371_pgfId-520751">
+       3.10 Additional Performance Guidance 3-48
+      </a>
+     </div>
+     <ul>
+      <li>
+       <div class="section-link" state="3">
+        <a href="#50401371_pgfId-448804">
+         3.10.1 Loop Unroll  pragma  3-48
+        </a>
+       </div>
+      </li>
+      <li>
+       <div class="section-link" state="3">
+        <a href="#50401371_pgfId-495342">
+         3.10.2 Memory Tiling 3-48
+        </a>
+       </div>
+      </li>
+      <li>
+       <div class="section-link" state="3">
+        <a href="#50401371_pgfId-446673">
+         3.10.3 General Tips 3-49
+        </a>
+       </div>
+      </li>
+      <li>
+       <div class="section-link" state="3">
+        <a href="#50401371_pgfId-521164">
+         3.10.4 Guidance for CUDA Programmers Using OpenCL 3-51
+        </a>
+       </div>
+      </li>
+      <li>
+       <div class="section-link" state="3">
+        <a href="#50401371_pgfId-446698">
+         3.10.5 Guidance for CPU Programmers Using OpenCL to Program GPUs 3-52
+        </a>
+       </div>
+      </li>
+      <li>
+       <div class="section-link" state="3">
+        <a href="#50401371_pgfId-521316">
+         3.10.6 Optimizing Kernel Code 3-53
+        </a>
+       </div>
+       <ul>
+        <li>
+         <div class="section-link" state="4">
+          <a href="#50401371_pgfId-521317">
+           Using Vector Data Types 3-53
+          </a>
+         </div>
+        </li>
+        <li>
+         <div class="section-link" state="4">
+          <a href="#50401371_pgfId-521255">
+           Local Memory 3-53
+          </a>
+         </div>
+        </li>
+        <li>
+         <div class="section-link" state="4">
+          <a href="#50401371_pgfId-521257">
+           Using Special CPU Instructions 3-53
+          </a>
+         </div>
+        </li>
+        <li>
+         <div class="section-link" state="4">
+          <a href="#50401371_pgfId-521264">
+           Avoid Barriers When Possible 3-53
+          </a>
+         </div>
+        </li>
+       </ul>
+      </li>
+      <li>
+       <div class="section-link" state="3">
+        <a href="#50401371_pgfId-521246">
+         3.10.7 Optimizing Kernels for Evergreen and 69XX-Series GPUs 3-53
+        </a>
+       </div>
+       <ul>
+        <li>
+         <div class="section-link" state="4">
+          <a href="#50401371_pgfId-494703">
+           Clauses 3-53
+          </a>
+         </div>
+        </li>
+        <li>
+         <div class="section-link" state="4">
+          <a href="#50401371_pgfId-494706">
+           Remove Conditional Assignments 3-54
+          </a>
+         </div>
+        </li>
+        <li>
+         <div class="section-link" state="4">
+          <a href="#50401371_pgfId-494711">
+           Bypass Short-Circuiting 3-54
+          </a>
+         </div>
+        </li>
+        <li>
+         <div class="section-link" state="4">
+          <a href="#50401371_pgfId-494717">
+           Unroll Small Loops 3-54
+          </a>
+         </div>
+        </li>
+        <li>
+         <div class="section-link" state="4">
+          <a href="#50401371_pgfId-494719">
+           Avoid Nested  if s 3-54
+          </a>
+         </div>
+        </li>
+        <li>
+         <div class="section-link" state="4">
+          <a href="#50401371_pgfId-494721">
+           Experiment With  do / while / for Loops 3-55
+          </a>
+         </div>
+        </li>
+        <li>
+         <div class="section-link" state="4">
+          <a href="#50401371_pgfId-494723">
+           Do I/O With 4-Word Data 3-55
+          </a>
+         </div>
+        </li>
+       </ul>
+      </li>
+     </ul>
+    </li>
+   </ul>
+  </li>
+ </ul>
+</nav>
+ {% endblock %} 
+{% block content %}
+<div id="contents-container">
+ <article id="contents">
+  <div class="topic concept nested0" id="50401315_pgfId-542099" xml:lang="en-US">
+   <a name="50401315_pgfId-542099" shape="rect">
+   </a>
+   <h2 class="title topictitle1">
+    <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401315_pgfId-542099" name="50401315_pgfId-542099" shape="rect">
+     Chapter 1 OpenCL Performance and Optimization
+    </a>
+   </h2>
+   <div class="body conbody">
+    <ul class="ul">
+    </ul>
+   </div>
+   <div class="topic concept nested1" id="50401315_pgfId-444709" xml:lang="en-US">
+    <a name="50401315_pgfId-444709" shape="rect">
+    </a>
+    <h3 class="title topictitle2">
+     <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401315_pgfId-444709" name="50401315_pgfId-444709" shape="rect">
+      1.1 CodeXL GPU Profiler 1-1
+     </a>
+    </h3>
+    <div class="body conbody">
+     <ul class="ul">
+     </ul>
+    </div>
+    <div class="topic concept nested2" id="50401315_pgfId-535338" xml:lang="en-US">
+     <a name="50401315_pgfId-535338" shape="rect">
+     </a>
+     <h3 class="title topictitle2">
+      <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401315_pgfId-535338" name="50401315_pgfId-535338" shape="rect">
+       1.1.1 Collecting OpenCL Application Traces 1-1
+      </a>
+     </h3>
+     <div class="body conbody">
+      <ul class="ul">
+      </ul>
+     </div>
+    </div>
+    <div class="topic concept nested2" id="50401315_pgfId-535633" xml:lang="en-US">
+     <a name="50401315_pgfId-535633" shape="rect">
+     </a>
+     <h3 class="title topictitle2">
+      <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401315_pgfId-535633" name="50401315_pgfId-535633" shape="rect">
+       1.1.2 Timeline View 1-2
+      </a>
+     </h3>
+     <div class="body conbody">
+      <ul class="ul">
+       <li class="li">
+        The Timeline View can be useful for debugging your OpenCL application.
+       </li>
+       <li class="li">
+        You can confirm that the application has been using the hardware efficiently.
+       </li>
+       <li class="li">
+        For example, the timeline should show that non-dependent kernel executions and data transfer operations occurred simultaneously.
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="topic concept nested2" id="50401315_pgfId-535800" xml:lang="en-US">
+     <a name="50401315_pgfId-535800" shape="rect">
+     </a>
+     <h3 class="title topictitle2">
+      <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401315_pgfId-535800" name="50401315_pgfId-535800" shape="rect">
+       1.1.3 Summary Pages View 1-3
+      </a>
+     </h3>
+     <div class="body conbody">
+      <ul class="ul">
+       <li class="li">
+        From these summary pages, you can determine if the application is bound by kernel execution or data transfer (Context Summary page).
+       </li>
+       <li class="li">
+        If the application is bound by kernel execution, you can determine which device is the bottleneck.
+       </li>
+       <li class="li">
+        If the kernel execution on a GPU device is the bottleneck, the GPU performance counters then can be used to investigate the bottleneck inside the kernel.
+       </li>
+       <li class="li">
+        If the application is bound by the data transfers, it is possible to determine the most expensive data transfer type (read, write, copy, or map) in the application from the Context Summary page.
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="topic concept nested2" id="50401315_pgfId-536178" xml:lang="en-US">
+     <a name="50401315_pgfId-536178" shape="rect">
+     </a>
+     <h3 class="title topictitle2">
+      <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401315_pgfId-536178" name="50401315_pgfId-536178" shape="rect">
+       1.1.4 API Trace View 1-4
+      </a>
+     </h3>
+     <div class="body conbody">
+      <ul class="ul">
+      </ul>
+     </div>
+    </div>
+    <div class="topic concept nested2" id="50401315_pgfId-536185" xml:lang="en-US">
+     <a name="50401315_pgfId-536185" shape="rect">
+     </a>
+     <h3 class="title topictitle2">
+      <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401315_pgfId-536185" name="50401315_pgfId-536185" shape="rect">
+       1.1.5 Collecting OpenCL GPU Kernel Performance Counters 1-5
+      </a>
+     </h3>
+     <div class="body conbody">
+      <ul class="ul">
+       <li class="li">
+        Select the GPU: Performance Counters Profile Type.
+       </li>
+       <li class="li">
+        The GPU kernel performance counters can be used to find possible bottlenecks in the kernel execution.
+       </li>
+       <li class="li">
+        Using the performance counters, we can: Find the number of resources (general-purpose registers, local memory size, and flow control stack size) allocated for the kernel.
+       </li>
+       <li class="li">
+        A higher number hides data latency better.
+       </li>
+      </ul>
+     </div>
+    </div>
+   </div>
+   <div class="topic concept nested1" id="50401315_pgfId-537554" xml:lang="en-US">
+    <a name="50401315_pgfId-537554" shape="rect">
+    </a>
+    <h3 class="title topictitle2">
+     <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401315_pgfId-537554" name="50401315_pgfId-537554" shape="rect">
+      1.2 AMD APP KernelAnalyzer2 1-6
+     </a>
+    </h3>
+    <div class="body conbody">
+     <ul class="ul">
+     </ul>
+    </div>
+    <div class="topic concept nested2" id="50401315_pgfId-538360" xml:lang="en-US">
+     <a name="50401315_pgfId-538360" shape="rect">
+     </a>
+     <h3 class="title topictitle2">
+      <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401315_pgfId-538360" name="50401315_pgfId-538360" shape="rect">
+       1.2.1 Start KernelAnalyzer2 1-6
+      </a>
+     </h3>
+     <div class="body conbody">
+      <ul class="ul">
+      </ul>
+     </div>
+    </div>
+    <div class="topic concept nested2" id="50401315_pgfId-538414" xml:lang="en-US">
+     <a name="50401315_pgfId-538414" shape="rect">
+     </a>
+     <h3 class="title topictitle2">
+      <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401315_pgfId-538414" name="50401315_pgfId-538414" shape="rect">
+       1.2.2 Open Kernel Source 1-7
+      </a>
+     </h3>
+     <div class="body conbody">
+      <ul class="ul">
+      </ul>
+     </div>
+    </div>
+    <div class="topic concept nested2" id="50401315_pgfId-539373" xml:lang="en-US">
+     <a name="50401315_pgfId-539373" shape="rect">
+     </a>
+     <h3 class="title topictitle2">
+      <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401315_pgfId-539373" name="50401315_pgfId-539373" shape="rect">
+       1.2.3 Build Options – Choosing Target ASICS 1-8
+      </a>
+     </h3>
+     <div class="body conbody">
+      <ul class="ul">
+       <li class="li">
+        Select the Build Options Window ASICS Tab.
+       </li>
+       <li class="li">
+        Use the checkboxes to select, or deselect, an entire series, or click on a small triangle at left to expand.
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="topic concept nested2" id="50401315_pgfId-538453" xml:lang="en-US">
+     <a name="50401315_pgfId-538453" shape="rect">
+     </a>
+     <h3 class="title topictitle2">
+      <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401315_pgfId-538453" name="50401315_pgfId-538453" shape="rect">
+       1.2.4 Build Options – Defining Kernel Compilation Options 1-9
+      </a>
+     </h3>
+     <div class="body conbody">
+      <ul class="ul">
+      </ul>
+     </div>
+    </div>
+    <div class="topic concept nested2" id="50401315_pgfId-538468" xml:lang="en-US">
+     <a name="50401315_pgfId-538468" shape="rect">
+     </a>
+     <h3 class="title topictitle2">
+      <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401315_pgfId-538468" name="50401315_pgfId-538468" shape="rect">
+       1.2.5 Analysis Input Tab 1-9
+      </a>
+     </h3>
+     <div class="body conbody">
+      <ul class="ul">
+       <li class="li">
+        Use this tab to define the input parameters for the analysis.
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="topic concept nested2" id="50401315_pgfId-538477" xml:lang="en-US">
+     <a name="50401315_pgfId-538477" shape="rect">
+     </a>
+     <h3 class="title topictitle2">
+      <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401315_pgfId-538477" name="50401315_pgfId-538477" shape="rect">
+       1.2.6 Build the Kernel 1-9
+      </a>
+     </h3>
+     <div class="body conbody">
+      <ul class="ul">
+      </ul>
+     </div>
+    </div>
+    <div class="topic concept nested2" id="50401315_pgfId-538494" xml:lang="en-US">
+     <a name="50401315_pgfId-538494" shape="rect">
+     </a>
+     <h3 class="title topictitle2">
+      <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401315_pgfId-538494" name="50401315_pgfId-538494" shape="rect">
+       1.2.7 Build Statistics Tab 1-10
+      </a>
+     </h3>
+     <div class="body conbody">
+      <ul class="ul">
+      </ul>
+     </div>
+    </div>
+    <div class="topic concept nested2" id="50401315_pgfId-538501" xml:lang="en-US">
+     <a name="50401315_pgfId-538501" shape="rect">
+     </a>
+     <h3 class="title topictitle2">
+      <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401315_pgfId-538501" name="50401315_pgfId-538501" shape="rect">
+       1.2.8 The Analysis Tab 1-10
+      </a>
+     </h3>
+     <div class="body conbody">
+      <ul class="ul">
+      </ul>
+     </div>
+    </div>
+   </div>
+   <div class="topic concept nested1" id="50401315_pgfId-537927" xml:lang="en-US">
+    <a name="50401315_pgfId-537927" shape="rect">
+    </a>
+    <h3 class="title topictitle2">
+     <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401315_pgfId-537927" name="50401315_pgfId-537927" shape="rect">
+      1.3 Analyzing Processor Kernels 1-11
+     </a>
+    </h3>
+    <div class="topic concept nested2" id="50401315_pgfId-446463" xml:lang="en-US">
+     <a name="50401315_pgfId-446463" shape="rect">
+     </a>
+     <h3 class="title topictitle2">
+      <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401315_pgfId-446463" name="50401315_pgfId-446463" shape="rect">
+       1.3.1 Intermediate Language and GPU Disassembly 1-11
+      </a>
+     </h3>
+     <div class="body conbody">
+      <ul class="ul">
+      </ul>
+     </div>
+    </div>
+    <div class="topic concept nested2" id="50401315_pgfId-446467" xml:lang="en-US">
+     <a name="50401315_pgfId-446467" shape="rect">
+     </a>
+     <h3 class="title topictitle2">
+      <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401315_pgfId-446467" name="50401315_pgfId-446467" shape="rect">
+       1.3.2 Generating IL and ISA Code 1-11
+      </a>
+     </h3>
+     <div class="body conbody">
+      <ul class="ul">
+       <li class="li">
+        Developers also can generate IL and ISA code from their OpenCL kernel by setting the environment variable AMD_OCL_BUILD_OPTIONS_APPEND=-save-temps (see See AMD-Developed Supplemental Compiler Options).
+       </li>
+      </ul>
+     </div>
+    </div>
+   </div>
+   <div class="topic concept nested1" id="50401315_pgfId-495738" xml:lang="en-US">
+    <a name="50401315_pgfId-495738" shape="rect">
+    </a>
+    <h3 class="title topictitle2">
+     <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401315_pgfId-495738" name="50401315_pgfId-495738" shape="rect">
+      1.4 Estimating Performance 1-12
+     </a>
+    </h3>
+    <div class="topic concept nested2" id="50401315_pgfId-446474" xml:lang="en-US">
+     <a name="50401315_pgfId-446474" shape="rect">
+     </a>
+     <h3 class="title topictitle2">
+      <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401315_pgfId-446474" name="50401315_pgfId-446474" shape="rect">
+       1.4.1 Measuring Execution Time 1-12
+      </a>
+     </h3>
+     <div class="body conbody">
+      <ul class="ul">
+       <li class="li">
+        To reduce the launch overhead, the AMD OpenCL runtime combines several command submissions into a batch.
+       </li>
+       <li class="li">
+        Do not use OCL profiling.
+       </li>
+       <li class="li">
+        To determine if an application is executed asynchonically, build a dependent execution with OCL events.
+       </li>
+       <li class="li">
+        So, the application can still execute kernels on one CP, while another is synced with a DRM engine for profiling; this lets you profile it with APP or OCL profiling.
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="topic concept nested2" id="50401315_pgfId-451445" xml:lang="en-US">
+     <a name="50401315_pgfId-451445" shape="rect">
+     </a>
+     <h3 class="title topictitle2">
+      <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401315_pgfId-451445" name="50401315_pgfId-451445" shape="rect">
+       1.4.2 Using the OpenCL timer with Other System Timers 1-13
+      </a>
+     </h3>
+     <div class="body conbody">
+      <ul class="ul">
+       <li class="li">
+        AMD OpenCL devices are required to correctly track time across changes in frequency and power states.
+       </li>
+       <li class="li">
+        The sample code below can be used to read the current value of the OpenCL timer clock.
+       </li>
+       <li class="li">
+        For an accurate time value, ensure that the GPU is finished.
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="topic concept nested2" id="50401315_pgfId-446494" xml:lang="en-US">
+     <a name="50401315_pgfId-446494" shape="rect">
+     </a>
+     <h3 class="title topictitle2">
+      <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401315_pgfId-446494" name="50401315_pgfId-446494" shape="rect">
+       1.4.3 Estimating Memory Bandwidth 1-14
+      </a>
+     </h3>
+     <div class="body conbody">
+      <ul class="ul">
+       <li class="li">
+        T = time required to run kernel, specified in nanoseconds.
+       </li>
+       <li class="li">
+        Computing B r and B w requires a thorough understanding of the kernel algorithm; it also can be a highly effective way to optimize performance.
+       </li>
+       <li class="li">
+        If all (or most) global accesses are the same size, the counts from the Profiler and the approximate size can be used to estimate Br and Bw: Br = Fetch * GlobalWorkitems * Size Bw = Write * GlobalWorkitems * Element Size where GlobalWorkitems is the dispatch size.
+       </li>
+      </ul>
+     </div>
+    </div>
+   </div>
+   <div class="topic concept nested1" id="50401315_pgfId-495909" xml:lang="en-US">
+    <a name="50401315_pgfId-495909" shape="rect">
+    </a>
+    <h3 class="title topictitle2">
+     <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401315_pgfId-495909" name="50401315_pgfId-495909" shape="rect">
+      1.5 OpenCL Memory Objects 1-15
+     </a>
+    </h3>
+    <div class="body conbody">
+     <ul class="ul">
+      <li class="li">
+       It also recommends best practices for best performance.
+      </li>
+      <li class="li">
+       The following subsections describe: the memory types used by the runtime; how to control which memory kind is used for a memory object; how the runtime maps memory objects for host access; how the runtime performs memory object reading, writing and copying; how best to use command queues; and some recommended usage patterns.
+      </li>
+     </ul>
+    </div>
+    <div class="topic concept nested2" id="50401315_pgfId-502813" xml:lang="en-US">
+     <a name="50401315_pgfId-502813" shape="rect">
+     </a>
+     <h3 class="title topictitle2">
+      <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401315_pgfId-502813" name="50401315_pgfId-502813" shape="rect">
+       1.5.1 Types of Memory Used by the Runtime 1-15
+      </a>
+     </h3>
+     <div class="body conbody">
+      <ul class="ul">
+      </ul>
+     </div>
+     <div class="topic concept nested3" id="50401315_pgfId-532479" xml:lang="en-US">
+      <a name="50401315_pgfId-532479" shape="rect">
+      </a>
+      <h3 class="title topictitle2">
+       <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401315_pgfId-532479" name="50401315_pgfId-532479" shape="rect">
+        Host Memory 1-16
+       </a>
+      </h3>
+      <div class="body conbody">
+       <ul class="ul">
+        <li class="li">
+         Pinning takes time, so avoid incurring pinning costs where CPU overhead must be avoided.
+        </li>
+       </ul>
+      </div>
+     </div>
+     <div class="topic concept nested3" id="50401315_pgfId-502946" xml:lang="en-US">
+      <a name="50401315_pgfId-502946" shape="rect">
+      </a>
+      <h3 class="title topictitle2">
+       <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401315_pgfId-502946" name="50401315_pgfId-502946" shape="rect">
+        Pinned Host Memory 1-16
+       </a>
+      </h3>
+      <div class="body conbody">
+       <ul class="ul">
+        <li class="li">
+         The runtime limits the total amount of pinned host memory that can be used for memory objects.
+        </li>
+       </ul>
+      </div>
+     </div>
+     <div class="topic concept nested3" id="50401315_pgfId-503174" xml:lang="en-US">
+      <a name="50401315_pgfId-503174" shape="rect">
+      </a>
+      <h3 class="title topictitle2">
+       <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401315_pgfId-503174" name="50401315_pgfId-503174" shape="rect">
+        Device-Visible Host Memory 1-17
+       </a>
+      </h3>
+      <div class="body conbody">
+       <ul class="ul">
+       </ul>
+      </div>
+     </div>
+     <div class="topic concept nested3" id="50401315_pgfId-503307" xml:lang="en-US">
+      <a name="50401315_pgfId-503307" shape="rect">
+      </a>
+      <h3 class="title topictitle2">
+       <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401315_pgfId-503307" name="50401315_pgfId-503307" shape="rect">
+        Device Memory 1-17
+       </a>
+      </h3>
+      <div class="body conbody">
+       <ul class="ul">
+        <li class="li">
+         A significant benefit of this is that buffers can be zero copied between the devices by using map/unmap operations to logically move the buffer between the CPU and the GPU address space.
+        </li>
+       </ul>
+      </div>
+     </div>
+     <div class="topic concept nested3" id="50401315_pgfId-503175" xml:lang="en-US">
+      <a name="50401315_pgfId-503175" shape="rect">
+      </a>
+      <h3 class="title topictitle2">
+       <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401315_pgfId-503175" name="50401315_pgfId-503175" shape="rect">
+        Host-Visible Device Memory 1-18
+       </a>
+      </h3>
+      <div class="body conbody">
+       <ul class="ul">
+        <li class="li">
+         This results in slow CPU reads and scattered writes, but streaming CPU writes perform much better because they reduce PCIe overhead.
+        </li>
+       </ul>
+      </div>
+     </div>
+    </div>
+    <div class="topic concept nested2" id="50401315_pgfId-503627" xml:lang="en-US">
+     <a name="50401315_pgfId-503627" shape="rect">
+     </a>
+     <h3 class="title topictitle2">
+      <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401315_pgfId-503627" name="50401315_pgfId-503627" shape="rect">
+       1.5.2 Placement 1-18
+      </a>
+     </h3>
+     <div class="body conbody">
+      <ul class="ul">
+       <li class="li">
+        To avoid over-allocating device memory for memory objects that are never used on that device, space is not allocated until first used on a device-by-device basis.
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="topic concept nested2" id="50401315_pgfId-503571" xml:lang="en-US">
+     <a name="50401315_pgfId-503571" shape="rect">
+     </a>
+     <h3 class="title topictitle2">
+      <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401315_pgfId-503571" name="50401315_pgfId-503571" shape="rect">
+       1.5.3 Memory Allocation 1-19
+      </a>
+     </h3>
+     <div class="topic concept nested3" id="50401315_pgfId-520796" xml:lang="en-US">
+      <a name="50401315_pgfId-520796" shape="rect">
+      </a>
+      <h3 class="title topictitle2">
+       <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401315_pgfId-520796" name="50401315_pgfId-520796" shape="rect">
+        Using the CPU 1-19
+       </a>
+      </h3>
+      <div class="body conbody">
+       <ul class="ul">
+        <li class="li">
+         Create memory objects with CL_MEM_ALLOC_HOST_PTR , and use map / unmap ; do not use read / write .
+        </li>
+        <li class="li">
+         Also, when allocating the buffer on the host, ensure that it is created with the correct alignment.
+        </li>
+       </ul>
+      </div>
+     </div>
+     <div class="topic concept nested3" id="50401315_pgfId-520798" xml:lang="en-US">
+      <a name="50401315_pgfId-520798" shape="rect">
+      </a>
+      <h3 class="title topictitle2">
+       <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401315_pgfId-520798" name="50401315_pgfId-520798" shape="rect">
+        Using Both CPU and GPU Devices, or using an APU Device 1-20
+       </a>
+      </h3>
+      <div class="body conbody">
+       <ul class="ul">
+        <li class="li">
+         When creating memory objects, create them with CL_MEM_USE_PERSISTENT_MEM_AMD .
+        </li>
+       </ul>
+      </div>
+     </div>
+     <div class="topic concept nested3" id="50401315_pgfId-520800" xml:lang="en-US">
+      <a name="50401315_pgfId-520800" shape="rect">
+      </a>
+      <h3 class="title topictitle2">
+       <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401315_pgfId-520800" name="50401315_pgfId-520800" shape="rect">
+        Buffers vs Images 1-20
+       </a>
+      </h3>
+      <div class="body conbody">
+       <ul class="ul">
+        <li class="li">
+         Instead, image access is emulated in software.
+        </li>
+        <li class="li">
+         Thus, a developer may prefer using buffers instead of images if no sampling operation is needed.
+        </li>
+       </ul>
+      </div>
+     </div>
+     <div class="topic concept nested3" id="50401315_pgfId-521010" xml:lang="en-US">
+      <a name="50401315_pgfId-521010" shape="rect">
+      </a>
+      <h3 class="title topictitle2">
+       <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401315_pgfId-521010" name="50401315_pgfId-521010" shape="rect">
+        Choosing Execution Dimensions 1-20
+       </a>
+      </h3>
+      <div class="body conbody">
+       <ul class="ul">
+        <li class="li">
+         Make the number of work-groups a multiple of the number of logical CPU cores (device compute units) for maximum use.
+        </li>
+       </ul>
+      </div>
+     </div>
+    </div>
+    <div class="topic concept nested2" id="50401315_pgfId-520762" xml:lang="en-US">
+     <a name="50401315_pgfId-520762" shape="rect">
+     </a>
+     <h3 class="title topictitle2">
+      <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401315_pgfId-520762" name="50401315_pgfId-520762" shape="rect">
+       1.5.4 Mapping 1-20
+      </a>
+     </h3>
+     <div class="body conbody">
+      <ul class="ul">
+       <li class="li">
+        The host application can use clEnqueueMapBuffer / clEnqueueMapImage to obtain a pointer that can be used to access the memory object data.
+       </li>
+      </ul>
+     </div>
+     <div class="topic concept nested3" id="50401315_pgfId-503784" xml:lang="en-US">
+      <a name="50401315_pgfId-503784" shape="rect">
+      </a>
+      <h3 class="title topictitle2">
+       <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401315_pgfId-503784" name="50401315_pgfId-503784" shape="rect">
+        Zero Copy Memory Objects 1-20
+       </a>
+      </h3>
+      <div class="body conbody">
+       <ul class="ul">
+        <li class="li">
+         Zero copy memory objects can be used by an application to optimize data movement.
+        </li>
+        <li class="li">
+         Streaming writes by the host to zero copy device resident memory objects are about as fast as the transfer rates, so this can be a good choice when the host does not read the memory object to avoid the host having to make a copy of the data to transfer.
+        </li>
+        <li class="li">
+         Memory objects requiring partial updates between kernel executions can also benefit.
+        </li>
+       </ul>
+      </div>
+     </div>
+     <div class="topic concept nested3" id="50401315_pgfId-504154" xml:lang="en-US">
+      <a name="50401315_pgfId-504154" shape="rect">
+      </a>
+      <h3 class="title topictitle2">
+       <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401315_pgfId-504154" name="50401315_pgfId-504154" shape="rect">
+        Copy Memory Objects 1-21
+       </a>
+      </h3>
+      <div class="body conbody">
+       <ul class="ul">
+        <li class="li">
+         For CL_MEM_USE_HOST_PTR and CL_MEM_ALLOC_HOST_PTR the same map location is used for all maps; thus, the pointer returned is always in the same memory area.
+        </li>
+        <li class="li">
+         To minimize pinning costs, align the memory to 4KiB.
+        </li>
+        <li class="li">
+         If used, ensure the memory aligned to the data type size used in the kernels.
+        </li>
+        <li class="li">
+         If host memory that is updated once is required, use CL_MEM_ALLOC_HOST_PTR with the CL_MEM_COPY_HOST_PTR flag instead.
+        </li>
+        <li class="li">
+         If device memory is needed, use CL_MEM_USE_PERSISTENT_MEM_AMD and clEnqueueWriteBuffer .
+        </li>
+        <li class="li">
+         Using CL_MEM_COPY_HOST_PTR for these buffers is not recommended because of the extra copy.
+        </li>
+        <li class="li">
+         Instead, create the buffer without CL_MEM_COPY_HOST_PTR , and initialize with clEnqueueWriteBuffer / clEnqueueWriteImage .
+        </li>
+       </ul>
+      </div>
+     </div>
+    </div>
+    <div class="topic concept nested2" id="50401315_pgfId-504422" xml:lang="en-US">
+     <a name="50401315_pgfId-504422" shape="rect">
+     </a>
+     <h3 class="title topictitle2">
+      <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401315_pgfId-504422" name="50401315_pgfId-504422" shape="rect">
+       1.5.5 Reading, Writing, and Copying 1-23
+      </a>
+     </h3>
+     <div class="body conbody">
+      <ul class="ul">
+       <li class="li">
+        When transferring between host memory and device memory the methods described in section See Host Memory, are used.
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="topic concept nested2" id="50401315_pgfId-504431" xml:lang="en-US">
+     <a name="50401315_pgfId-504431" shape="rect">
+     </a>
+     <h3 class="title topictitle2">
+      <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401315_pgfId-504431" name="50401315_pgfId-504431" shape="rect">
+       1.5.6 Command Queue 1-23
+      </a>
+     </h3>
+     <div class="body conbody">
+      <ul class="ul">
+       <li class="li">
+        It is best to use non-blocking commands to allow multiple commands to be queued before the command queue is flushed to the GPU.
+       </li>
+       <li class="li">
+        Use event tracking to specify the dependence between operations.
+       </li>
+       <li class="li">
+        It is recommended to queue operations that do not depend of the results of previous copy and map operations.
+       </li>
+       <li class="li">
+        This can help keep the GPU busy with kernel execution and DMA transfers.
+       </li>
+       <li class="li">
+        Use clFlush if necessary, but avoid unnecessary flushes because they cause small command batching.
+       </li>
+      </ul>
+     </div>
+    </div>
+   </div>
+   <div class="topic concept nested1" id="50401315_pgfId-502559" xml:lang="en-US">
+    <a name="50401315_pgfId-502559" shape="rect">
+    </a>
+    <h3 class="title topictitle2">
+     <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401315_pgfId-502559" name="50401315_pgfId-502559" shape="rect">
+      1.6 OpenCL Data Transfer Optimization 1-23
+     </a>
+    </h3>
+    <div class="body conbody">
+     <ul class="ul">
+      <li class="li">
+       To find out where the application’s buffers are stored (and understand how the data transfer behaves), use the CodeXL GPU Profiler API Trace View, and look at the tool tips of the clEnqueueMapBuffer calls.
+      </li>
+     </ul>
+    </div>
+    <div class="topic concept nested2" id="50401315_pgfId-525051" xml:lang="en-US">
+     <a name="50401315_pgfId-525051" shape="rect">
+     </a>
+     <h3 class="title topictitle2">
+      <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401315_pgfId-525051" name="50401315_pgfId-525051" shape="rect">
+       1.6.1 Definitions 1-24
+      </a>
+     </h3>
+     <div class="body conbody">
+      <ul class="ul">
+       <li class="li">
+        However, if pre-pinned buffers are used excessively, it can reduce the available system memory and result in excessive swapping.
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="topic concept nested2" id="50401315_pgfId-501699" xml:lang="en-US">
+     <a name="50401315_pgfId-501699" shape="rect">
+     </a>
+     <h3 class="title topictitle2">
+      <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401315_pgfId-501699" name="50401315_pgfId-501699" shape="rect">
+       1.6.2 Buffers 1-24
+      </a>
+     </h3>
+     <div class="body conbody">
+      <ul class="ul">
+      </ul>
+     </div>
+     <div class="topic concept nested3" id="50401315_pgfId-496787" xml:lang="en-US">
+      <a name="50401315_pgfId-496787" shape="rect">
+      </a>
+      <h3 class="title topictitle2">
+       <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401315_pgfId-496787" name="50401315_pgfId-496787" shape="rect">
+        Regular Device Buffers 1-24
+       </a>
+      </h3>
+      <div class="body conbody">
+       <ul class="ul">
+        <li class="li">
+         These buffers can be accessed by a GPU kernel at very high bandwidths.
+        </li>
+       </ul>
+      </div>
+     </div>
+     <div class="topic concept nested3" id="50401315_pgfId-497032" xml:lang="en-US">
+      <a name="50401315_pgfId-497032" shape="rect">
+      </a>
+      <h3 class="title topictitle2">
+       <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401315_pgfId-497032" name="50401315_pgfId-497032" shape="rect">
+        Zero Copy Buffers 1-25
+       </a>
+      </h3>
+      <div class="body conbody">
+       <ul class="ul">
+        <li class="li">
+         If a buffer is of the zero copy type, the runtime tries to leave its content in place, unless the application explicitly triggers a transfer (for example, through clEnqueueCopyBuffer() ).
+        </li>
+        <li class="li">
+         Since not all possible read and write paths perform equally, check the application scenarios below for recommended usage.
+        </li>
+        <li class="li">
+         SDK 2.5 introduced an optimization that is of particular benefit on APUs.
+        </li>
+        <li class="li">
+         The use of multiple CPU cores may be necessary to achieve peak write performance.
+        </li>
+       </ul>
+      </div>
+     </div>
+     <div class="topic concept nested3" id="50401315_pgfId-518336" xml:lang="en-US">
+      <a name="50401315_pgfId-518336" shape="rect">
+      </a>
+      <h3 class="title topictitle2">
+       <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401315_pgfId-518336" name="50401315_pgfId-518336" shape="rect">
+        Pre-pinned Buffers 1-26
+       </a>
+      </h3>
+      <div class="body conbody">
+       <ul class="ul">
+        <li class="li">
+         These buffers can be used directly as a source or destination for clEnqueueCopyBuffer to achieve peak interconnect bandwidth.
+        </li>
+        <li class="li">
+         Mapped buffers also can be used as a source or destination for clEnqueueRead / WriteBuffer calls, again achieving peak interconnect bandwidth.
+        </li>
+       </ul>
+      </div>
+     </div>
+     <div class="topic concept nested3" id="50401315_pgfId-517669" xml:lang="en-US">
+      <a name="50401315_pgfId-517669" shape="rect">
+      </a>
+      <h3 class="title topictitle2">
+       <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401315_pgfId-517669" name="50401315_pgfId-517669" shape="rect">
+        Application Scenarios and Recommended OpenCL Paths 1-27
+       </a>
+      </h3>
+      <div class="body conbody">
+       <ul class="ul">
+        <li class="li">
+         An application wants to transfer a buffer that was already allocated through malloc() or mmap() .
+        </li>
+        <li class="li">
+         If an application is able to let OpenCL allocate the buffer, options 2) and 4) below can be used to avoid the extra memcpy() .
+        </li>
+        <li class="li">
+         This means that a complete roundtrip chain, including data transfer and kernel compute, might take one or two iterations to reach peak performance.
+        </li>
+        <li class="li">
+         A code sample named BufferBandwidth can be used to investigate and benchmark the various transfer options in combination with different buffer types.
+        </li>
+        <li class="li">
+         CL_MEM_USE_HOST_PTR is an ideal choice if the application wants to transfer a buffer that has already been allocated through malloc() or mmap() .
+        </li>
+        <li class="li">
+         The first uses clEnqueueRead / WriteBuffer on a pre-pinned, mapped host-side buffer: The pinning cost is incurred at step c. Step d does not incur any pinning cost.
+        </li>
+        <li class="li">
+         Typically, an application performs steps a, b, c, and e once.
+        </li>
+        <li class="li">
+         Option 3 – clEnqueueMapBuffer() and clEnqueueUnmapMemObject() of a Device Buffer This is a good choice if the application fills in the data on the fly, or requires a pointer for calls to other library functions (such as fread() or fwrite() ).
+        </li>
+        <li class="li">
+         The transfer sequence is as follows: The application fills in the host buffer through memset( ptr ) , memcpy ( ptr, srcptr ) , fread( ptr ) , or direct CPU writes.
+        </li>
+        <li class="li">
+         The application reads and processes the data, or executes a memcpy( dstptr, ptr ) , fwrite (ptr) , or similar function.
+        </li>
+        <li class="li">
+         Since the application is modifying a host buffer, these operations take place at host memory bandwidth.
+        </li>
+        <li class="li">
+         For discrete graphics cards, it is important to note that resulting GPU kernel bandwidth is an order of magnitude lower compared to a kernel accessing a regular device buffer located on the device.
+        </li>
+       </ul>
+      </div>
+     </div>
+    </div>
+   </div>
+   <div class="topic concept nested1" id="50401315_pgfId-531115" xml:lang="en-US">
+    <a name="50401315_pgfId-531115" shape="rect">
+    </a>
+    <h3 class="title topictitle2">
+     <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401315_pgfId-531115" name="50401315_pgfId-531115" shape="rect">
+      1.7 Using Multiple OpenCL Devices 1-31
+     </a>
+    </h3>
+    <div class="body conbody">
+     <ul class="ul">
+     </ul>
+    </div>
+    <div class="topic concept nested2" id="50401315_pgfId-531120" xml:lang="en-US">
+     <a name="50401315_pgfId-531120" shape="rect">
+     </a>
+     <h3 class="title topictitle2">
+      <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401315_pgfId-531120" name="50401315_pgfId-531120" shape="rect">
+       1.7.1 CPU and GPU Devices 1-31
+      </a>
+     </h3>
+     <div class="body conbody">
+      <ul class="ul">
+       <li class="li">
+        Divergent control-flow on a GPU can be quite expensive and can lead to significant under-utilization of the GPU device.
+       </li>
+       <li class="li">
+        When control flow substantially narrows the number of valid work-items in a wave-front, it can be faster to use the CPU device.
+       </li>
+       <li class="li">
+        The larger CPU cache serves both to reduce the average memory latency and to reduce memory bandwidth in cases where data can be re-used from the caches.
+       </li>
+       <li class="li">
+        For example, an image-processing algorithm may run faster on the GPU if the images are large, but faster on the CPU when the images are small.
+       </li>
+       <li class="li">
+        In some cases, the same algorithm can exhibit both types of workload.
+       </li>
+       <li class="li">
+        A simple example is a reduction operation such as a sum of all the elements in a large array.
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="topic concept nested2" id="50401315_pgfId-531299" xml:lang="en-US">
+     <a name="50401315_pgfId-531299" shape="rect">
+     </a>
+     <h3 class="title topictitle2">
+      <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401315_pgfId-531299" name="50401315_pgfId-531299" shape="rect">
+       1.7.2 When to Use Multiple Devices 1-33
+      </a>
+     </h3>
+     <div class="body conbody">
+      <ul class="ul">
+       <li class="li">
+        One of the features of GPU computing is that some algorithms can run substantially faster and at better energy efficiency compared to a CPU device.
+       </li>
+       <li class="li">
+        Also, once an algorithm has been coded in the data-parallel task style for OpenCL, the same code typically can scale to run on GPUs with increasing compute capability (that is more compute units) or even multiple GPUs (with a little more work).
+       </li>
+       <li class="li">
+        If the CPU and the GPU deliver similar performance, the user can get the benefit of either improved power efficiency (by running on the GPU) or higher peak performance (use both devices).
+       </li>
+       <li class="li">
+        Usually, when the data size is small, it is faster to use the CPU because the start-up time is quicker than on the GPU due to a smaller driver overhead and avoiding the need to copy buffers from the host to the device.
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="topic concept nested2" id="50401315_pgfId-531308" xml:lang="en-US">
+     <a name="50401315_pgfId-531308" shape="rect">
+     </a>
+     <h3 class="title topictitle2">
+      <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401315_pgfId-531308" name="50401315_pgfId-531308" shape="rect">
+       1.7.3 Partitioning Work for Multiple Devices 1-34
+      </a>
+     </h3>
+     <div class="body conbody">
+      <ul class="ul">
+       <li class="li">
+        Simple static partitioning algorithms which “guess wrong” at the beginning can result in significantly lower performance, since some devices finish and become idle while the whole system waits for the single, unexpectedly slow device.
+       </li>
+       <li class="li">
+        For these reasons, a dynamic scheduling algorithm is recommended.
+       </li>
+       <li class="li">
+        The approach creates some additional scheduling and kernel submission overhead, but dynamic scheduling generally helps avoid the performance cliff from a single bad initial scheduling decision, as well as higher performance in real-world system environments (since it can adapt to system conditions as the algorithm runs).
+       </li>
+       <li class="li">
+        To some extent, dynamic scheduling is already designed to deal with heterogeneous workloads (based on data input the same algorithm can have very different performance, even when run on the same device), but a system with heterogeneous devices makes these cases more common and more extreme.
+       </li>
+       <li class="li">
+        The scheduler should support sending different workload sizes to different devices.
+       </li>
+       <li class="li">
+        GPUs typically prefer larger grain sizes, and higher-performing GPUs prefer still larger grain sizes.
+       </li>
+       <li class="li">
+        The scheduler should be conservative about allocating work until after it has examined how the work is being executed.
+       </li>
+       <li class="li">
+        In particular, it is important to avoid the performance cliff that occurs when a slow device is assigned an important long-running task.
+       </li>
+       <li class="li">
+        One technique is to use small grain allocations at the beginning of the algorithm, then switch to larger grain allocations when the device characteristics are well-known.
+       </li>
+       <li class="li">
+        The scheduler must balance small-grain-size (which increase the adaptiveness of the schedule and can efficiently use heterogeneous devices) with larger grain sizes (which reduce scheduling overhead).
+       </li>
+       <li class="li">
+        The host application can enqueue multiple kernels, flush the kernels so they begin executing on the device, then use the host core for other work.
+       </li>
+       <li class="li">
+        Avoid starving the high-performance GPU devices.
+       </li>
+       <li class="li">
+        The device fission extension (see the Extensions appendix in the AMD OpenCL User Guide) can be used to reserve a core for scheduling.
+       </li>
+       <li class="li">
+        For example, on a quad-core device, device fission can be used to create an OpenCL device with only three cores.
+       </li>
+       <li class="li">
+        This effectively increase the grain size, but can be very effective at reducing or eliminating device starvation.
+       </li>
+       <li class="li">
+        Developers cannot directly query the list of commands in the OpenCL command queues; however, it is possible to pass an event to each clEnqueue call that can be queried, in order to determine the execution status (in particular the command completion time); developers also can maintain their own queue of outstanding requests.
+       </li>
+       <li class="li">
+        For many algorithms, this technique can be effective enough at hiding latency so that a core does not need to be reserved for scheduling.
+       </li>
+       <li class="li">
+        Algorithms in which work is dynamically created may require a dedicated thread to provide low-latency scheduling.
+       </li>
+       <li class="li">
+        Schedulers should be aware of this cost and, for example, attempt to schedule work that consumes the result on the same device producing it.
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="topic concept nested2" id="50401315_pgfId-531363" xml:lang="en-US">
+     <a name="50401315_pgfId-531363" shape="rect">
+     </a>
+     <h3 class="title topictitle2">
+      <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401315_pgfId-531363" name="50401315_pgfId-531363" shape="rect">
+       1.7.4 Synchronization Caveats 1-36
+      </a>
+     </h3>
+     <div class="body conbody">
+      <ul class="ul">
+       <li class="li">
+        Enqueuing several commands before flushing can enable the host CPU to batch together the command submission, which can reduce launch overhead.
+       </li>
+       <li class="li">
+        This synchronization guarantee can often be leveraged to avoid explicit clWaitForEvents() calls between command submissions.
+       </li>
+       <li class="li">
+        Using clWaitForEvents() requires intervention by the host CPU and additional synchronization cost between the host and the GPU; by leveraging the in-order queue property, back-to-back kernel executions can be efficiently handled directly on the GPU hardware.
+       </li>
+       <li class="li">
+        If the host thread is managing multiple devices, it is important to call clFlush for each command-queue before calling clFinish , so that the commands are flushed and execute in parallel on the devices.
+       </li>
+       <li class="li">
+        For low-latency CPU response, it can be more efficient to use a dedicated spin loop and not call clFinish() Calling clFinish() indicates that the application wants to wait for the GPU, putting the thread to sleep.
+       </li>
+       <li class="li">
+        For low latency, the application should use clFlush() , followed by a loop to wait for the event to complete.
+       </li>
+       <li class="li">
+        The application should use non-blocking maps followed by a loop waiting on the event.
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="topic concept nested2" id="50401315_pgfId-531396" xml:lang="en-US">
+     <a name="50401315_pgfId-531396" shape="rect">
+     </a>
+     <h3 class="title topictitle2">
+      <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401315_pgfId-531396" name="50401315_pgfId-531396" shape="rect">
+       1.7.5 GPU and CPU Kernels 1-38
+      </a>
+     </h3>
+     <div class="body conbody">
+      <ul class="ul">
+       <li class="li">
+        While OpenCL provides functional portability so that the same kernel can run on any device, peak performance for each device is typically obtained by tuning the OpenCL kernel for the target device.
+       </li>
+       <li class="li">
+        On a CPU, local memory is mapped to the same cacheable DRAM used for global memory, and there is no performance benefit from using the __local qualifier.
+       </li>
+       <li class="li">
+        The additional memory operations to write to LDS, and the associated barrier operations can reduce performance.
+       </li>
+       <li class="li">
+        One notable exception is when local memory is used to pack values to avoid non-coalesced memory patterns.
+       </li>
+       <li class="li">
+        Small numbers of active work-group sizes reduce the CPU switching overhead, although for larger kernels this is a second-order effect.
+       </li>
+       <li class="li">
+        For a balanced solution that runs reasonably well on both devices, developers are encouraged to write the algorithm using float4 vectorization.
+       </li>
+       <li class="li">
+        The GPU is more sensitive to algorithm tuning; it also has higher peak performance potential.
+       </li>
+       <li class="li">
+        For peak performance on all devices, developers can choose to use conditional compilation for key code loops in the kernel, or in some cases even provide two separate kernels.
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="topic concept nested2" id="50401315_pgfId-531424" xml:lang="en-US">
+     <a name="50401315_pgfId-531424" shape="rect">
+     </a>
+     <h3 class="title topictitle2">
+      <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401315_pgfId-531424" name="50401315_pgfId-531424" shape="rect">
+       1.7.6 Contexts and Devices 1-39
+      </a>
+     </h3>
+     <div class="body conbody">
+      <ul class="ul">
+       <li class="li">
+        Thus, developers must choose whether to place all devices in the same context or create a new context for each device.
+       </li>
+       <li class="li">
+        However, with current OpenCL implementations, creating a separate context for each device provides more flexibility, especially in that buffer allocations can be targeted to occur on specific devices.
+       </li>
+       <li class="li">
+        Generally, placing the devices in the same context is the preferred solution.
+       </li>
+      </ul>
+     </div>
+    </div>
+   </div>
+  </div>
+  <div class="topic concept nested0" id="50401334_pgfId-412605" xml:lang="en-US">
+   <a name="50401334_pgfId-412605" shape="rect">
+   </a>
+   <h2 class="title topictitle1">
+    <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401334_pgfId-412605" name="50401334_pgfId-412605" shape="rect">
+     Chapter 2 OpenCL Performance and Optimization for GCN Devices
+    </a>
+   </h2>
+   <div class="body conbody">
+    <ul class="ul">
+    </ul>
+   </div>
+   <div class="topic concept nested1" id="50401334_pgfId-472054" xml:lang="en-US">
+    <a name="50401334_pgfId-472054" shape="rect">
+    </a>
+    <h3 class="title topictitle2">
+     <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401334_pgfId-472054" name="50401334_pgfId-472054" shape="rect">
+      2.1 Global Memory Optimization 2-1
+     </a>
+    </h3>
+    <div class="body conbody">
+     <ul class="ul">
+     </ul>
+    </div>
+    <div class="topic concept nested2" id="50401334_pgfId-472173" xml:lang="en-US">
+     <a name="50401334_pgfId-472173" shape="rect">
+     </a>
+     <h3 class="title topictitle2">
+      <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401334_pgfId-472173" name="50401334_pgfId-472173" shape="rect">
+       2.1.1 Channel Conflicts 2-3
+      </a>
+     </h3>
+     <div class="body conbody">
+      <ul class="ul">
+       <li class="li">
+        Many important kernels do not exclusively use simple stride one accessing patterns; instead, they feature large non-unit strides.
+       </li>
+       <li class="li">
+        One solution is to rewrite the code to employ array transpositions between the kernels.
+       </li>
+       <li class="li">
+        Ensure that the time required for the transposition is relatively small compared to the time to perform the kernel calculation.
+       </li>
+       <li class="li">
+        For many kernels, the reduction in performance is sufficiently large that it is worthwhile to try to understand and solve this problem.
+       </li>
+       <li class="li">
+        In GPU programming, it is best to have adjacent work-items read or write adjacent memory addresses.
+       </li>
+       <li class="li">
+        This is one way to avoid channel conflicts.
+       </li>
+       <li class="li">
+        When the application has complete control of the access pattern and address generation, the developer must arrange the data structures to minimize bank conflicts.
+       </li>
+       <li class="li">
+        This is a low-performance pattern to be avoided.
+       </li>
+       <li class="li">
+        Since the wavefront size is 64, channel conflicts are avoided if each work-item in a wave reads a different address from a 64-word region.
+       </li>
+       <li class="li">
+        One way to achieve this is for each wavefront to access consecutive groups of 256 = 64 * 4 bytes.
+       </li>
+       <li class="li">
+        To avoid power of two strides: Add an extra column to the data matrix.
+       </li>
+       <li class="li">
+        Change the work-group size so that it is not a power of 22.
+       </li>
+       <li class="li">
+        It is best to use a width that causes a rotation through all of the memory channels, instead of using the same one repeatedly.
+       </li>
+       <li class="li">
+        Change the kernel to access the matrix with a staggered offset.
+       </li>
+      </ul>
+     </div>
+     <div class="topic concept nested3" id="50401334_pgfId-472340" xml:lang="en-US">
+      <a name="50401334_pgfId-472340" shape="rect">
+      </a>
+      <h3 class="title topictitle2">
+       <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401334_pgfId-472340" name="50401334_pgfId-472340" shape="rect">
+        Staggered Offsets 2-7
+       </a>
+      </h3>
+      <div class="body conbody">
+       <ul class="ul">
+        <li class="li">
+         Unlike adding a column, this technique does not use extra space.
+        </li>
+        <li class="li">
+         By introducing a transformation, it is possible to stagger the work-groups to avoid channel conflicts.
+        </li>
+        <li class="li">
+         To transform the code, add the following four lines to the top of the kernel.
+        </li>
+        <li class="li">
+         Then, change the global IDs and group IDs to the staggered form.
+        </li>
+       </ul>
+      </div>
+     </div>
+     <div class="topic concept nested3" id="50401334_pgfId-472385" xml:lang="en-US">
+      <a name="50401334_pgfId-472385" shape="rect">
+      </a>
+      <h3 class="title topictitle2">
+       <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401334_pgfId-472385" name="50401334_pgfId-472385" shape="rect">
+        Reads Of The Same Address 2-9
+       </a>
+      </h3>
+      <div class="body conbody">
+       <ul class="ul">
+        <li class="li">
+         To read in a single value, read the value in a single work-item, place it in local memory, and then use that location: Avoid: Use:
+        </li>
+       </ul>
+      </div>
+     </div>
+    </div>
+    <div class="topic concept nested2" id="50401334_pgfId-472466" xml:lang="en-US">
+     <a name="50401334_pgfId-472466" shape="rect">
+     </a>
+     <h3 class="title topictitle2">
+      <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401334_pgfId-472466" name="50401334_pgfId-472466" shape="rect">
+       2.1.2 Coalesced Writes 2-9
+      </a>
+     </h3>
+     <div class="body conbody">
+      <ul class="ul">
+       <li class="li">
+        Southern Island devices do not support coalesced writes; however, continuous addresses within work-groups provide maximum performance.
+       </li>
+      </ul>
+     </div>
+    </div>
+   </div>
+   <div class="topic concept nested1" id="50401334_pgfId-481974" xml:lang="en-US">
+    <a name="50401334_pgfId-481974" shape="rect">
+    </a>
+    <h3 class="title topictitle2">
+     <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401334_pgfId-481974" name="50401334_pgfId-481974" shape="rect">
+      2.2 Local Memory (LDS) Optimization 2-10
+     </a>
+    </h3>
+    <div class="body conbody">
+     <ul class="ul">
+      <li class="li">
+       Additionally, using LDS memory can reduce global memory bandwidth usage.
+      </li>
+      <li class="li">
+       Local memory offers significant advantages when the data is re-used; for example, subsequent accesses can read from local memory, thus reducing global memory bandwidth.
+      </li>
+      <li class="li">
+       As shown below, programmers must carefully control the bank bits to avoid bank conflicts as much as possible.
+      </li>
+      <li class="li">
+       A program with a large number of bank conflicts (as measured by the LDSBankConflict performance counter in the CodeXL GPU Profiler statistics) might benefit from using the constant or image memory rather than LDS.
+      </li>
+      <li class="li">
+       Thus, the key to effectively using the LDS is to control the access pattern, so that accesses generated on the same cycle map to different banks in the LDS.
+      </li>
+      <li class="li">
+       Ensure, as much as possible, that the memory requests generated from a quarter-wavefront avoid bank conflicts by using unique address bits 6:2.
+      </li>
+      <li class="li">
+       Developers can use the large register file: each compute unit has 256 kB of register space available (8X the LDS size) and can provide up to twelve 4-byte values/cycle (6X the LDS bandwidth).
+      </li>
+      <li class="li">
+       Combined with proper consideration for the access pattern and bank alignment, these collaborative write approaches can lead to highly efficient memory accessing.
+      </li>
+      <li class="li">
+       An important optimization is the case where the local work-group size is less than, or equal to, the wavefront size.
+      </li>
+      <li class="li">
+       Developers are strongly encouraged to include the barriers where appropriate, and rely on the compiler to remove the barriers when possible, rather than manually removing the barriers() .
+      </li>
+      <li class="li">
+       This technique results in more portable code, including the ability to run kernels on CPU devices.
+      </li>
+     </ul>
+    </div>
+   </div>
+   <div class="topic concept nested1" id="50401334_pgfId-448213" xml:lang="en-US">
+    <a name="50401334_pgfId-448213" shape="rect">
+    </a>
+    <h3 class="title topictitle2">
+     <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401334_pgfId-448213" name="50401334_pgfId-448213" shape="rect">
+      2.3 Constant Memory Optimization 2-12
+     </a>
+    </h3>
+    <div class="body conbody">
+     <ul class="ul">
+      <li class="li">
+       Very high bandwidth can be attained when the compiler has available the constant address at compile time and can embed the constant address into the instruction.
+      </li>
+      <li class="li">
+       This can reduce significantly the required memory bandwidth.
+      </li>
+      <li class="li">
+       To further improve the performance of the AMD OpenCL stack, two methods allow users to take advantage of hardware constant buffers.
+      </li>
+      <li class="li">
+       Using a constant pointer that goes outside of this range results in undefined behavior.
+      </li>
+      <li class="li">
+       This optimization can be applied recursively by treating the resulting allocation as a single allocation and finding the next smallest constant pointer that fits within the space left in the constant buffer.
+      </li>
+     </ul>
+    </div>
+   </div>
+   <div class="topic concept nested1" id="50401334_pgfId-449206" xml:lang="en-US">
+    <a name="50401334_pgfId-449206" shape="rect">
+    </a>
+    <h3 class="title topictitle2">
+     <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401334_pgfId-449206" name="50401334_pgfId-449206" shape="rect">
+      2.4 OpenCL Memory Resources: Capacity and Performance 2-14
+     </a>
+    </h3>
+    <div class="body conbody">
+     <ul class="ul">
+      <li class="li">
+       Using float4 with images increases the request size and can deliver higher L1 cache bandwidth.
+      </li>
+     </ul>
+    </div>
+   </div>
+   <div class="topic concept nested1" id="50401334_pgfId-538469" xml:lang="en-US">
+    <a name="50401334_pgfId-538469" shape="rect">
+    </a>
+    <h3 class="title topictitle2">
+     <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401334_pgfId-538469" name="50401334_pgfId-538469" shape="rect">
+      2.5 Using LDS or L1 Cache 2-16
+     </a>
+    </h3>
+    <div class="body conbody">
+     <ul class="ul">
+      <li class="li">
+       If it is not possible to obtain a high L1 cache hit rate for an algorithm, the larger LDS size can help.
+      </li>
+      <li class="li">
+       It is important that L1 is initially filled from global memory with a coalesced access pattern; once filled, random accesses come at no extra processing cost.
+      </li>
+      <li class="li">
+       The theoretical LDS peak bandwidth is achieved when each thread operates on a two-vector of 32-bit words (16 threads per clock operate on 32 banks).
+      </li>
+      <li class="li">
+       If an algorithm requires coalesced 32-bit quantities, it maps well to LDS.
+      </li>
+      <li class="li">
+       The use of four-vectors or larger can lead to bank conflicts, although the compiler can mitigate some of these.
+      </li>
+      <li class="li">
+       Thus, LDS can be used to explicitly convert a scattered access pattern to a coalesced pattern for read and write to global memory.
+      </li>
+      <li class="li">
+       Better sharing efficiency requires a larger work-group, so that more work-items share the same LDS.
+      </li>
+      <li class="li">
+       This, in turn, reduces memory latency hiding.
+      </li>
+     </ul>
+    </div>
+   </div>
+   <div class="topic concept nested1" id="50401334_pgfId-487709" xml:lang="en-US">
+    <a name="50401334_pgfId-487709" shape="rect">
+    </a>
+    <h3 class="title topictitle2">
+     <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401334_pgfId-487709" name="50401334_pgfId-487709" shape="rect">
+      2.6 NDRange and Execution Range Optimization 2-17
+     </a>
+    </h3>
+    <div class="body conbody">
+     <ul class="ul">
+      <li class="li">
+       Probably the most effective way to exploit the potential performance of the GPU is to provide enough threads to keep the device completely busy.
+      </li>
+      <li class="li">
+       The programmer specifies a three-dimensional NDRange over which to execute the kernel; bigger problems with larger NDRanges certainly help to more effectively use the machine.
+      </li>
+      <li class="li">
+       The programmer also controls how the global NDRange is divided into local ranges, as well as how much work is done in each work-item, and which resources (registers and local memory) are used by the kernel.
+      </li>
+      <li class="li">
+       This section introduces the concept of latency hiding, how many wavefronts are required to hide latency on AMD GPUs, how the resource usage in the kernel can impact the active wavefronts, and how to choose appropriate global and local work-group dimensions.
+      </li>
+     </ul>
+    </div>
+    <div class="topic concept nested2" id="50401334_pgfId-473708" xml:lang="en-US">
+     <a name="50401334_pgfId-473708" shape="rect">
+     </a>
+     <h3 class="title topictitle2">
+      <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401334_pgfId-473708" name="50401334_pgfId-473708" shape="rect">
+       2.6.1 Hiding ALU and Memory Latency 2-17
+      </a>
+     </h3>
+     <div class="body conbody">
+      <ul class="ul">
+       <li class="li">
+        To achieve peak ALU power, a minimum of four wavefronts must be scheduled for each CU.
+       </li>
+       <li class="li">
+        To better understand this concept, consider a global memory access which takes 400 cycles to execute.
+       </li>
+       <li class="li">
+        If the wavefront contains 10 instructions rather than 5, the wavefront pair would consume 80 cycles of latency, and only 10 wavefronts would be required to hide the 400 cycles of latency.
+       </li>
+       <li class="li">
+        Generally, it is not possible to predict how the compute unit schedules the available wavefronts, and thus it is not useful to try to predict exactly which ALU block executes when trying to hide latency.
+       </li>
+       <li class="li">
+        Instead, consider the overall ratio of ALU operations to fetch operations – this metric is reported by the CodeXL GPU Profiler in the ALUFetchRatio counter.
+       </li>
+       <li class="li">
+        In this case, generating more wavefronts does not improve performance; it can reduce performance by creating more contention.)
+       </li>
+       <li class="li">
+        Increasing the wavefronts/compute unit does not indefinitely improve performance; once the GPU has enough wavefronts to hide latency, additional active wavefronts provide little or no performance benefit.
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="topic concept nested2" id="50401334_pgfId-452280" xml:lang="en-US">
+     <a name="50401334_pgfId-452280" shape="rect">
+     </a>
+     <h3 class="title topictitle2">
+      <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401334_pgfId-452280" name="50401334_pgfId-452280" shape="rect">
+       2.6.2 Resource Limits on Active Wavefronts 2-18
+      </a>
+     </h3>
+     <div class="body conbody">
+      <ul class="ul">
+       <li class="li">
+        These limits are largely properties of the hardware and, thus, difficult for developers to control directly.
+       </li>
+      </ul>
+     </div>
+     <div class="topic concept nested3" id="50401334_pgfId-452285" xml:lang="en-US">
+      <a name="50401334_pgfId-452285" shape="rect">
+      </a>
+      <h3 class="title topictitle2">
+       <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401334_pgfId-452285" name="50401334_pgfId-452285" shape="rect">
+        GPU Registers 2-18
+       </a>
+      </h3>
+      <div class="body conbody">
+       <ul class="ul">
+        <li class="li">
+         Spilled registers can be cached in Southern Island devices, thus reducing the impact on performance.
+        </li>
+        <li class="li">
+         Generally, it is a good idea to re-write the algorithm to use fewer GPRs, or tune the work-group dimensions specified at launch time to expose more registers/kernel to the compiler, in order to reduce the scratch register usage to 0.
+        </li>
+       </ul>
+      </div>
+     </div>
+     <div class="topic concept nested3" id="50401334_pgfId-458289" xml:lang="en-US">
+      <a name="50401334_pgfId-458289" shape="rect">
+      </a>
+      <h3 class="title topictitle2">
+       <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401334_pgfId-458289" name="50401334_pgfId-458289" shape="rect">
+        Specifying the Default Work-Group Size at Compile-Time 2-19
+       </a>
+      </h3>
+      <div class="body conbody">
+       <ul class="ul">
+        <li class="li">
+         In particular, specifying a smaller work-group size at compile time allows the compiler to allocate more registers for each kernel, which can avoid spill code and improve performance.
+        </li>
+       </ul>
+      </div>
+     </div>
+     <div class="topic concept nested3" id="50401334_pgfId-458253" xml:lang="en-US">
+      <a name="50401334_pgfId-458253" shape="rect">
+      </a>
+      <h3 class="title topictitle2">
+       <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401334_pgfId-458253" name="50401334_pgfId-458253" shape="rect">
+        Local Memory (LDS) Size 2-19
+       </a>
+      </h3>
+      <div class="body conbody">
+       <ul class="ul">
+        <li class="li">
+         Alternatively, use the CodeXL GPU Profiler to generate the ISA dump (described in See Analyzing Processor Kernels), then search for the string SQ_LDS_ALLOC:SIZE in the ISA dump.
+        </li>
+       </ul>
+      </div>
+     </div>
+    </div>
+    <div class="topic concept nested2" id="50401334_pgfId-458820" xml:lang="en-US">
+     <a name="50401334_pgfId-458820" shape="rect">
+     </a>
+     <h3 class="title topictitle2">
+      <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401334_pgfId-458820" name="50401334_pgfId-458820" shape="rect">
+       2.6.3 Partitioning the Work 2-20
+      </a>
+     </h3>
+     <div class="body conbody">
+      <ul class="ul">
+       <li class="li">
+        The partition of the NDRange can have a significant impact on performance; thus, it is recommended that the developer explicitly specify the global ( #work-groups ) and local ( #work-items/work-group ) dimensions, rather than rely on OpenCL to set these automatically (by setting local_work_size to NULL in clEnqueueNDRangeKernel ).
+       </li>
+      </ul>
+     </div>
+     <div class="topic concept nested3" id="50401334_pgfId-452491" xml:lang="en-US">
+      <a name="50401334_pgfId-452491" shape="rect">
+      </a>
+      <h3 class="title topictitle2">
+       <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401334_pgfId-452491" name="50401334_pgfId-452491" shape="rect">
+        Global Work Size 2-21
+       </a>
+      </h3>
+      <div class="body conbody">
+       <ul class="ul">
+        <li class="li">
+         In these cases, the programmer must partition the workload into multiple clEnqueueNDRangeKernel commands.
+        </li>
+        <li class="li">
+         At a minimum, ensure that the workload contains at least as many work-groups as the number of compute units in the hardware.
+        </li>
+        <li class="li">
+         Use clGetDeviceInfo(…CL_DEVICE_MAX_COMPUTE_UNITS) to determine the value dynamically.
+        </li>
+       </ul>
+      </div>
+     </div>
+     <div class="topic concept nested3" id="50401334_pgfId-452494" xml:lang="en-US">
+      <a name="50401334_pgfId-452494" shape="rect">
+      </a>
+      <h3 class="title topictitle2">
+       <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401334_pgfId-452494" name="50401334_pgfId-452494" shape="rect">
+        Local Work Size (#Work-Items per Work-Group) 2-21
+       </a>
+      </h3>
+      <div class="body conbody">
+       <ul class="ul">
+        <li class="li">
+         Call clDeviceInfo with the CL_DEVICE_MAX_WORK_GROUP_SIZE to determine the maximum number of work-groups supported by the hardware.
+        </li>
+        <li class="li">
+         Thus, larger work-groups enable more work-items to efficiently share data, which can reduce the amount of slower global communication.
+        </li>
+        <li class="li">
+         However, larger work-groups reduce the number of global work-groups, which, for small workloads, could result in idle compute units.
+        </li>
+        <li class="li">
+         Generally, larger work-groups are better as long as the global range is big enough to provide 1-2 Work-Groups for each compute unit in the system; for small workloads it generally works best to reduce the work-group size in order to avoid idle compute units.
+        </li>
+       </ul>
+      </div>
+     </div>
+     <div class="topic concept nested3" id="50401334_pgfId-457158" xml:lang="en-US">
+      <a name="50401334_pgfId-457158" shape="rect">
+      </a>
+      <h3 class="title topictitle2">
+       <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401334_pgfId-457158" name="50401334_pgfId-457158" shape="rect">
+        Work-Group Dimensions vs Size 2-22
+       </a>
+      </h3>
+      <div class="body conbody">
+       <ul class="ul">
+        <li class="li">
+         The GPU hardware schedules the kernels so that the X dimension moves fastest as the work-items are packed into wavefronts.
+        </li>
+        <li class="li">
+         Typically, it is best to choose an X dimension of at least 16, then optimize the memory patterns for a block of 16 work-items which differ by 1 in the X dimension.
+        </li>
+        <li class="li">
+         The packing order can be important if the kernel contains divergent branches.
+        </li>
+        <li class="li">
+         If possible, pack together work-items that are likely to follow the same direction when control-flow is encountered.
+        </li>
+        <li class="li">
+         It might be more likely that a square of 8×8 pixels is the same color than a 64×1 strip; thus, the 8×8 would see less divergence and higher performance.
+        </li>
+        <li class="li">
+         When in doubt, a square 16×16 work-group size is a good start.
+        </li>
+       </ul>
+      </div>
+     </div>
+    </div>
+    <div class="topic concept nested2" id="50401334_pgfId-457368" xml:lang="en-US">
+     <a name="50401334_pgfId-457368" shape="rect">
+     </a>
+     <h3 class="title topictitle2">
+      <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401334_pgfId-457368" name="50401334_pgfId-457368" shape="rect">
+       2.6.4 Summary of NDRange Optimizations 2-22
+      </a>
+     </h3>
+     <div class="body conbody">
+      <ul class="ul">
+       <li class="li">
+        As shown above, execution range optimization is a complex topic with many interacting variables and which frequently requires some experimentation to determine the optimal values.
+       </li>
+       <li class="li">
+        Some general guidelines are: Select the work-group size to be a multiple of 64, so that the wavefronts are fully populated.
+       </li>
+       <li class="li">
+        Schedule at least four wavefronts per compute unit.
+       </li>
+       <li class="li">
+        Generally, 8 to 32 wavefronts/compute unit is desirable, but this can vary significantly, depending on the complexity of the kernel and the available memory bandwidth.
+       </li>
+       <li class="li">
+        The CodeXL GPU Profiler and associated performance counters can help to select an optimal value.
+       </li>
+      </ul>
+     </div>
+    </div>
+   </div>
+   <div class="topic concept nested1" id="50401334_pgfId-451154" xml:lang="en-US">
+    <a name="50401334_pgfId-451154" shape="rect">
+    </a>
+    <h3 class="title topictitle2">
+     <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401334_pgfId-451154" name="50401334_pgfId-451154" shape="rect">
+      2.7 Instruction Selection Optimizations 2-24
+     </a>
+    </h3>
+    <div class="topic concept nested2" id="50401334_pgfId-459510" xml:lang="en-US">
+     <a name="50401334_pgfId-459510" shape="rect">
+     </a>
+     <h3 class="title topictitle2">
+      <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401334_pgfId-459510" name="50401334_pgfId-459510" shape="rect">
+       2.7.1 Instruction Bandwidths 2-24
+      </a>
+     </h3>
+     <div class="body conbody">
+      <ul class="ul">
+       <li class="li">
+        The use of single-precision calculation is encouraged, if that precision is acceptable.
+       </li>
+       <li class="li">
+        The use of OpenCL built-in functions for mul24 and mad24 is encouraged.
+       </li>
+       <li class="li">
+        Note that mul24 can be useful for array indexing operations.
+       </li>
+       <li class="li">
+        Packed 16-bit and 8-bit operations are not natively supported; however, in cases where it is known that no overflow will occur, some algorithms may be able to effectively pack 2 to 4 values into the 32-bit registers natively supported by the hardware.
+       </li>
+       <li class="li">
+        No special compiler flags are required for the compiler to convert separate MUL/ADD operations to use the MAD instruction.
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="topic concept nested2" id="50401334_pgfId-459722" xml:lang="en-US">
+     <a name="50401334_pgfId-459722" shape="rect">
+     </a>
+     <h3 class="title topictitle2">
+      <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401334_pgfId-459722" name="50401334_pgfId-459722" shape="rect">
+       2.7.2 AMD Media Instructions 2-25
+      </a>
+     </h3>
+     <div class="body conbody">
+      <ul class="ul">
+      </ul>
+     </div>
+    </div>
+    <div class="topic concept nested2" id="50401334_pgfId-459778" xml:lang="en-US">
+     <a name="50401334_pgfId-459778" shape="rect">
+     </a>
+     <h3 class="title topictitle2">
+      <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401334_pgfId-459778" name="50401334_pgfId-459778" shape="rect">
+       2.7.3 Math Libraries 2-25
+      </a>
+     </h3>
+     <div class="body conbody">
+      <ul class="ul">
+       <li class="li">
+        The Southern Islands environment contains new instructions for increasing the previous performance of floating point division, trigonometric range reduction, certain type conversions with double-precision values, floating-point classification, and frexp/ldexp.
+       </li>
+       <li class="li">
+        Developers are encouraged to use the native functions when performance is more important than accuracy.
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="topic concept nested2" id="50401334_pgfId-451159" xml:lang="en-US">
+     <a name="50401334_pgfId-451159" shape="rect">
+     </a>
+     <h3 class="title topictitle2">
+      <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401334_pgfId-451159" name="50401334_pgfId-451159" shape="rect">
+       2.7.4 Compiler Optimizations 2-26
+      </a>
+     </h3>
+     <div class="body conbody">
+      <ul class="ul">
+       <li class="li">
+        By following these patterns, a developer can generate highly efficient code.
+       </li>
+       <li class="li">
+        If B, C, E, or F are equivalent to the value 0, this optimization is also supported.
+       </li>
+      </ul>
+     </div>
+    </div>
+   </div>
+   <div class="topic concept nested1" id="50401334_pgfId-520751" xml:lang="en-US">
+    <a name="50401334_pgfId-520751" shape="rect">
+    </a>
+    <h3 class="title topictitle2">
+     <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401334_pgfId-520751" name="50401334_pgfId-520751" shape="rect">
+      2.8 Additional Performance Guidance 2-26
+     </a>
+    </h3>
+    <div class="body conbody">
+     <ul class="ul">
+     </ul>
+    </div>
+    <div class="topic concept nested2" id="50401334_pgfId-448804" xml:lang="en-US">
+     <a name="50401334_pgfId-448804" shape="rect">
+     </a>
+     <h3 class="title topictitle2">
+      <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401334_pgfId-448804" name="50401334_pgfId-448804" shape="rect">
+       2.8.1 Loop Unroll  pragma  2-26
+      </a>
+     </h3>
+     <div class="body conbody">
+      <ul class="ul">
+      </ul>
+     </div>
+    </div>
+    <div class="topic concept nested2" id="50401334_pgfId-495342" xml:lang="en-US">
+     <a name="50401334_pgfId-495342" shape="rect">
+     </a>
+     <h3 class="title topictitle2">
+      <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401334_pgfId-495342" name="50401334_pgfId-495342" shape="rect">
+       2.8.2 Memory Tiling 2-27
+      </a>
+     </h3>
+     <div class="body conbody">
+      <ul class="ul">
+       <li class="li">
+        This format must be used for OpenCL buffers; it can be used for images.
+       </li>
+       <li class="li">
+        This can contribute to lower latency.
+       </li>
+       <li class="li">
+        If accessing a tiled image, best performance is achieved if the application tries to use workgroups with 16×16 (or 8×8) work-items.
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="topic concept nested2" id="50401334_pgfId-446673" xml:lang="en-US">
+     <a name="50401334_pgfId-446673" shape="rect">
+     </a>
+     <h3 class="title topictitle2">
+      <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401334_pgfId-446673" name="50401334_pgfId-446673" shape="rect">
+       2.8.3 General Tips 2-28
+      </a>
+     </h3>
+     <div class="body conbody">
+      <ul class="ul">
+       <li class="li">
+        Using dynamic pointer assignment in kernels that are executed on the GPU cause inefficient code generation.
+       </li>
+       <li class="li">
+        Avoid declaring global arrays on the kernel’s stack frame as these typically cannot be allocated in registers and require expensive global memory operations.
+       </li>
+       <li class="li">
+        Use predication rather than control-flow.
+       </li>
+       <li class="li">
+        Thus, the overhead to evaluate control-flow and execute branch instructions can consume a significant part of resource that otherwise can be used for high-throughput compute operations.
+       </li>
+       <li class="li">
+        The AMD Accelerated Parallel Processing OpenCL compiler performs simple loop unrolling optimizations; however, for more complex loop unrolling, it may be beneficial to do this manually.
+       </li>
+       <li class="li">
+        If possible, create a reduced-size version of your data set for easier debugging and faster turn-around on performance experimentation.
+       </li>
+       <li class="li">
+        In many cases, performance optimization for the reduced-size data implementation also benefits the full-size algorithm.
+       </li>
+       <li class="li">
+        When tuning an algorithm, it is often beneficial to code a simple but accurate algorithm that is retained and used for functional comparison.
+       </li>
+       <li class="li">
+        To narrow the problem further, it might be useful to remove or comment-out sections of code, then re-run the timing and profiling tool.
+       </li>
+       <li class="li">
+        Avoid writing code with dynamic pointer assignment on the GPU.
+       </li>
+       <li class="li">
+        If the algorithm allows changing the work-group size, it is possible to get better performance by using larger work-groups (more work-items in each work-group) because the workgroup creation overhead is reduced.
+       </li>
+       <li class="li">
+        On the other hand, the OpenCL CPU runtime uses a task-stealing algorithm at the work-group level, so when the kernel execution time differs because it contains conditions and/or loops of varying number of iterations, it might be better to increase the number of work-groups.
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="topic concept nested2" id="50401334_pgfId-521164" xml:lang="en-US">
+     <a name="50401334_pgfId-521164" shape="rect">
+     </a>
+     <h3 class="title topictitle2">
+      <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401334_pgfId-521164" name="50401334_pgfId-521164" shape="rect">
+       2.8.4 Guidance for CUDA Programmers Using OpenCL 2-30
+      </a>
+     </h3>
+     <div class="body conbody">
+      <ul class="ul">
+       <li class="li">
+        Algorithms that benefit from such throughput can deliver excellent performance on AMD Accelerated Parallel Processing hardware.
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="topic concept nested2" id="50401334_pgfId-446698" xml:lang="en-US">
+     <a name="50401334_pgfId-446698" shape="rect">
+     </a>
+     <h3 class="title topictitle2">
+      <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401334_pgfId-446698" name="50401334_pgfId-446698" shape="rect">
+       2.8.5 Guidance for CPU Programmers Using OpenCL to Program GPUs 2-30
+      </a>
+     </h3>
+     <div class="body conbody">
+      <ul class="ul">
+       <li class="li">
+        It is expected that many programmers skilled in CPU programming will program GPUs for the first time using OpenCL.
+       </li>
+       <li class="li">
+        A CPU-optimized algorithm may test branching conditions to minimize the workload.
+       </li>
+       <li class="li">
+        On a GPU, it is frequently faster simply to execute the workload.
+       </li>
+       <li class="li">
+        On a GPU, it frequently is faster to recompute values rather than saving them in registers.
+       </li>
+       <li class="li">
+        Use float4 and the OpenCL built-ins for vector types ( vload , vstore , etc.).
+       </li>
+       <li class="li">
+        Vectorization is an optimization that benefits both the AMD CPU and GPU.
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="topic concept nested2" id="50401334_pgfId-521316" xml:lang="en-US">
+     <a name="50401334_pgfId-521316" shape="rect">
+     </a>
+     <h3 class="title topictitle2">
+      <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401334_pgfId-521316" name="50401334_pgfId-521316" shape="rect">
+       2.8.6 Optimizing Kernel Code 2-31
+      </a>
+     </h3>
+     <div class="topic concept nested3" id="50401334_pgfId-521317" xml:lang="en-US">
+      <a name="50401334_pgfId-521317" shape="rect">
+      </a>
+      <h3 class="title topictitle2">
+       <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401334_pgfId-521317" name="50401334_pgfId-521317" shape="rect">
+        Using Vector Data Types 2-31
+       </a>
+      </h3>
+      <div class="body conbody">
+       <ul class="ul">
+        <li class="li">
+         The CPU contains a vector unit, which can be efficiently used if the developer is writing the code using vector data types.
+        </li>
+        <li class="li">
+         Using four-wide vector types (int4, float4, etc.)
+        </li>
+        <li class="li">
+         is preferred, even with Bulldozer.
+        </li>
+       </ul>
+      </div>
+     </div>
+     <div class="topic concept nested3" id="50401334_pgfId-521255" xml:lang="en-US">
+      <a name="50401334_pgfId-521255" shape="rect">
+      </a>
+      <h3 class="title topictitle2">
+       <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401334_pgfId-521255" name="50401334_pgfId-521255" shape="rect">
+        Local Memory 2-31
+       </a>
+      </h3>
+      <div class="body conbody">
+       <ul class="ul">
+        <li class="li">
+         The CPU does not benefit much from local memory; sometimes it is detrimental to performance.
+        </li>
+       </ul>
+      </div>
+     </div>
+     <div class="topic concept nested3" id="50401334_pgfId-521257" xml:lang="en-US">
+      <a name="50401334_pgfId-521257" shape="rect">
+      </a>
+      <h3 class="title topictitle2">
+       <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401334_pgfId-521257" name="50401334_pgfId-521257" shape="rect">
+        Using Special CPU Instructions 2-31
+       </a>
+      </h3>
+      <div class="body conbody">
+       <ul class="ul">
+       </ul>
+      </div>
+     </div>
+     <div class="topic concept nested3" id="50401334_pgfId-521264" xml:lang="en-US">
+      <a name="50401334_pgfId-521264" shape="rect">
+      </a>
+      <h3 class="title topictitle2">
+       <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401334_pgfId-521264" name="50401334_pgfId-521264" shape="rect">
+        Avoid Barriers When Possible 2-32
+       </a>
+      </h3>
+      <div class="body conbody">
+       <ul class="ul">
+        <li class="li">
+         Using barriers in a kernel on the CPU causes a significant performance penalty compared to the same kernel without barriers.
+        </li>
+        <li class="li">
+         Use a barrier only if the kernel requires it for correctness, and consider changing the algorithm to reduce barriers usage.
+        </li>
+       </ul>
+      </div>
+     </div>
+    </div>
+    <div class="topic concept nested2" id="50401334_pgfId-521246" xml:lang="en-US">
+     <a name="50401334_pgfId-521246" shape="rect">
+     </a>
+     <h3 class="title topictitle2">
+      <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401334_pgfId-521246" name="50401334_pgfId-521246" shape="rect">
+       2.8.7 Optimizing Kernels for Southern Island GPUs 2-32
+      </a>
+     </h3>
+     <div class="topic concept nested3" id="50401334_pgfId-494706" xml:lang="en-US">
+      <a name="50401334_pgfId-494706" shape="rect">
+      </a>
+      <h3 class="title topictitle2">
+       <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401334_pgfId-494706" name="50401334_pgfId-494706" shape="rect">
+        Remove Conditional Assignments 2-32
+       </a>
+      </h3>
+      <div class="body conbody">
+       <ul class="ul">
+        <li class="li">
+         Use the select() function to replace these structures with conditional assignments that do not cause branching.
+        </li>
+       </ul>
+      </div>
+     </div>
+     <div class="topic concept nested3" id="50401334_pgfId-494711" xml:lang="en-US">
+      <a name="50401334_pgfId-494711" shape="rect">
+      </a>
+      <h3 class="title topictitle2">
+       <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401334_pgfId-494711" name="50401334_pgfId-494711" shape="rect">
+        Bypass Short-Circuiting 2-32
+       </a>
+      </h3>
+      <div class="body conbody">
+       <ul class="ul">
+        <li class="li">
+         To prevent this, move the expression out of the control flow statement.
+        </li>
+       </ul>
+      </div>
+     </div>
+     <div class="topic concept nested3" id="50401334_pgfId-494717" xml:lang="en-US">
+      <a name="50401334_pgfId-494717" shape="rect">
+      </a>
+      <h3 class="title topictitle2">
+       <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401334_pgfId-494717" name="50401334_pgfId-494717" shape="rect">
+        Unroll Small Loops 2-32
+       </a>
+      </h3>
+      <div class="body conbody">
+       <ul class="ul">
+       </ul>
+      </div>
+     </div>
+     <div class="topic concept nested3" id="50401334_pgfId-494719" xml:lang="en-US">
+      <a name="50401334_pgfId-494719" shape="rect">
+      </a>
+      <h3 class="title topictitle2">
+       <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401334_pgfId-494719" name="50401334_pgfId-494719" shape="rect">
+        Avoid Nested  if s 2-32
+       </a>
+      </h3>
+      <div class="body conbody">
+       <ul class="ul">
+       </ul>
+      </div>
+     </div>
+     <div class="topic concept nested3" id="50401334_pgfId-494721" xml:lang="en-US">
+      <a name="50401334_pgfId-494721" shape="rect">
+      </a>
+      <h3 class="title topictitle2">
+       <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401334_pgfId-494721" name="50401334_pgfId-494721" shape="rect">
+        Experiment With  do / while / for Loops 2-33
+       </a>
+      </h3>
+      <div class="body conbody">
+       <ul class="ul">
+        <li class="li">
+         Experiment with these different loop types to find the one with best performance.
+        </li>
+       </ul>
+      </div>
+     </div>
+    </div>
+   </div>
+   <div class="topic concept nested1" id="50401334_pgfId-521515" xml:lang="en-US">
+    <a name="50401334_pgfId-521515" shape="rect">
+    </a>
+    <h3 class="title topictitle2">
+     <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401334_pgfId-521515" name="50401334_pgfId-521515" shape="rect">
+      2.9 Specific Guidelines for Southern Islands GPUs 2-33
+     </a>
+    </h3>
+    <div class="body conbody">
+     <ul class="ul">
+      <li class="li">
+       It was not always easy to schedule instructions to fill all of these slots, so achieving peak ALU utilization was a challenge.
+      </li>
+      <li class="li">
+       On SI GPUs, LDS memory has 32 banks; thus, it is important to be aware of LDS bank conflicts on half-wavefront boundaries.
+      </li>
+      <li class="li">
+       It is much easier to achieve high LDS bandwidth use on SI hardware.
+      </li>
+      <li class="li">
+       If the dispatch is larger than what can fit at once on the GPU, the GPU schedules new work-groups as others finish.
+      </li>
+      <li class="li">
+       I is recommended not to combine work-items.
+      </li>
+      <li class="li">
+       Work-groups with 256 work-items can be used to ensure that each compute unit is being used.
+      </li>
+      <li class="li">
+       The engine is wider than previous generations; this means larger dispatches are required to keep the all the compute units busy.
+      </li>
+      <li class="li">
+       This is critical when writing benchmarks it is important that the measurements are accurate and that “false dependencies” do not cause unnecessary slowdowns.
+      </li>
+      <li class="li">
+       To avoid stalls, use multiple output buffers.
+      </li>
+      <li class="li">
+       The number of buffers required to get peak performance depends on the kernel.
+      </li>
+     </ul>
+    </div>
+   </div>
+  </div>
+  <div class="topic concept nested0" id="50401371_pgfId-412605" xml:lang="en-US">
+   <a name="50401371_pgfId-412605" shape="rect">
+   </a>
+   <h2 class="title topictitle1">
+    <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401371_pgfId-412605" name="50401371_pgfId-412605" shape="rect">
+     Chapter 3 OpenCL Performance and
+Optimization for Evergreen and Northern Islands Devices
+    </a>
+   </h2>
+   <div class="body conbody">
+    <ul class="ul">
+    </ul>
+   </div>
+   <div class="topic concept nested1" id="50401371_pgfId-472054" xml:lang="en-US">
+    <a name="50401371_pgfId-472054" shape="rect">
+    </a>
+    <h3 class="title topictitle2">
+     <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401371_pgfId-472054" name="50401371_pgfId-472054" shape="rect">
+      3.1 Global Memory Optimization 3-1
+     </a>
+    </h3>
+    <div class="body conbody">
+     <ul class="ul">
+      <li class="li">
+       On a GPU, hardware schedules the work-items.
+      </li>
+     </ul>
+    </div>
+    <div class="topic concept nested2" id="50401371_pgfId-472079" xml:lang="en-US">
+     <a name="50401371_pgfId-472079" shape="rect">
+     </a>
+     <h3 class="title topictitle2">
+      <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401371_pgfId-472079" name="50401371_pgfId-472079" shape="rect">
+       3.1.1 Two Memory Paths 3-3
+      </a>
+     </h3>
+     <div class="body conbody">
+      <ul class="ul">
+       <li class="li">
+        This often is faster and preferred when there are no advanced operations.
+       </li>
+      </ul>
+     </div>
+     <div class="topic concept nested3" id="50401371_pgfId-472083" xml:lang="en-US">
+      <a name="50401371_pgfId-472083" shape="rect">
+      </a>
+      <h3 class="title topictitle2">
+       <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401371_pgfId-472083" name="50401371_pgfId-472083" shape="rect">
+        Performance Impact of FastPath and CompletePath 3-3
+       </a>
+      </h3>
+      <div class="body conbody">
+       <ul class="ul">
+       </ul>
+      </div>
+     </div>
+     <div class="topic concept nested3" id="50401371_pgfId-472136" xml:lang="en-US">
+      <a name="50401371_pgfId-472136" shape="rect">
+      </a>
+      <h3 class="title topictitle2">
+       <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401371_pgfId-472136" name="50401371_pgfId-472136" shape="rect">
+        Determining The Used Path 3-4
+       </a>
+      </h3>
+      <div class="body conbody">
+       <ul class="ul">
+        <li class="li">
+         TEX Use the L1 cache for the next instruction.
+        </li>
+       </ul>
+      </div>
+     </div>
+    </div>
+    <div class="topic concept nested2" id="50401371_pgfId-472173" xml:lang="en-US">
+     <a name="50401371_pgfId-472173" shape="rect">
+     </a>
+     <h3 class="title topictitle2">
+      <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401371_pgfId-472173" name="50401371_pgfId-472173" shape="rect">
+       3.1.2 Channel Conflicts 3-6
+      </a>
+     </h3>
+     <div class="body conbody">
+      <ul class="ul">
+       <li class="li">
+        Many important kernels do not exclusively use simple stride one accessing patterns; instead, they feature large non-unit strides.
+       </li>
+       <li class="li">
+        One solution is to rewrite the code to employ array transpositions between the kernels.
+       </li>
+       <li class="li">
+        Ensure that the time required for the transposition is relatively small compared to the time to perform the kernel calculation.
+       </li>
+       <li class="li">
+        For many kernels, the reduction in performance is sufficiently large that it is worthwhile to try to understand and solve this problem.
+       </li>
+       <li class="li">
+        In GPU programming, it is best to have adjacent work-items read or write adjacent memory addresses.
+       </li>
+       <li class="li">
+        This is one way to avoid channel conflicts.
+       </li>
+       <li class="li">
+        When the application has complete control of the access pattern and address generation, the developer must arrange the data structures to minimize bank conflicts.
+       </li>
+       <li class="li">
+        This is a low-performance pattern to be avoided.
+       </li>
+       <li class="li">
+        Since the wavefront size is 64, channel conflicts are avoided if each work-item in a wave reads a different address from a 64-word region.
+       </li>
+       <li class="li">
+        One way to achieve this is for each wavefront to access consecutive groups of 256 = 64 * 4 bytes.
+       </li>
+       <li class="li">
+        To avoid power of two strides: Add an extra column to the data matrix.
+       </li>
+       <li class="li">
+        Change the work-group size so that it is not a power of 26.
+       </li>
+       <li class="li">
+        It is best to use a width that causes a rotation through all of the memory channels, instead of using the same one repeatedly.
+       </li>
+       <li class="li">
+        Change the kernel to access the matrix with a staggered offset.
+       </li>
+      </ul>
+     </div>
+     <div class="topic concept nested3" id="50401371_pgfId-472340" xml:lang="en-US">
+      <a name="50401371_pgfId-472340" shape="rect">
+      </a>
+      <h3 class="title topictitle2">
+       <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401371_pgfId-472340" name="50401371_pgfId-472340" shape="rect">
+        Staggered Offsets 3-9
+       </a>
+      </h3>
+      <div class="body conbody">
+       <ul class="ul">
+        <li class="li">
+         Unlike adding a column, this technique does not use extra space.
+        </li>
+        <li class="li">
+         By introducing a transformation, it is possible to stagger the work-groups to avoid channel conflicts.
+        </li>
+        <li class="li">
+         To transform the code, add the following four lines to the top of the kernel.
+        </li>
+        <li class="li">
+         Then, change the global IDs and group IDs to the staggered form.
+        </li>
+       </ul>
+      </div>
+     </div>
+     <div class="topic concept nested3" id="50401371_pgfId-472385" xml:lang="en-US">
+      <a name="50401371_pgfId-472385" shape="rect">
+      </a>
+      <h3 class="title topictitle2">
+       <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401371_pgfId-472385" name="50401371_pgfId-472385" shape="rect">
+        Reads Of The Same Address 3-10
+       </a>
+      </h3>
+      <div class="body conbody">
+       <ul class="ul">
+        <li class="li">
+         To read in a single value, read the value in a single work-item, place it in local memory, and then use that location: Avoid: Use:
+        </li>
+       </ul>
+      </div>
+     </div>
+    </div>
+    <div class="topic concept nested2" id="50401371_pgfId-472397" xml:lang="en-US">
+     <a name="50401371_pgfId-472397" shape="rect">
+     </a>
+     <h3 class="title topictitle2">
+      <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401371_pgfId-472397" name="50401371_pgfId-472397" shape="rect">
+       3.1.3 Float4 Or Float1 3-11
+      </a>
+     </h3>
+     <div class="body conbody">
+      <ul class="ul">
+       <li class="li">
+        Change to float4 after eliminating the conflicts.
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="topic concept nested2" id="50401371_pgfId-472466" xml:lang="en-US">
+     <a name="50401371_pgfId-472466" shape="rect">
+     </a>
+     <h3 class="title topictitle2">
+      <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401371_pgfId-472466" name="50401371_pgfId-472466" shape="rect">
+       3.1.4 Coalesced Writes 3-12
+      </a>
+     </h3>
+     <div class="body conbody">
+      <ul class="ul">
+       <li class="li">
+        On some other vendor devices, it is important to reorder your data to use coalesced writes.
+       </li>
+       <li class="li">
+        The ATI Radeon  HD 5000-series devices also support coalesced writes, but this optimization is less important than other considerations, such as avoiding bank conflicts.
+       </li>
+       <li class="li">
+        For coalesced writes, processing quarter-wavefront takes one cycle instead of two.
+       </li>
+       <li class="li">
+        The first kernel Copy1 maximizes coalesced writes: work-item k writes to address k. The second kernel writes a shifted pattern: In each quarter-wavefront of 16 work-items, work-item k writes to address k-1, except the first work-item in each quarter-wavefront writes to address k+16.
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="topic concept nested2" id="50401371_pgfId-472569" xml:lang="en-US">
+     <a name="50401371_pgfId-472569" shape="rect">
+     </a>
+     <h3 class="title topictitle2">
+      <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401371_pgfId-472569" name="50401371_pgfId-472569" shape="rect">
+       3.1.5 Alignment 3-14
+      </a>
+     </h3>
+     <div class="body conbody">
+      <ul class="ul">
+      </ul>
+     </div>
+    </div>
+    <div class="topic concept nested2" id="50401371_pgfId-472647" xml:lang="en-US">
+     <a name="50401371_pgfId-472647" shape="rect">
+     </a>
+     <h3 class="title topictitle2">
+      <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401371_pgfId-472647" name="50401371_pgfId-472647" shape="rect">
+       3.1.6 Summary of Copy Performance 3-16
+      </a>
+     </h3>
+     <div class="body conbody">
+      <ul class="ul">
+       <li class="li">
+        The recommended order of steps to improve performance is: Examine the data-set sizes and launch dimensions to see if you can eliminate bank conflicts.
+       </li>
+       <li class="li">
+        Try to use float4 instead of float1.
+       </li>
+       <li class="li">
+        This is important on some hardware platforms, but only of limited importance for AMD GPU devices.
+       </li>
+      </ul>
+     </div>
+    </div>
+   </div>
+   <div class="topic concept nested1" id="50401371_pgfId-481974" xml:lang="en-US">
+    <a name="50401371_pgfId-481974" shape="rect">
+    </a>
+    <h3 class="title topictitle2">
+     <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401371_pgfId-481974" name="50401371_pgfId-481974" shape="rect">
+      3.2 Local Memory (LDS) Optimization 3-16
+     </a>
+    </h3>
+    <div class="body conbody">
+     <ul class="ul">
+      <li class="li">
+       Local memory offers significant advantages when the data is re-used; for example, subsequent accesses can read from local memory, thus reducing global memory bandwidth.
+      </li>
+      <li class="li">
+       As shown below, programmers should carefully control the bank bits to avoid bank conflicts as much as possible.
+      </li>
+      <li class="li">
+       A program with a large number of bank conflicts (as measured by the LDSBankConflict performance counter) might benefit from using the constant or image memory rather than LDS.
+      </li>
+      <li class="li">
+       Thus, the key to effectively using the local cache memory is to control the access pattern so that accesses generated on the same cycle map to different banks in the local memory.
+      </li>
+      <li class="li">
+       Ensure, as much as possible, that the memory requests generated from a quarter-wavefront avoid bank conflicts by using unique address bits 6:2.
+      </li>
+      <li class="li">
+       Developers can use the large register file: each compute unit has 256 kB of register space available (8X the LDS size) and can provide up to twelve 4-byte values/cycle (6X the LDS bandwidth).
+      </li>
+      <li class="li">
+       Combined with proper consideration for the access pattern and bank alignment, these collaborative write approaches can lead to highly efficient memory accessing.
+      </li>
+      <li class="li">
+       An important optimization is the case where the local work-group size is less than, or equal to, the wavefront size.
+      </li>
+      <li class="li">
+       Developers are strongly encouraged to include the barriers where appropriate, and rely on the compiler to remove the barriers when possible, rather than manually removing the barriers() .
+      </li>
+      <li class="li">
+       This technique results in more portable code, including the ability to run kernels on CPU devices.
+      </li>
+     </ul>
+    </div>
+   </div>
+   <div class="topic concept nested1" id="50401371_pgfId-448213" xml:lang="en-US">
+    <a name="50401371_pgfId-448213" shape="rect">
+    </a>
+    <h3 class="title topictitle2">
+     <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401371_pgfId-448213" name="50401371_pgfId-448213" shape="rect">
+      3.3 Constant Memory Optimization 3-19
+     </a>
+    </h3>
+    <div class="body conbody">
+     <ul class="ul">
+      <li class="li">
+       Very high bandwidth can be attained when the compiler has available the constant address at compile time and can embed the constant address into the instruction.
+      </li>
+      <li class="li">
+       This can reduce significantly the required memory bandwidth.
+      </li>
+      <li class="li">
+       To further improve the performance of the AMD OpenCL stack, two methods allow users to take advantage of hardware constant buffers.
+      </li>
+      <li class="li">
+       Using a constant pointer that goes outside of this range results in undefined behavior.
+      </li>
+      <li class="li">
+       This optimization can be applied recursively by treating the resulting allocation as a single allocation and finding the next smallest constant pointer that fits within the space left in the constant buffer.
+      </li>
+     </ul>
+    </div>
+   </div>
+   <div class="topic concept nested1" id="50401371_pgfId-449206" xml:lang="en-US">
+    <a name="50401371_pgfId-449206" shape="rect">
+    </a>
+    <h3 class="title topictitle2">
+     <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401371_pgfId-449206" name="50401371_pgfId-449206" shape="rect">
+      3.4 OpenCL Memory Resources: Capacity and Performance 3-20
+     </a>
+    </h3>
+    <div class="body conbody">
+     <ul class="ul">
+      <li class="li">
+       To enable this, the developer must indicate to the compiler that the buffer is read only and does not alias with other buffers.
+      </li>
+      <li class="li">
+       For example, use: The const indicates to the compiler that mypointerName is read only from the kernel, and the restrict attribute indicates to the compiler that no other pointer aliases with mypointerName .
+      </li>
+      <li class="li">
+       Using float4 with images increases the request size and can deliver higher L1 cache bandwidth.
+      </li>
+     </ul>
+    </div>
+   </div>
+   <div class="topic concept nested1" id="50401371_pgfId-487708" xml:lang="en-US">
+    <a name="50401371_pgfId-487708" shape="rect">
+    </a>
+    <h3 class="title topictitle2">
+     <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401371_pgfId-487708" name="50401371_pgfId-487708" shape="rect">
+      3.5 Using LDS or L1 Cache 3-22
+     </a>
+    </h3>
+    <div class="body conbody">
+     <ul class="ul">
+      <li class="li">
+       If it is not possible to obtain a high L1 cache hit rate for an algorithm, the larger LDS size can help.
+      </li>
+      <li class="li">
+       It is important that L1 is initially filled from global memory with a coalesced access pattern; once filled, random accesses come at no extra processing cost.
+      </li>
+      <li class="li">
+       The theoretical LDS peak bandwidth is achieved when each thread operates on a two-vector of 32-bit words (16 threads per clock operate on 32 banks).
+      </li>
+      <li class="li">
+       If an algorithm requires coalesced 32-bit quantities, it maps well to LDS.
+      </li>
+      <li class="li">
+       The use of four-vectors or larger can lead to bank conflicts.
+      </li>
+      <li class="li">
+       Thus, LDS can be used to explicitly convert a scattered access pattern to a coalesced pattern for read and write to global memory.
+      </li>
+      <li class="li">
+       Better sharing efficiency requires a larger work-group, so that more work items share the same LDS.
+      </li>
+      <li class="li">
+       This, in turn, reduces memory latency hiding.
+      </li>
+     </ul>
+    </div>
+   </div>
+   <div class="topic concept nested1" id="50401371_pgfId-487709" xml:lang="en-US">
+    <a name="50401371_pgfId-487709" shape="rect">
+    </a>
+    <h3 class="title topictitle2">
+     <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401371_pgfId-487709" name="50401371_pgfId-487709" shape="rect">
+      3.6 NDRange and Execution Range Optimization 3-23
+     </a>
+    </h3>
+    <div class="body conbody">
+     <ul class="ul">
+      <li class="li">
+       Probably the most effective way to exploit the potential performance of the GPU is to provide enough threads to keep the device completely busy.
+      </li>
+      <li class="li">
+       The programmer specifies a three-dimensional NDRange over which to execute the kernel; bigger problems with larger NDRanges certainly help to more effectively use the machine.
+      </li>
+      <li class="li">
+       The programmer also controls how the global NDRange is divided into local ranges, as well as how much work is done in each work-item, and which resources (registers and local memory) are used by the kernel.
+      </li>
+      <li class="li">
+       This section introduces the concept of latency hiding, how many wavefronts are required to hide latency on AMD GPUs, how the resource usage in the kernel can impact the active wavefronts, and how to choose appropriate global and local work-group dimensions.
+      </li>
+     </ul>
+    </div>
+    <div class="topic concept nested2" id="50401371_pgfId-473708" xml:lang="en-US">
+     <a name="50401371_pgfId-473708" shape="rect">
+     </a>
+     <h3 class="title topictitle2">
+      <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401371_pgfId-473708" name="50401371_pgfId-473708" shape="rect">
+       3.6.1 Hiding ALU and Memory Latency 3-23
+      </a>
+     </h3>
+     <div class="body conbody">
+      <ul class="ul">
+       <li class="li">
+        To better understand this concept, consider a global memory access which takes 400 cycles to execute.
+       </li>
+       <li class="li">
+        If the wavefront contains 10 instructions rather than 5, the wavefront pair would consume 80 cycles of latency, and only 10 wavefronts would be required to hide the 400 cycles of latency.
+       </li>
+       <li class="li">
+        Generally, it is not possible to predict how the compute unit schedules the available wavefronts, and thus it is not useful to try to predict exactly which ALU block executes when trying to hide latency.
+       </li>
+       <li class="li">
+        Instead, consider the overall ratio of ALU operations to fetch operations – this metric is reported by the CodeXL GPU Profiler in the ALUFetchRatio counter.
+       </li>
+       <li class="li">
+        In this case, generating more wavefronts does not improve performance; it can reduce performance by creating more contention.)
+       </li>
+       <li class="li">
+        Increasing the wavefronts/compute unit does not indefinitely improve performance; once the GPU has enough wavefronts to hide latency, additional active wavefronts provide little or no performance benefit.
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="topic concept nested2" id="50401371_pgfId-452280" xml:lang="en-US">
+     <a name="50401371_pgfId-452280" shape="rect">
+     </a>
+     <h3 class="title topictitle2">
+      <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401371_pgfId-452280" name="50401371_pgfId-452280" shape="rect">
+       3.6.2 Resource Limits on Active Wavefronts 3-24
+      </a>
+     </h3>
+     <div class="body conbody">
+      <ul class="ul">
+       <li class="li">
+        Thus, it is useful to convert this global limit into an average wavefront/compute unit so that it can be compared to the other limits discussed in this section.
+       </li>
+       <li class="li">
+        These limits are largely properties of the hardware and, thus, difficult for developers to control directly.
+       </li>
+      </ul>
+     </div>
+     <div class="topic concept nested3" id="50401371_pgfId-452285" xml:lang="en-US">
+      <a name="50401371_pgfId-452285" shape="rect">
+      </a>
+      <h3 class="title topictitle2">
+       <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401371_pgfId-452285" name="50401371_pgfId-452285" shape="rect">
+        GPU Registers 3-25
+       </a>
+      </h3>
+      <div class="body conbody">
+       <ul class="ul">
+        <li class="li">
+         Generally, it is a good idea to re-write the algorithm to use fewer GPRs, or tune the work-group dimensions specified at launch time to expose more registers/kernel to the compiler, in order to reduce the scratch register usage to 0.
+        </li>
+       </ul>
+      </div>
+     </div>
+     <div class="topic concept nested3" id="50401371_pgfId-458289" xml:lang="en-US">
+      <a name="50401371_pgfId-458289" shape="rect">
+      </a>
+      <h3 class="title topictitle2">
+       <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401371_pgfId-458289" name="50401371_pgfId-458289" shape="rect">
+        Specifying the Default Work-Group Size at Compile-Time 3-26
+       </a>
+      </h3>
+      <div class="body conbody">
+       <ul class="ul">
+        <li class="li">
+         In particular, specifying a smaller work-group size at compile time allows the compiler to allocate more registers for each kernel, which can avoid spill code and improve performance.
+        </li>
+       </ul>
+      </div>
+     </div>
+     <div class="topic concept nested3" id="50401371_pgfId-458253" xml:lang="en-US">
+      <a name="50401371_pgfId-458253" shape="rect">
+      </a>
+      <h3 class="title topictitle2">
+       <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401371_pgfId-458253" name="50401371_pgfId-458253" shape="rect">
+        Local Memory (LDS) Size 3-27
+       </a>
+      </h3>
+      <div class="body conbody">
+       <ul class="ul">
+        <li class="li">
+         Alternatively, use the CodeXL GPU Profiler to generate the ISA dump (described in See Analyzing Processor Kernels), then search for the string SQ_LDS_ALLOC:SIZE in the ISA dump.
+        </li>
+       </ul>
+      </div>
+     </div>
+    </div>
+    <div class="topic concept nested2" id="50401371_pgfId-458820" xml:lang="en-US">
+     <a name="50401371_pgfId-458820" shape="rect">
+     </a>
+     <h3 class="title topictitle2">
+      <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401371_pgfId-458820" name="50401371_pgfId-458820" shape="rect">
+       3.6.3 Partitioning the Work 3-28
+      </a>
+     </h3>
+     <div class="body conbody">
+      <ul class="ul">
+       <li class="li">
+        The partition of the NDRange can have a significant impact on performance; thus, it is recommended that the developer explicitly specify the global ( #work-groups ) and local ( #work-items/work-group ) dimensions, rather than rely on OpenCL to set these automatically (by setting local_work_size to NULL in clEnqueueNDRangeKernel ).
+       </li>
+      </ul>
+     </div>
+     <div class="topic concept nested3" id="50401371_pgfId-452491" xml:lang="en-US">
+      <a name="50401371_pgfId-452491" shape="rect">
+      </a>
+      <h3 class="title topictitle2">
+       <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401371_pgfId-452491" name="50401371_pgfId-452491" shape="rect">
+        Global Work Size 3-28
+       </a>
+      </h3>
+      <div class="body conbody">
+       <ul class="ul">
+        <li class="li">
+         In these cases, the programmer must partition the workload into multiple clEnqueueNDRangeKernel commands.
+        </li>
+        <li class="li">
+         At a minimum, ensure that the workload contains at least as many work-groups as the number of compute units in the hardware.
+        </li>
+       </ul>
+      </div>
+     </div>
+     <div class="topic concept nested3" id="50401371_pgfId-452494" xml:lang="en-US">
+      <a name="50401371_pgfId-452494" shape="rect">
+      </a>
+      <h3 class="title topictitle2">
+       <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401371_pgfId-452494" name="50401371_pgfId-452494" shape="rect">
+        Local Work Size (#Work-Items per Work-Group) 3-28
+       </a>
+      </h3>
+      <div class="body conbody">
+       <ul class="ul">
+        <li class="li">
+         Call clDeviceInfo with the CL_DEVICE_MAX_WORK_GROUP_SIZE to determine the maximum number of work-groups supported by the hardware.
+        </li>
+        <li class="li">
+         Thus, larger work-groups enable more work-items to efficiently share data, which can reduce the amount of slower global communication.
+        </li>
+        <li class="li">
+         However, larger work-groups reduce the number of global work-groups, which, for small workloads, could result in idle compute units.
+        </li>
+        <li class="li">
+         Generally, larger work-groups are better as long as the global range is big enough to provide 1-2 Work-Groups for each compute unit in the system; for small workloads it generally works best to reduce the work-group size in order to avoid idle compute units.
+        </li>
+       </ul>
+      </div>
+     </div>
+     <div class="topic concept nested3" id="50401371_pgfId-452498" xml:lang="en-US">
+      <a name="50401371_pgfId-452498" shape="rect">
+      </a>
+      <h3 class="title topictitle2">
+       <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401371_pgfId-452498" name="50401371_pgfId-452498" shape="rect">
+        Moving Work to the Kernel 3-29
+       </a>
+      </h3>
+      <div class="body conbody">
+       <ul class="ul">
+        <li class="li">
+         This technique can be important for effectively using the processing elements available in the five-wide (or four-wide, depending on the GPU type) VLIW processing engine (see the ALUPacking performance counter reported by the CodeXL GPU Profiler).
+        </li>
+        <li class="li">
+         The mechanics of this technique often is as simple as adding a for loop around the kernel, so that the kernel body is run multiple times inside this loop, then adjusting the global work size to reduce the work-items.
+        </li>
+        <li class="li">
+         When moving work to the kernel, often it is best to combine work-items that are separated by 16 in the NDRange index space, rather than combining adjacent work-items.
+        </li>
+        <li class="li">
+         A better access pattern is to combine four work-items so that the first work-item accesses array elements A+0, A+16, A+32, and A+48.
+        </li>
+        <li class="li">
+         For example, consider a case where an algorithm requires 32×32 elements of shared memory.
+        </li>
+        <li class="li">
+         Instead, each kernel can be written to process four elements, and a work-group of 16×16 work-items could be launched to process the entire array.
+        </li>
+       </ul>
+      </div>
+     </div>
+     <div class="topic concept nested3" id="50401371_pgfId-457158" xml:lang="en-US">
+      <a name="50401371_pgfId-457158" shape="rect">
+      </a>
+      <h3 class="title topictitle2">
+       <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401371_pgfId-457158" name="50401371_pgfId-457158" shape="rect">
+        Work-Group Dimensions vs Size 3-30
+       </a>
+      </h3>
+      <div class="body conbody">
+       <ul class="ul">
+        <li class="li">
+         The GPU hardware schedules the kernels so that the X dimensions moves fastest as the work-items are packed into wavefronts.
+        </li>
+        <li class="li">
+         Typically, it is best to choose an X dimension of at least 16, then optimize the memory patterns for a block of 16 work-items which differ by 1 in the X dimension.
+        </li>
+        <li class="li">
+         The packing order can be important if the kernel contains divergent branches.
+        </li>
+        <li class="li">
+         If possible, pack together work-items that are likely to follow the same direction when control-flow is encountered.
+        </li>
+        <li class="li">
+         It might be more likely that a square of 8×8 pixels is the same color than a 64×1 strip; thus, the 8×8 would see less divergence and higher performance.
+        </li>
+        <li class="li">
+         When in doubt, a square 16×16 work-group size is a good start.
+        </li>
+       </ul>
+      </div>
+     </div>
+    </div>
+    <div class="topic concept nested2" id="50401371_pgfId-452785" xml:lang="en-US">
+     <a name="50401371_pgfId-452785" shape="rect">
+     </a>
+     <h3 class="title topictitle2">
+      <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401371_pgfId-452785" name="50401371_pgfId-452785" shape="rect">
+       3.6.4 Optimizing for Cedar 3-31
+      </a>
+     </h3>
+     <div class="body conbody">
+      <ul class="ul">
+       <li class="li">
+        Applications must ensure that the requested kernel launch dimensions that are fewer than the threshold reported by this API call.
+       </li>
+       <li class="li">
+        One technique that can be useful is to specify the required work-group size as 128 (half the default of 256).
+       </li>
+       <li class="li">
+        The developer must ensure that the kernel is launched with the reduced work size (128) on Cedar-class devices.
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="topic concept nested2" id="50401371_pgfId-457368" xml:lang="en-US">
+     <a name="50401371_pgfId-457368" shape="rect">
+     </a>
+     <h3 class="title topictitle2">
+      <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401371_pgfId-457368" name="50401371_pgfId-457368" shape="rect">
+       3.6.5 Summary of NDRange Optimizations 3-32
+      </a>
+     </h3>
+     <div class="body conbody">
+      <ul class="ul">
+       <li class="li">
+        As shown above, execution range optimization is a complex topic with many interacting variables and which frequently requires some experimentation to determine the optimal values.
+       </li>
+       <li class="li">
+        Some general guidelines are: Select the work-group size to be a multiple of 64, so that the wavefronts are fully populated.
+       </li>
+       <li class="li">
+        If necessary, reduce the work-group size (but not below 64 work-items) to provide work-groups for all compute units in the system.
+       </li>
+       <li class="li">
+        Generally, two to eight wavefronts/compute unit is desirable, but this can vary significantly, depending on the complexity of the kernel and the available memory bandwidth.
+       </li>
+       <li class="li">
+        The CodeXL GPU Profiler and associated performance counters can help to select an optimal value.
+       </li>
+      </ul>
+     </div>
+    </div>
+   </div>
+   <div class="topic concept nested1" id="50401371_pgfId-463371" xml:lang="en-US">
+    <a name="50401371_pgfId-463371" shape="rect">
+    </a>
+    <h3 class="title topictitle2">
+     <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401371_pgfId-463371" name="50401371_pgfId-463371" shape="rect">
+      3.7 Using Multiple OpenCL Devices 3-32
+     </a>
+    </h3>
+    <div class="body conbody">
+     <ul class="ul">
+     </ul>
+    </div>
+    <div class="topic concept nested2" id="50401371_pgfId-463382" xml:lang="en-US">
+     <a name="50401371_pgfId-463382" shape="rect">
+     </a>
+     <h3 class="title topictitle2">
+      <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401371_pgfId-463382" name="50401371_pgfId-463382" shape="rect">
+       3.7.1 CPU and GPU Devices 3-32
+      </a>
+     </h3>
+     <div class="body conbody">
+      <ul class="ul">
+       <li class="li">
+        Divergent control-flow on a GPU can be quite expensive and can lead to significant under-utilization of the GPU device.
+       </li>
+       <li class="li">
+        When control flow substantially narrows the number of valid work-items in a wave-front, it can be faster to use the CPU device.
+       </li>
+       <li class="li">
+        The larger CPU cache serves both to reduce the average memory latency and to reduce memory bandwidth in cases where data can be re-used from the caches.
+       </li>
+       <li class="li">
+        For example, an image-processing algorithm may run faster on the GPU if the images are large, but faster on the CPU when the images are small.
+       </li>
+       <li class="li">
+        In some cases, the same algorithm can exhibit both types of workload.
+       </li>
+       <li class="li">
+        A simple example is a reduction operation such as a sum of all the elements in a large array.
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="topic concept nested2" id="50401371_pgfId-463540" xml:lang="en-US">
+     <a name="50401371_pgfId-463540" shape="rect">
+     </a>
+     <h3 class="title topictitle2">
+      <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401371_pgfId-463540" name="50401371_pgfId-463540" shape="rect">
+       3.7.2 When to Use Multiple Devices 3-35
+      </a>
+     </h3>
+     <div class="body conbody">
+      <ul class="ul">
+       <li class="li">
+        One of the features of GPU computing is that some algorithms can run substantially faster and at better energy efficiency compared to a CPU device.
+       </li>
+       <li class="li">
+        Also, once an algorithm has been coded in the data-parallel task style for OpenCL, the same code typically can scale to run on GPUs with increasing compute capability (that is more compute units) or even multiple GPUs (with a little more work).
+       </li>
+       <li class="li">
+        If the CPU and the GPU deliver similar performance, the user can get the benefit of either improved power efficiency (by running on the GPU) or higher peak performance (use both devices).
+       </li>
+       <li class="li">
+        Usually, when the data size is small, it is faster to use the CPU because the start-up time is quicker than on the GPU due to a smaller driver overhead and avoiding the need to copy buffers from the host to the device.
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="topic concept nested2" id="50401371_pgfId-463544" xml:lang="en-US">
+     <a name="50401371_pgfId-463544" shape="rect">
+     </a>
+     <h3 class="title topictitle2">
+      <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401371_pgfId-463544" name="50401371_pgfId-463544" shape="rect">
+       3.7.3 Partitioning Work for Multiple Devices 3-35
+      </a>
+     </h3>
+     <div class="body conbody">
+      <ul class="ul">
+       <li class="li">
+        Simple static partitioning algorithms which “guess wrong” at the beginning can result in significantly lower performance, since some devices finish and become idle while the whole system waits for the single, unexpectedly slow device.
+       </li>
+       <li class="li">
+        For these reasons, a dynamic scheduling algorithm is recommended.
+       </li>
+       <li class="li">
+        The approach creates some additional scheduling and kernel submission overhead, but dynamic scheduling generally helps avoid the performance cliff from a single bad initial scheduling decision, as well as higher performance in real-world system environments (since it can adapt to system conditions as the algorithm runs).
+       </li>
+       <li class="li">
+        To some extent, dynamic scheduling is already designed to deal with heterogeneous workloads (based on data input the same algorithm can have very different performance, even when run on the same device), but a system with heterogeneous devices makes these cases more common and more extreme.
+       </li>
+       <li class="li">
+        The scheduler should support sending different workload sizes to different devices.
+       </li>
+       <li class="li">
+        GPUs typically prefer larger grain sizes, and higher-performing GPUs prefer still larger grain sizes.
+       </li>
+       <li class="li">
+        The scheduler should be conservative about allocating work until after it has examined how the work is being executed.
+       </li>
+       <li class="li">
+        In particular, it is important to avoid the performance cliff that occurs when a slow device is assigned an important long-running task.
+       </li>
+       <li class="li">
+        One technique is to use small grain allocations at the beginning of the algorithm, then switch to larger grain allocations when the device characteristics are well-known.
+       </li>
+       <li class="li">
+        The scheduler must balance small-grain-size (which increase the adaptiveness of the schedule and can efficiently use heterogeneous devices) with larger grain sizes (which reduce scheduling overhead).
+       </li>
+       <li class="li">
+        The host application can enqueue multiple kernels, flush the kernels so they begin executing on the device, then use the host core for other work.
+       </li>
+       <li class="li">
+        One situation that should be avoided is starving the high-performance GPU devices.
+       </li>
+       <li class="li">
+        The device fission extension (see the Extensions appendix of the AMD OpenCL User Guide) can be used to reserve a core for scheduling.
+       </li>
+       <li class="li">
+        For example, on a quad-core device, device fission can be used to create an OpenCL device with only three cores.
+       </li>
+       <li class="li">
+        This effectively increase the grain size, but can be very effective at reducing or eliminating device starvation.
+       </li>
+       <li class="li">
+        Developers cannot directly query the list of commands in the OpenCL command queues; however, it is possible to pass an event to each clEnqueue call that can be queried, in order to determine the execution status (in particular the command completion time); developers also can maintain their own queue of outstanding requests.
+       </li>
+       <li class="li">
+        For many algorithms, this technique can be effective enough at hiding latency so that a core does not need to be reserved for scheduling.
+       </li>
+       <li class="li">
+        Algorithms in which work is dynamically created may require a dedicated thread to provide low-latency scheduling.
+       </li>
+       <li class="li">
+        Schedulers should be aware of this cost and, for example, attempt to schedule work that consumes the result on the same device producing it.
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="topic concept nested2" id="50401371_pgfId-463566" xml:lang="en-US">
+     <a name="50401371_pgfId-463566" shape="rect">
+     </a>
+     <h3 class="title topictitle2">
+      <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401371_pgfId-463566" name="50401371_pgfId-463566" shape="rect">
+       3.7.4 Synchronization Caveats 3-37
+      </a>
+     </h3>
+     <div class="body conbody">
+      <ul class="ul">
+       <li class="li">
+        Enqueuing several commands before flushing can enable the host CPU to batch together the command submission, which can reduce launch overhead.
+       </li>
+       <li class="li">
+        This synchronization guarantee can often be leveraged to avoid explicit clWaitForEvents() calls between command submissions.
+       </li>
+       <li class="li">
+        Using clWaitForEvents() requires intervention by the host CPU and additional synchronization cost between the host and the GPU; by leveraging the in-order queue property, back-to-back kernel executions can be efficiently handled directly on the GPU hardware.
+       </li>
+       <li class="li">
+        If the host thread is managing multiple devices, it is important to call clFlush for each command-queue before calling clFinish , so that the commands are flushed and execute in parallel on the devices.
+       </li>
+       <li class="li">
+        For low-latency CPU response, it can be more efficient to use a dedicated spin loop and not call clFinish() Calling clFinish() indicates that the application wants to wait for the GPU, putting the thread to sleep.
+       </li>
+       <li class="li">
+        For low latency, the application should use clFlush() , followed by a loop to wait for the event to complete.
+       </li>
+       <li class="li">
+        The application should use non-blocking maps followed by a loop waiting on the event.
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="topic concept nested2" id="50401371_pgfId-463571" xml:lang="en-US">
+     <a name="50401371_pgfId-463571" shape="rect">
+     </a>
+     <h3 class="title topictitle2">
+      <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401371_pgfId-463571" name="50401371_pgfId-463571" shape="rect">
+       3.7.5 GPU and CPU Kernels 3-38
+      </a>
+     </h3>
+     <div class="body conbody">
+      <ul class="ul">
+       <li class="li">
+        While OpenCL provides functional portability so that the same kernel can run on any device, peak performance for each device is typically obtained by tuning the OpenCL kernel for the target device.
+       </li>
+       <li class="li">
+        On a CPU, local memory is mapped to the same cacheable DRAM used for global memory, and there is no performance benefit from using the __local qualifier.
+       </li>
+       <li class="li">
+        The additional memory operations to write to LDS, and the associated barrier operations can reduce performance.
+       </li>
+       <li class="li">
+        One notable exception is when local memory is used to pack values to avoid non-coalesced memory patterns.
+       </li>
+       <li class="li">
+        Small numbers of active work-group sizes reduce the CPU switching overhead, although for larger kernels this is a second-order effect.
+       </li>
+       <li class="li">
+        For a balanced solution that runs reasonably well on both devices, developers are encouraged to write the algorithm using float4 vectorization.
+       </li>
+       <li class="li">
+        The GPU is more sensitive to algorithm tuning; it also has higher peak performance potential.
+       </li>
+       <li class="li">
+        For peak performance on all devices, developers can choose to use conditional compilation for key code loops in the kernel, or in some cases even provide two separate kernels.
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="topic concept nested2" id="50401371_pgfId-463581" xml:lang="en-US">
+     <a name="50401371_pgfId-463581" shape="rect">
+     </a>
+     <h3 class="title topictitle2">
+      <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401371_pgfId-463581" name="50401371_pgfId-463581" shape="rect">
+       3.7.6 Contexts and Devices 3-40
+      </a>
+     </h3>
+     <div class="body conbody">
+      <ul class="ul">
+       <li class="li">
+        Thus, developers must choose whether to place all devices in the same context or create a new context for each device.
+       </li>
+       <li class="li">
+        However, with current OpenCL implementations, creating a separate context for each device provides more flexibility, especially in that buffer allocations can be targeted to occur on specific devices.
+       </li>
+       <li class="li">
+        Generally, placing the devices in the same context is the preferred solution.
+       </li>
+      </ul>
+     </div>
+    </div>
+   </div>
+   <div class="topic concept nested1" id="50401371_pgfId-451154" xml:lang="en-US">
+    <a name="50401371_pgfId-451154" shape="rect">
+    </a>
+    <h3 class="title topictitle2">
+     <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401371_pgfId-451154" name="50401371_pgfId-451154" shape="rect">
+      3.8 Instruction Selection Optimizations 3-41
+     </a>
+    </h3>
+    <div class="topic concept nested2" id="50401371_pgfId-459510" xml:lang="en-US">
+     <a name="50401371_pgfId-459510" shape="rect">
+     </a>
+     <h3 class="title topictitle2">
+      <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401371_pgfId-459510" name="50401371_pgfId-459510" shape="rect">
+       3.8.1 Instruction Bandwidths 3-41
+      </a>
+     </h3>
+     <div class="body conbody">
+      <ul class="ul">
+       <li class="li">
+        The use of single-precision calculation is encouraged, if that precision is acceptable.
+       </li>
+       <li class="li">
+        The use of OpenCL built-in functions for mul24 and mad24 is encouraged.
+       </li>
+       <li class="li">
+        Note that mul24 can be useful for array indexing operations.
+       </li>
+       <li class="li">
+        Packed 16-bit and 8-bit operations are not natively supported; however, in cases where it is known that no overflow will occur, some algorithms may be able to effectively pack 2 to 4 values into the 32-bit registers natively supported by the hardware.
+       </li>
+       <li class="li">
+        No special compiler flags are required for the compiler to convert separate MUL/ADD operations to use the MAD instruction.
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="topic concept nested2" id="50401371_pgfId-459722" xml:lang="en-US">
+     <a name="50401371_pgfId-459722" shape="rect">
+     </a>
+     <h3 class="title topictitle2">
+      <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401371_pgfId-459722" name="50401371_pgfId-459722" shape="rect">
+       3.8.2 AMD Media Instructions 3-42
+      </a>
+     </h3>
+     <div class="body conbody">
+      <ul class="ul">
+      </ul>
+     </div>
+    </div>
+    <div class="topic concept nested2" id="50401371_pgfId-459778" xml:lang="en-US">
+     <a name="50401371_pgfId-459778" shape="rect">
+     </a>
+     <h3 class="title topictitle2">
+      <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401371_pgfId-459778" name="50401371_pgfId-459778" shape="rect">
+       3.8.3 Math Libraries 3-42
+      </a>
+     </h3>
+     <div class="body conbody">
+      <ul class="ul">
+       <li class="li">
+        Developers are encouraged to use the native functions when performance is more important than precision.
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="topic concept nested2" id="50401371_pgfId-459906" xml:lang="en-US">
+     <a name="50401371_pgfId-459906" shape="rect">
+     </a>
+     <h3 class="title topictitle2">
+      <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401371_pgfId-459906" name="50401371_pgfId-459906" shape="rect">
+       3.8.4 VLIW and SSE Packing 3-43
+      </a>
+     </h3>
+     <div class="body conbody">
+      <ul class="ul">
+       <li class="li">
+        A classic technique for exposing more parallelism to the compiler is loop unrolling.
+       </li>
+       <li class="li">
+        To assist the compiler in disambiguating memory addresses so that loads can be combined, developers should cluster load and store operations.
+       </li>
+       <li class="li">
+        Unrolling the loop to expose the underlying parallelism typically allows the GPU compiler to pack the instructions into the slots in the VLIW word.
+       </li>
+       <li class="li">
+        For best results, unrolling by a factor of at least 5 (perhaps 8 to preserve power-of-two factors) may deliver best performance.
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="topic concept nested2" id="50401371_pgfId-451159" xml:lang="en-US">
+     <a name="50401371_pgfId-451159" shape="rect">
+     </a>
+     <h3 class="title topictitle2">
+      <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401371_pgfId-451159" name="50401371_pgfId-451159" shape="rect">
+       3.8.5 Compiler Optimizations 3-45
+      </a>
+     </h3>
+     <div class="body conbody">
+      <ul class="ul">
+       <li class="li">
+        By following these patterns, a developer can generate highly efficient code.
+       </li>
+       <li class="li">
+        If B, C, E, or F are equivalent to the value 0, this optimization is also supported.
+       </li>
+      </ul>
+     </div>
+    </div>
+   </div>
+   <div class="topic concept nested1" id="50401371_pgfId-517108" xml:lang="en-US">
+    <a name="50401371_pgfId-517108" shape="rect">
+    </a>
+    <h3 class="title topictitle2">
+     <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401371_pgfId-517108" name="50401371_pgfId-517108" shape="rect">
+      3.9 Clause Boundaries 3-46
+     </a>
+    </h3>
+    <div class="body conbody">
+     <ul class="ul">
+      <li class="li">
+       The GPU schedules a pair of wavefronts (referred to as the “even” and “odd” wavefront).
+      </li>
+      <li class="li">
+       The hardware immediately schedules another wavefront if one is available, so developers are encouraged to provide multiple wavefronts/compute unit.
+      </li>
+     </ul>
+    </div>
+   </div>
+   <div class="topic concept nested1" id="50401371_pgfId-520751" xml:lang="en-US">
+    <a name="50401371_pgfId-520751" shape="rect">
+    </a>
+    <h3 class="title topictitle2">
+     <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401371_pgfId-520751" name="50401371_pgfId-520751" shape="rect">
+      3.10 Additional Performance Guidance 3-48
+     </a>
+    </h3>
+    <div class="body conbody">
+     <ul class="ul">
+     </ul>
+    </div>
+    <div class="topic concept nested2" id="50401371_pgfId-448804" xml:lang="en-US">
+     <a name="50401371_pgfId-448804" shape="rect">
+     </a>
+     <h3 class="title topictitle2">
+      <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401371_pgfId-448804" name="50401371_pgfId-448804" shape="rect">
+       3.10.1 Loop Unroll  pragma  3-48
+      </a>
+     </h3>
+     <div class="body conbody">
+      <ul class="ul">
+      </ul>
+     </div>
+    </div>
+    <div class="topic concept nested2" id="50401371_pgfId-495342" xml:lang="en-US">
+     <a name="50401371_pgfId-495342" shape="rect">
+     </a>
+     <h3 class="title topictitle2">
+      <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401371_pgfId-495342" name="50401371_pgfId-495342" shape="rect">
+       3.10.2 Memory Tiling 3-48
+      </a>
+     </h3>
+     <div class="body conbody">
+      <ul class="ul">
+       <li class="li">
+        This format must be used for OpenCL buffers; it can be used for images.
+       </li>
+       <li class="li">
+        This can contribute to lower latency.
+       </li>
+       <li class="li">
+        If accessing a tiled image, best performance is achieved if the application tries to use workgroups as a simple blocking strategy.
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="topic concept nested2" id="50401371_pgfId-446673" xml:lang="en-US">
+     <a name="50401371_pgfId-446673" shape="rect">
+     </a>
+     <h3 class="title topictitle2">
+      <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401371_pgfId-446673" name="50401371_pgfId-446673" shape="rect">
+       3.10.3 General Tips 3-49
+      </a>
+     </h3>
+     <div class="body conbody">
+      <ul class="ul">
+       <li class="li">
+        Using dynamic pointer assignment in kernels that are executed on the GPU cause inefficient code generation.
+       </li>
+       <li class="li">
+        Avoid declaring global arrays on the kernel’s stack frame as these typically cannot be allocated in registers and require expensive global memory operations.
+       </li>
+       <li class="li">
+        Use predication rather than control-flow.
+       </li>
+       <li class="li">
+        Thus, the overhead to evaluate control-flow and execute branch instructions can consume a significant part of resource that otherwise can be used for high-throughput compute operations.
+       </li>
+       <li class="li">
+        The AMD Accelerated Parallel Processing OpenCL compiler performs simple loop unrolling optimizations; however, for more complex loop unrolling, it may be beneficial to do this manually.
+       </li>
+       <li class="li">
+        If possible, create a reduced-size version of your data set for easier debugging and faster turn-around on performance experimentation.
+       </li>
+       <li class="li">
+        In many cases, performance optimization for the reduced-size data implementation also benefits the full-size algorithm.
+       </li>
+       <li class="li">
+        When tuning an algorithm, it is often beneficial to code a simple but accurate algorithm that is retained and used for functional comparison.
+       </li>
+       <li class="li">
+        To narrow the problem further, it might be useful to remove or comment-out sections of code, then re-run the timing and profiling tool.
+       </li>
+       <li class="li">
+        Writing code with dynamic pointer assignment should be avoided on the GPU.
+       </li>
+       <li class="li">
+        If the algorithm allows changing the work-group size, it is possible to get better performance by using larger work-groups (more work-items in each work-group) because the workgroup creation overhead is reduced.
+       </li>
+       <li class="li">
+        On the other hand, the OpenCL CPU runtime uses a task-stealing algorithm at the work-group level, so when the kernel execution time differs because it contains conditions and/or loops of varying number of iterations, it might be better to increase the number of work-groups.
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="topic concept nested2" id="50401371_pgfId-521164" xml:lang="en-US">
+     <a name="50401371_pgfId-521164" shape="rect">
+     </a>
+     <h3 class="title topictitle2">
+      <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401371_pgfId-521164" name="50401371_pgfId-521164" shape="rect">
+       3.10.4 Guidance for CUDA Programmers Using OpenCL 3-51
+      </a>
+     </h3>
+     <div class="body conbody">
+      <ul class="ul">
+       <li class="li">
+        Vectorization can lead to substantially greater efficiency.
+       </li>
+       <li class="li">
+        For some kernels, vectorization can be used to increase efficiency and improve kernel performance.
+       </li>
+       <li class="li">
+        Algorithms that benefit from such throughput can deliver excellent performance on AMD Accelerated Parallel Processing hardware.
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="topic concept nested2" id="50401371_pgfId-446698" xml:lang="en-US">
+     <a name="50401371_pgfId-446698" shape="rect">
+     </a>
+     <h3 class="title topictitle2">
+      <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401371_pgfId-446698" name="50401371_pgfId-446698" shape="rect">
+       3.10.5 Guidance for CPU Programmers Using OpenCL to Program GPUs 3-52
+      </a>
+     </h3>
+     <div class="body conbody">
+      <ul class="ul">
+       <li class="li">
+        It is expected that many programmers skilled in CPU programming will program GPUs for the first time using OpenCL.
+       </li>
+       <li class="li">
+        A CPU-optimized algorithm may test branching conditions to minimize the workload.
+       </li>
+       <li class="li">
+        On a GPU, it is frequently faster simply to execute the workload.
+       </li>
+       <li class="li">
+        On a GPU, it frequently is faster to recompute values rather than saving them in registers.
+       </li>
+       <li class="li">
+        Use float4 and the OpenCL built-ins for vector types ( vload , vstore , etc.).
+       </li>
+       <li class="li">
+        Vectorization is an optimization that benefits both the AMD CPU and GPU.
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="topic concept nested2" id="50401371_pgfId-521316" xml:lang="en-US">
+     <a name="50401371_pgfId-521316" shape="rect">
+     </a>
+     <h3 class="title topictitle2">
+      <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401371_pgfId-521316" name="50401371_pgfId-521316" shape="rect">
+       3.10.6 Optimizing Kernel Code 3-53
+      </a>
+     </h3>
+     <div class="topic concept nested3" id="50401371_pgfId-521317" xml:lang="en-US">
+      <a name="50401371_pgfId-521317" shape="rect">
+      </a>
+      <h3 class="title topictitle2">
+       <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401371_pgfId-521317" name="50401371_pgfId-521317" shape="rect">
+        Using Vector Data Types 3-53
+       </a>
+      </h3>
+      <div class="body conbody">
+       <ul class="ul">
+        <li class="li">
+         The CPU contains a vector unit, which can be efficiently used if the developer is writing the code using vector data types.
+        </li>
+        <li class="li">
+         Using four-wide vector types (int4, float4, etc.)
+        </li>
+        <li class="li">
+         is preferred, even with Bulldozer.
+        </li>
+       </ul>
+      </div>
+     </div>
+     <div class="topic concept nested3" id="50401371_pgfId-521255" xml:lang="en-US">
+      <a name="50401371_pgfId-521255" shape="rect">
+      </a>
+      <h3 class="title topictitle2">
+       <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401371_pgfId-521255" name="50401371_pgfId-521255" shape="rect">
+        Local Memory 3-53
+       </a>
+      </h3>
+      <div class="body conbody">
+       <ul class="ul">
+        <li class="li">
+         The CPU does not benefit much from local memory; sometimes it is detrimental to performance.
+        </li>
+       </ul>
+      </div>
+     </div>
+     <div class="topic concept nested3" id="50401371_pgfId-521257" xml:lang="en-US">
+      <a name="50401371_pgfId-521257" shape="rect">
+      </a>
+      <h3 class="title topictitle2">
+       <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401371_pgfId-521257" name="50401371_pgfId-521257" shape="rect">
+        Using Special CPU Instructions 3-53
+       </a>
+      </h3>
+      <div class="body conbody">
+       <ul class="ul">
+       </ul>
+      </div>
+     </div>
+     <div class="topic concept nested3" id="50401371_pgfId-521264" xml:lang="en-US">
+      <a name="50401371_pgfId-521264" shape="rect">
+      </a>
+      <h3 class="title topictitle2">
+       <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401371_pgfId-521264" name="50401371_pgfId-521264" shape="rect">
+        Avoid Barriers When Possible 3-53
+       </a>
+      </h3>
+      <div class="body conbody">
+       <ul class="ul">
+        <li class="li">
+         Using barriers in a kernel on the CPU causes a significant performance penalty compared to the same kernel without barriers.
+        </li>
+        <li class="li">
+         Use a barrier only if the kernel requires it for correctness, and consider changing the algorithm to reduce barriers usage.
+        </li>
+       </ul>
+      </div>
+     </div>
+    </div>
+    <div class="topic concept nested2" id="50401371_pgfId-521246" xml:lang="en-US">
+     <a name="50401371_pgfId-521246" shape="rect">
+     </a>
+     <h3 class="title topictitle2">
+      <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401371_pgfId-521246" name="50401371_pgfId-521246" shape="rect">
+       3.10.7 Optimizing Kernels for Evergreen and 69XX-Series GPUs 3-53
+      </a>
+     </h3>
+     <div class="topic concept nested3" id="50401371_pgfId-494703" xml:lang="en-US">
+      <a name="50401371_pgfId-494703" shape="rect">
+      </a>
+      <h3 class="title topictitle2">
+       <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401371_pgfId-494703" name="50401371_pgfId-494703" shape="rect">
+        Clauses 3-53
+       </a>
+      </h3>
+      <div class="body conbody">
+       <ul class="ul">
+       </ul>
+      </div>
+     </div>
+     <div class="topic concept nested3" id="50401371_pgfId-494706" xml:lang="en-US">
+      <a name="50401371_pgfId-494706" shape="rect">
+      </a>
+      <h3 class="title topictitle2">
+       <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401371_pgfId-494706" name="50401371_pgfId-494706" shape="rect">
+        Remove Conditional Assignments 3-54
+       </a>
+      </h3>
+      <div class="body conbody">
+       <ul class="ul">
+        <li class="li">
+         Use the select() function to replace these structures with conditional assignments that do not cause branching.
+        </li>
+       </ul>
+      </div>
+     </div>
+     <div class="topic concept nested3" id="50401371_pgfId-494711" xml:lang="en-US">
+      <a name="50401371_pgfId-494711" shape="rect">
+      </a>
+      <h3 class="title topictitle2">
+       <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401371_pgfId-494711" name="50401371_pgfId-494711" shape="rect">
+        Bypass Short-Circuiting 3-54
+       </a>
+      </h3>
+      <div class="body conbody">
+       <ul class="ul">
+        <li class="li">
+         To prevent this, move the expression out of the control flow statement.
+        </li>
+       </ul>
+      </div>
+     </div>
+     <div class="topic concept nested3" id="50401371_pgfId-494717" xml:lang="en-US">
+      <a name="50401371_pgfId-494717" shape="rect">
+      </a>
+      <h3 class="title topictitle2">
+       <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401371_pgfId-494717" name="50401371_pgfId-494717" shape="rect">
+        Unroll Small Loops 3-54
+       </a>
+      </h3>
+      <div class="body conbody">
+       <ul class="ul">
+       </ul>
+      </div>
+     </div>
+     <div class="topic concept nested3" id="50401371_pgfId-494719" xml:lang="en-US">
+      <a name="50401371_pgfId-494719" shape="rect">
+      </a>
+      <h3 class="title topictitle2">
+       <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401371_pgfId-494719" name="50401371_pgfId-494719" shape="rect">
+        Avoid Nested  if s 3-54
+       </a>
+      </h3>
+      <div class="body conbody">
+       <ul class="ul">
+       </ul>
+      </div>
+     </div>
+     <div class="topic concept nested3" id="50401371_pgfId-494721" xml:lang="en-US">
+      <a name="50401371_pgfId-494721" shape="rect">
+      </a>
+      <h3 class="title topictitle2">
+       <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401371_pgfId-494721" name="50401371_pgfId-494721" shape="rect">
+        Experiment With  do / while / for Loops 3-55
+       </a>
+      </h3>
+      <div class="body conbody">
+       <ul class="ul">
+        <li class="li">
+         Experiment with these different loop types to find the one with best performance.
+        </li>
+       </ul>
+      </div>
+     </div>
+     <div class="topic concept nested3" id="50401371_pgfId-494723" xml:lang="en-US">
+      <a name="50401371_pgfId-494723" shape="rect">
+      </a>
+      <h3 class="title topictitle2">
+       <a href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/opencl-optimization-guide/#50401371_pgfId-494723" name="50401371_pgfId-494723" shape="rect">
+        Do I/O With 4-Word Data 3-55
+       </a>
+      </h3>
+      <div class="body conbody">
+       <ul class="ul">
+        <li class="li">
+         Avoid I/Os with smaller data, and rewrite the kernel to use the native size data.
+        </li>
+       </ul>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+ </article>
+</div>
+ {% endblock %} 
