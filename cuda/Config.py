@@ -9,7 +9,7 @@ congiguration
 folder_name = "cuda"
 
 port = '5000'
-host = '152.14.86.182'
+host = '152.14.86.153'
 
 
 similarity_threshold = 0.15
