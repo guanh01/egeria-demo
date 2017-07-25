@@ -68,7 +68,7 @@ The script starts a pipeline to build the advising tool:
 * advising_tool_template: contains the templates related to web-based functions. 
 * cuda/opencl/xeon: the advising tools
 	* models: tfidf model and the dictionary
-	* nvvp-reports(cuda only): sample NVVP reports, ground truth responses, and programs used in the evaluation.  
+	* evaluations(cuda only): sample NVVP reports, ground truth responses/summary, and programs used in the evaluation.  
 	* static: scripts used for the webpages
 	* templates: htmls to be rendered
 	* uploads: store the uploaded NVVP report
@@ -82,3 +82,6 @@ The script starts a pipeline to build the advising tool:
 	* Setup.py: build dictionary and tfidf model
 	* run.sh: execute Python Setup.py and then run the advising tool
 
+# Contact
+
+email: hguan2 at ncsu.edu
