@@ -82,7 +82,7 @@ def search():
 		query = request.form['search']
 		#print type(sim_thr), sim_thr
 		if len(query):
-			print '-------------------------------'
+			#print '-------------------------------'
 			print time.strftime('%y-%m-%d %H:%M:%S') + '\t Search by query: ' + query
 			issueDict = {'description': query}
 			resultsHtml = app.config["queryEngine"].performQuery([issueDict], sim_thr)
@@ -103,7 +103,7 @@ def search():
 				f.save(os.path.join(app.config['UPLOAD_FOLDER'], fn))
 
 				issues = app.config["reportParser"].report2issues(app.config['UPLOAD_FOLDER'],fn)
-				print '-------------------------------'
+				#print '-------------------------------'
 				print time.strftime('%y-%m-%d %H:%M:%S') + '\t search by file: '+ fn
 				pprint(issues)
 

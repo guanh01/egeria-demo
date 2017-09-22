@@ -23,7 +23,7 @@ prepare return html 0.0470700263977
 @author: huiguan
 """
 
-
+import copy 
 from Helper import loadPickle, sents2tokens
 from gensim import models, similarities, corpora
 from nltk.stem.snowball import SnowballStemmer
@@ -46,6 +46,7 @@ class QueryEngineHtml(object):
         
         self.source_file = source_file
         self.soup = BeautifulSoup(open(self.source_file), "lxml")
+        
         self.htmltext = self.soup.find('article') # id="contents"
         self.navTag = self.soup.find('nav')
         self.contentTag = self.soup.find(id='contents-container')
@@ -148,6 +149,8 @@ class QueryEngineHtml(object):
 
 
     def traverseHtml(self, htmltext, indexes, ind=0):
+        # if ind==0:
+            #print 'id(htmltext)', htmltext
         for child in htmltext.children:
             if child.name=='div':
                 if 'topic' in child['class']:
@@ -186,24 +189,35 @@ class QueryEngineHtml(object):
     """ query(index.html, issues) = search_results.html"""
     def performQuery(self, issues, similarity_threshold):
         
-        # duration = time.time()
-        soup = self.soup 
-        htmltext = self.htmltext
+
+        #duration = time.time()
+        soup = self.soup #copy.deepcopy(self.soup) 
         navTag = self.navTag
-        contentTag = self.contentTag
-        # print 'prepare htmltext', time.time() - duration 
+        #print 'prepare copy', time.time() - duration 
+        #htmltext = soup.find('article') # id="contents"
+        #duration = time.time()
+        contentTag = copy.deepcopy(self.contentTag)  #soup.find(id='contents-container')
+        #print 'prepare deepcopy', time.time() - duration 
 
-        # duration = time.time()
+        duration = time.time()
+        htmltext = [tag for tag in contentTag.contents if tag.name=='article'][0] #contentTag.find('article') # id="contents"
+        
+        #contentTag = copy.deepcopy(self.contentTag)
+        #print 'prepare htmltext', time.time() - duration 
+
+        #duration = time.time()
         indexes = self.getRetrievedSentsIndex(self.simIndex, issues, sim_thr=similarity_threshold)
-        # print "prepare similar sents index", time.time() - duration 
+        #print "prepare similar sents index", time.time() - duration 
 
-        # duration = time.time()
-        self.traverseHtml(htmltext, indexes)
-        self.simplifyHtml(htmltext)     
-        # print "prepare response content", time.time() - duration 
+        if len(indexes):
+            # duration = time.time()
+            self.traverseHtml(htmltext, indexes)
+            self.simplifyHtml(htmltext)     
+            # print "prepare response content", time.time() - duration 
     
         # duration = time.time()
-        if not htmltext.find('ul'):
+        # if not htmltext.find('ul'):
+        else: 
             # if no sents found
             htmltext.decompose()
             ptag=soup.new_tag('p')
