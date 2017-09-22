@@ -38,7 +38,7 @@ html, body { margin:0; padding:0; background:#fff; font-family:'Trebuchet MS', '
   background:url(magnify.png) no-repeat top left; border:0; padding:0; margin:0;
 }
 
-#header #upload-file { position:absolute; left:220px; top:15px; font-size:14px; font-family:'Trebuchet MS', 'DIN Pro', sans-serif;}
+#header #upload-file { position:absolute; left:230px; top:15px; font-size:14px; font-family:'Trebuchet MS', 'DIN Pro', sans-serif;}
 #header #upload-file #choosed-file { 
 -webkit-box-sizing:border-box; -moz-box-sizing:border-box; box-sizing:border-box;
   -webkit-border-radius: 8px; -moz-border-radius: 8px; border-radius: 8px;
@@ -62,8 +62,8 @@ html, body { margin:0; padding:0; background:#fff; font-family:'Trebuchet MS', '
 }
 /*background-color: lemonchiffon; */
 
-#header #sim-range-bar { position:absolute; left:600px; top:15px; height:18px;}
-#header #sim-range-bar #range-value { position:absolute; left:139px; width: 60px; color: white; top: 2px; font-size:16px; font-family:'Trebuchet MS', 'DIN Pro', sans-serif;}
+#header #sim-range-bar { position:absolute; left:50%; top:15px; height:18px;}
+#header #sim-range-bar #range-value { position:absolute; left:139px; width: 200px; color: white; top: 2px; font-size:16px; font-family:'Trebuchet MS', 'DIN Pro', sans-serif;}
 
 
 /* online class is added by JS */

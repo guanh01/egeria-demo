@@ -82,11 +82,11 @@
 
       <div id="sim-range-bar">
         <input type="range" name="sim_thr" id="sim-range" min="0" max="0.5" value="{{sim_thr}}" step="0.01" onchange="showValue(this.value)" />
-        <span id="range-value">thr: {{sim_thr}}</span>
+        <span id="range-value">Threshold: {{sim_thr}}</span>
         <script type="text/javascript">
         function showValue(newValue)
         {
-          document.getElementById("range-value").innerHTML='thr: '+newValue;
+          document.getElementById("range-value").innerHTML='Threshold: '+newValue;
         }
         </script>
       </div>

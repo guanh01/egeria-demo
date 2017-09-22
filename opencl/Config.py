@@ -9,7 +9,7 @@ congiguration
 folder_name = "opencl"
 
 port = '3000'
-host = '152.14.86.182'
+host = '152.14.86.153'
 
 
 similarity_threshold = 0.15
