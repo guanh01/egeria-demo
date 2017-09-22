@@ -2,6 +2,24 @@
 """
 Created on Sat Oct  8 21:32:11 2016
 query engine return html
+
+Website gives response very slow. The reason is BeautifulSoup package is slow. 
+
+17-09-21 22:11:41    Search by query: reduce memory latency
+prepare htmltext 2.1501250267
+prepare similar sents index 0.00196003913879
+prepare response content 0.0789740085602
+prepare return html 0.0720899105072
+
+after move beautifulsoup library-related commands into init:
+
+17-09-21 22:17:21    Search by query: reduce memory latency
+prepare htmltext 5.00679016113e-06
+prepare similar sents index 0.00949096679688
+prepare response content 0.106106996536
+prepare return html 0.0470700263977
+
+
 @author: huiguan
 """
 
@@ -10,23 +28,34 @@ from Helper import loadPickle, sents2tokens
 from gensim import models, similarities, corpora
 from nltk.stem.snowball import SnowballStemmer
 stemmer = SnowballStemmer("english")
-import re
-from Config import similarity_threshold
+import re, time
+import numpy as np
 
 from bs4 import BeautifulSoup
-from Config import dictionary_filename, model_filename
+#from Config import dictionary_filename, model_filename
 
 
 class QueryEngineHtml(object):
     
-    def __init__(self, models_folder):
+    def __init__(self, models_folder, source_file):
+        dictionary_filename = "dictionary.dict"
+        model_filename = "themodel.model"
         self.models_folder = models_folder
         self.themodel = loadPickle(dirname= models_folder, filename=model_filename)
         self.dictionary = loadPickle(dirname = models_folder, filename=dictionary_filename)  
         
+        self.source_file = source_file
+        self.soup = BeautifulSoup(open(self.source_file), "lxml")
+        self.htmltext = self.soup.find('article') # id="contents"
+        self.navTag = self.soup.find('nav')
+        self.contentTag = self.soup.find(id='contents-container')
+
+        self.simIndex = self.buildSimIndex()
+        print "Website is running"
+        
   
-    def issues2query(self, issues, keys = {'title', 'description', 'optimization'}):
-        queryDocs = []
+    def issues2queries(self, issues, keys = {'title', 'description', 'optimization'}):
+        queries = []
         for issue in issues:
             queryDoc = []
             for key in keys:
@@ -38,51 +67,110 @@ class QueryEngineHtml(object):
                 else:
                     queryDoc.append(issue[key])
             queryDoc = " ".join(queryDoc)
-            queryDocs.append(queryDoc)
+            queries.append(queryDoc)
 #            print "Performance issue: "
 #            print '\t'+'title: \t'+issue['title']
 #            print '\t'+'queryDoc: \t'+ queryDoc+'\n'
 #            
-        return queryDocs
+        return queries
 
-    def docs2vecs(self, queryDocs):
-        queriesTokens = sents2tokens(queryDocs)    
+    def docs2vecs(self, queries):
+        queriesTokens = sents2tokens(queries)    
         queriesBow = [self.dictionary.doc2bow(text) for text in queriesTokens]
         queriesVec = self.themodel[queriesBow]  
         return queriesVec
 
+    
+
+    # def traverseHtml(self, htmltext, index, similarity_threshold):
+    #     for child in htmltext.children:
+    #         if child.name=='div':
+    #             if 'topic' in child['class']:
+    #                 # head
+    #                 #head = child.find(re.compile('^h\d')).get_text() # get the headline of the section
+    #                 #print prefix+head
+    #                 self.traverseHtml(child, index, similarity_threshold)
+                    
+    #             elif 'body' in child['class']:
+    #                 # contain sentences
+    #                 relevantFlag = False
+    #                 lis = child.ul.children
+    #                 for li in lis:
+    #                     sent = li.string.strip()
+    #                     #print li
+    #                     if len(sent):
+    #                         #print "sent: "+ sent
+    #                         sentsVec = self.docs2vecs([sent])
+                                
+    #                         sims = index[sentsVec]
+    #                         #print sims[0]
+    #                         for v in sims[0]:
+    #                             if v> similarity_threshold:
+    #                                 li['class'] = ['li', 'highlight']
+                                    
+    #                                 relevantFlag = True
+    #                 if not relevantFlag:
+    #                     child.decompose()
+
+    
+                        
+    def buildSimIndex(self):
+        #print "Build simIndex with source file:", self.source_file
+        htmltext = self.htmltext
+        def traverseHtml(htmltext, sents):
+            """get all the sentences in the HTML text"""
+            for child in htmltext.children:
+                if child.name=='div':
+                    if 'topic' in child['class']:
+                        traverseHtml(child, sents)
+                        
+                    elif 'body' in child['class']:
+                        lis = child.ul.children
+                        for li in lis:
+                            sents.extend([li.string.strip() for li in lis if len(li.string.strip())])
+
+        sents = [] # all the sents in the html
+        traverseHtml(htmltext, sents)
+        #print 'sents', len(sents)
+        #print sents[:10]
+        sentsVec = self.docs2vecs(sents)
+        index = similarities.MatrixSimilarity(sentsVec, num_features = len(self.dictionary))
+        return index 
+
+    def getRetrievedSentsIndex(self, simIndex, issues, sim_thr=0.15):
+        queries = self.issues2queries(issues)
+        queriesVec = self.docs2vecs(queries)
+        sims = simIndex[queriesVec]
+        sims_max = np.max(sims, axis=0)
+        indexes = [i for i, v in enumerate(sims_max) if v > sim_thr]
+        #print len(indexes), indexes 
+        return set(indexes)
 
 
-
-    def traverseHtml(self, htmltext, index):
+    def traverseHtml(self, htmltext, indexes, ind=0):
         for child in htmltext.children:
             if child.name=='div':
                 if 'topic' in child['class']:
-                    # head
-                    #head = child.find(re.compile('^h\d')).get_text() # get the headline of the section
-                    #print prefix+head
-                    self.traverseHtml(child, index)
+                    ind = self.traverseHtml(child, indexes, ind=ind)
                     
                 elif 'body' in child['class']:
-                    # contain sentences
                     relevantFlag = False
                     lis = child.ul.children
                     for li in lis:
                         sent = li.string.strip()
-                        #print li
                         if len(sent):
-                            #print "sent: "+ sent
-                            sentsVec = self.docs2vecs([sent])
-                                
-                            sims = index[sentsVec]
-                            #print sims[0]
-                            for v in sims[0]:
-                                if v>= similarity_threshold:
-                                    li['class'] = ['li', 'highlight']
-                                    
-                                    relevantFlag = True
+                            
+                            if ind in indexes:
+                                li['class'] = ['li', 'highlight']
+                                relevantFlag = True
+                                #print ind, sent 
+                            ind+=1
+
                     if not relevantFlag:
-                        child.decompose()
+                        child.decompose() 
+        return ind 
+                       
+
 
     """ Remove section title that doesn't contain relevant sentences"""                            
     def simplifyHtml(self, htmltext):
@@ -96,21 +184,25 @@ class QueryEngineHtml(object):
       
     #issues = report2issues(dirname = '../uploads', filename='trans_opt.nvvp.report.pdf')
     """ query(index.html, issues) = search_results.html"""
-    def performQuery(self, issues, indexfilename):
+    def performQuery(self, issues, similarity_threshold):
         
-        queryDocs = self.issues2query(issues)
-    
-        queriesVec = self.docs2vecs(queryDocs)
-        index = similarities.MatrixSimilarity(queriesVec, num_features = len(self.dictionary))
+        # duration = time.time()
+        soup = self.soup 
+        htmltext = self.htmltext
+        navTag = self.navTag
+        contentTag = self.contentTag
+        # print 'prepare htmltext', time.time() - duration 
 
-        soup = BeautifulSoup(open(indexfilename), "lxml")
-        htmltext = soup.find('article') # id="contents"
-        
-        self.traverseHtml(htmltext, index) 
+        # duration = time.time()
+        indexes = self.getRetrievedSentsIndex(self.simIndex, issues, sim_thr=similarity_threshold)
+        # print "prepare similar sents index", time.time() - duration 
+
+        # duration = time.time()
+        self.traverseHtml(htmltext, indexes)
         self.simplifyHtml(htmltext)     
+        # print "prepare response content", time.time() - duration 
     
-        navTag = soup.find('nav')
-        contentTag = soup.find(id='contents-container')
+        # duration = time.time()
         if not htmltext.find('ul'):
             # if no sents found
             htmltext.decompose()
@@ -121,6 +213,6 @@ class QueryEngineHtml(object):
         res = u"""{% extends "base.html" %} \n """
         res += u"{% block sitenav %}\n" + unicode(navTag) +  u"\n {% endblock %} \n"
         res += u"{% block content %}\n" + unicode(contentTag)+ u'\n {% endblock %} \n'
-                
+        # print "prepare return html", time.time() - duration 
         
         return res

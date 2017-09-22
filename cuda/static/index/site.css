@@ -39,9 +39,9 @@ html, body { margin:0; padding:0; background:#fff; font-family:'Trebuchet MS', '
 }
 
 #header #upload-file { position:absolute; left:220px; top:18px; height:16px;}
-
-
-
+#header #sim-range-bar { position:absolute; left:600px; top:18px; height:16px;}
+#header #range-value { position:absolute; left:137px; color: white; top: 2px;}
+#header #choosed-file { background-color: lemonchiffon;}
 
 /* online class is added by JS */
 body.online #header #company { left:11px; top:12px; width:181px; height:31px; background:url(logo.png); cursor:pointer; }

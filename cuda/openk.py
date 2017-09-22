@@ -29,6 +29,9 @@ app.config['MAX_CONTENT_LENGTH'] = 2 * 1024 * 1024
 
 # setup host and port number
 from Config import host, port
+from Config import similarity_threshold
+sim_thr = similarity_threshold # default similarity threshold
+
 app.secret_key = 'super secret key'
 app.config['SESSION_TYPE'] = 'filesystem'
 app.config['SECRET_KEY'] = 'hard to guess string'
@@ -41,7 +44,7 @@ app.config['INDEX_FILE'] = "./templates/index.html"
 
 
 # setup  query engine
-queryEngine = QueryEngineHtml("./models/")
+queryEngine = QueryEngineHtml("./models/", app.config['INDEX_FILE'])
 app.config["queryEngine"] = queryEngine
 
 # setup report parser
@@ -59,7 +62,7 @@ def allowed_file(filename):
 def index():
  
     if request.method == 'GET':
-        return render_template('index.html', host=app.config['HOST'], port=app.config['PORT'])
+        return render_template('index.html', host=app.config['HOST'], port=app.config['PORT'], sim_thr=sim_thr)
     else:
         return redirect(url_for('index')) 
 
@@ -67,60 +70,55 @@ def index():
 @app.route("/index", methods=['GET'])
 def rawIndex():
     if request.method == 'GET':
-        return render_template('rawIndex.html', host=app.config['HOST'], port=app.config['PORT'])
+        return render_template('rawIndex.html', host=app.config['HOST'], port=app.config['PORT'], sim_thr=sim_thr)
     else:
         return redirect(url_for('index')) 
             
 
-@app.route('/search_by_file', methods=['POST'])
-def search_by_file():
-    
-    if request.method== "POST":
-        # check if the post request has the file part
-        if 'file' in request.files:
-            f = request.files['file']
-            # if user does not select file, browser also submit a empty part without filename
-            if f.filename == '':
-                flash('No selected file!')
-                return redirect(url_for('index'))
+@app.route('/search', methods=['GET', 'POST'])
+def search():
+	if request.method== "POST":
+		sim_thr = float(request.form['sim_thr'])
+		query = request.form['search']
+		#print type(sim_thr), sim_thr
+		if len(query):
+			print '-------------------------------'
+			print time.strftime('%y-%m-%d %H:%M:%S') + '\t Search by query: ' + query
+			issueDict = {'description': query}
+			resultsHtml = app.config["queryEngine"].performQuery([issueDict], sim_thr)
+
+			return render_template_string(resultsHtml, host=app.config['HOST'], port=app.config['PORT'], query= query, sim_thr=sim_thr)   
+		# check if the post request has the file part
+		elif 'file' in request.files:
+			f = request.files['file']
+			# if user does not select file, browser also submit a empty part without filename
+			if f.filename == '':
+				flash('No selected file or query!')
+				return redirect(url_for('index'))
                 
-            if f and allowed_file(f.filename):
-                filename = secure_filename(f.filename)
-                timestamp = time.strftime('%m%d%H%M%S')
-                fn = timestamp+'_'+filename
-                f.save(os.path.join(app.config['UPLOAD_FOLDER'], fn))
+			if f and allowed_file(f.filename):
+				filename = secure_filename(f.filename)
+				timestamp = time.strftime('%m%d%H%M%S')
+				fn = timestamp+'_'+filename
+				f.save(os.path.join(app.config['UPLOAD_FOLDER'], fn))
 
-                issues = app.config["reportParser"].report2issues(app.config['UPLOAD_FOLDER'],fn)
-                print '-------------------------------'
-                print time.strftime('%y-%m-%d %H:%M:%S') + '\t search by file: '+ fn
-                pprint(issues)
+				issues = app.config["reportParser"].report2issues(app.config['UPLOAD_FOLDER'],fn)
+				print '-------------------------------'
+				print time.strftime('%y-%m-%d %H:%M:%S') + '\t search by file: '+ fn
+				pprint(issues)
+
+				resultsHtml = app.config["queryEngine"].performQuery(issues, sim_thr)
+				#return json.dumps(sents, indent=4, sort_keys = True
+				return render_template_string(resultsHtml, host=app.config['HOST'], port=app.config['PORT'], query= "", sim_thr=sim_thr) 		
+			else:
+				flash('File is not valid!')
+				return redirect(url_for('index'))
+		else:
+			flash('No query!')
+
+	return redirect(url_for('index'))
                 
-                resultsHtml = app.config["queryEngine"].performQuery(issues, app.config['INDEX_FILE'])
-                #return json.dumps(sents, indent=4, sort_keys = True)
-                return render_template_string(resultsHtml, host=app.config['HOST'], port=app.config['PORT'], query= "") 		
-            else:
-                flash('File is not valid!')
-    return redirect(url_for('index'))
-                
-             
-# 
-@app.route('/search_by_query', methods=['POST'])
-def search_by_query():
-    if request.method== "POST":
-        if request.form['search']:
-            query = request.form['search']
-            print '-------------------------------'
-            print time.strftime('%y-%m-%d %H:%M:%S') + '\t Search by query: ' + query
-            issueDict = {'description': query, 'title': query}
-            resultsHtml = app.config["queryEngine"].performQuery([issueDict], app.config['INDEX_FILE'])
-            return render_template_string(resultsHtml, host=app.config['HOST'], port=app.config['PORT'], query= query)   
-        else:
-            flash('No query!')
-            
-    return redirect(url_for('index'))
-
-
-
+          
 
 if __name__ == '__main__':
     

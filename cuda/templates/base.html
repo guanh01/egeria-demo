@@ -63,14 +63,39 @@
 	
   <header id="header">
    <!--<span id='company'>AMD</span> -->
-   <form action="{{url_for('search_by_file')}}" id="upload-file" method=post enctype=multipart/form-data>
-    	<input type="file" name="file" id="choosed-file" >
+   <script type="text/javascript">
+        function removeQuery()
+        {
+          document.getElementById("search-text").value='';
+        }
+  </script> 
+
+   <form action="{{url_for('search')}}"  method=post enctype=multipart/form-data>
+      <div id="upload-file">
+      	<input type="file" name="file" id="choosed-file" onchange="removeQuery()" />
+
+        
         <input id='upload-button' type=submit value="Upload">
+      </div>
+
+      <div id="sim-range-bar">
+        <input type="range" name="sim_thr" id="sim-range" min="0" max="0.5" value="{{sim_thr}}" step="0.01" onchange="showValue(this.value)" />
+        <span id="range-value">thr={{sim_thr}}</span>
+        <script type="text/javascript">
+        function showValue(newValue)
+        {
+          document.getElementById("range-value").innerHTML='thr='+newValue;
+        }
+        </script>
+      </div>
+ 
+
+     <div id="search-query">
+     	   <input id="search-text" placeholder="Search" type="text", name='search', value="{{query}}">
+     	   <input id="submit-button" type="submit" value="Search"> 
+     </div>
    </form>
-   <form action ="{{url_for('search_by_query')}}"  id="search-query" method="post">
-   	   <input id="search-text" placeholder="Search" type="text", name='search', value="{{query}}">
-   	   <input id="submit-button" type="submit" value="Search"> 
-   </form>
+   
   </header>
  
 
