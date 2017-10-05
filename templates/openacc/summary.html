@@ -1,0 +1,1393 @@
+{% extends "openacc/base.html" %} 
+ {% block sitenav %}
+<nav id="site-nav">
+ <div class="category" state="0">
+  <a href="http://{{host}}:{{port}}/{{docname}}/raw">
+   Optimization Guide
+  </a>
+ </div>
+ <div class="category" state="0">
+  <a href="http://{{host}}:{{port}}/{{docname}}/summary">
+   Optimization Guide Summary
+  </a>
+ </div>
+ <ul>
+  <li>
+   <div class="section-link" state="1">
+    <a href="#page_4">
+     1 Introduction
+    </a>
+   </div>
+   <ul>
+    <li>
+     <div class="section-link" state="2">
+      <a href="#page_4">
+       Writing Portable Code
+      </a>
+     </div>
+    </li>
+    <li>
+     <div class="section-link" state="2">
+      <a href="#page_6">
+       What is OpenACC?
+      </a>
+     </div>
+    </li>
+    <li>
+     <div class="section-link" state="2">
+      <a href="#page_7">
+       Accelerating an Application with OpenACC
+      </a>
+     </div>
+    </li>
+    <li>
+     <div class="section-link" state="2">
+      <a href="#page_9">
+       Case Study - Jacobi Iteration
+      </a>
+     </div>
+    </li>
+   </ul>
+  </li>
+  <li>
+   <div class="section-link" state="1">
+    <a href="#page_12">
+     2 Assess Application Performance
+    </a>
+   </div>
+   <ul>
+    <li>
+     <div class="section-link" state="2">
+      <a href="#page_12">
+       Baseline Profiling
+      </a>
+     </div>
+    </li>
+    <li>
+     <div class="section-link" state="2">
+      <a href="#page_13">
+       Additional Profiling
+      </a>
+     </div>
+    </li>
+    <li>
+     <div class="section-link" state="2">
+      <a href="#page_13">
+       Case Study - Analysis
+      </a>
+     </div>
+    </li>
+   </ul>
+  </li>
+  <li>
+   <div class="section-link" state="1">
+    <a href="#page_16">
+     3 Parallelize Loops
+    </a>
+   </div>
+   <ul>
+    <li>
+     <div class="section-link" state="2">
+      <a href="#page_16">
+       The Kernels Construct
+      </a>
+     </div>
+    </li>
+    <li>
+     <div class="section-link" state="2">
+      <a href="#page_17">
+       The Parallel Construct
+      </a>
+     </div>
+    </li>
+    <li>
+     <div class="section-link" state="2">
+      <a href="#page_18">
+       Diﬀerences Between Parallel and Kernels
+      </a>
+     </div>
+    </li>
+    <li>
+     <div class="section-link" state="2">
+      <a href="#page_19">
+       The Loop Construct
+      </a>
+     </div>
+    </li>
+    <li>
+     <div class="section-link" state="2">
+      <a href="#page_20">
+       Routine Directive
+      </a>
+     </div>
+    </li>
+    <li>
+     <div class="section-link" state="2">
+      <a href="#page_21">
+       Case Study - Parallelize
+      </a>
+     </div>
+    </li>
+    <li>
+     <div class="section-link" state="2">
+      <a href="#page_27">
+       Atomic Operations
+      </a>
+     </div>
+    </li>
+   </ul>
+  </li>
+  <li>
+   <div class="section-link" state="1">
+    <a href="#page_29">
+     4 Optimize Data Locality
+    </a>
+   </div>
+   <ul>
+    <li>
+     <div class="section-link" state="2">
+      <a href="#page_29">
+       Data Regions
+      </a>
+     </div>
+    </li>
+    <li>
+     <div class="section-link" state="2">
+      <a href="#page_30">
+       Data Clauses
+      </a>
+     </div>
+    </li>
+    <li>
+     <div class="section-link" state="2">
+      <a href="#page_33">
+       Unstructured Data Lifetimes
+      </a>
+     </div>
+    </li>
+    <li>
+     <div class="section-link" state="2">
+      <a href="#page_35">
+       Update Directive
+      </a>
+     </div>
+    </li>
+    <li>
+     <div class="section-link" state="2">
+      <a href="#page_36">
+       Best Practice: Offload Inefficient Operations to Maintain Data Locality
+      </a>
+     </div>
+    </li>
+    <li>
+     <div class="section-link" state="2">
+      <a href="#page_37">
+       Case Study - Optimize Data Locality
+      </a>
+     </div>
+    </li>
+   </ul>
+  </li>
+  <li>
+   <div class="section-link" state="1">
+    <a href="#page_40">
+     5 Optimize Loops
+    </a>
+   </div>
+   <ul>
+    <li>
+     <div class="section-link" state="2">
+      <a href="#page_40">
+       Eﬃcient Loop Ordering
+      </a>
+     </div>
+    </li>
+    <li>
+     <div class="section-link" state="2">
+      <a href="#page_40">
+       OpenACC’s 3 Levels of Parallelism
+      </a>
+     </div>
+    </li>
+    <li>
+     <div class="section-link" state="2">
+      <a href="#page_41">
+       Mapping Parallelism to the Hardware
+      </a>
+     </div>
+    </li>
+    <li>
+     <div class="section-link" state="2">
+      <a href="#page_43">
+       Collapse Clause
+      </a>
+     </div>
+    </li>
+    <li>
+     <div class="section-link" state="2">
+      <a href="#page_44">
+       Routine Parallelism
+      </a>
+     </div>
+    </li>
+    <li>
+     <div class="section-link" state="2">
+      <a href="#page_44">
+       Case Study - Optimize Loops
+      </a>
+     </div>
+    </li>
+   </ul>
+  </li>
+  <li>
+   <div class="section-link" state="1">
+    <a href="#page_49">
+     6 OpenACC Interoperability
+    </a>
+   </div>
+   <ul>
+    <li>
+     <div class="section-link" state="2">
+      <a href="#page_49">
+       The Host Data Region
+      </a>
+     </div>
+    </li>
+    <li>
+     <div class="section-link" state="2">
+      <a href="#page_50">
+       Using Device Pointers
+      </a>
+     </div>
+    </li>
+    <li>
+     <div class="section-link" state="2">
+      <a href="#page_51">
+       Obtaining Device and Host Pointer Addresses
+      </a>
+     </div>
+    </li>
+    <li>
+     <div class="section-link" state="2">
+      <a href="#page_51">
+       Additional Vendor-Specific Interoperability Features
+      </a>
+     </div>
+    </li>
+   </ul>
+  </li>
+  <li>
+   <div class="section-link" state="1">
+    <a href="#page_53">
+     7 Advanced OpenACC Features
+    </a>
+   </div>
+   <ul>
+    <li>
+     <div class="section-link" state="2">
+      <a href="#page_53">
+       Asynchronous Operation
+      </a>
+     </div>
+    </li>
+    <li>
+     <div class="section-link" state="2">
+      <a href="#page_60">
+       Multi-device Programming
+      </a>
+     </div>
+    </li>
+   </ul>
+  </li>
+ </ul>
+</nav>
+ {% endblock %} 
+{% block content %}
+<div id="contents-container">
+ <article id="contents">
+  <div class="topic concept nested1" id="page_4" xml:lang="en-US">
+   <a name="page_4" shape="rect">
+   </a>
+   <h2 class="title topictitle1">
+    <a href="http://{{host}}:{{port}}/openacc/guide#page_4" name="page_4" shape="rect">
+     1 Introduction
+    </a>
+   </h2>
+   <div class="body conbody">
+    <ul class="ul">
+     <li class="li">
+      Readers should be comfortable with C, C++, or Fortran, but do not need experience with parallel programming or accelerated computing, although such experience will be helpful.
+     </li>
+    </ul>
+   </div>
+   <div class="topic concept nested2" id="page_4" xml:lang="en-US">
+    <a name="page_4" shape="rect">
+    </a>
+    <h3 class="title topictitle2">
+     <a href="http://{{host}}:{{port}}/openacc/guide#page_4" name="page_4" shape="rect">
+      Writing Portable Code
+     </a>
+    </h3>
+    <div class="body conbody">
+     <ul class="ul">
+      <li class="li">
+       Programmers must make portability of their code a forethought, otherwise they risk locking their application to a single architecture, which may limit the ability to run on future architectures.
+      </li>
+      <li class="li">
+       It is clear that going forward all architectures will require a significant degree of parallelism in order to achieve high performance.
+      </li>
+      <li class="li">
+       Because of these complexities, it is important that developers choose a programming model that balances the need for portability with the need for performance.
+      </li>
+      <li class="li">
+       In a real application it is frequently best to use a mixture of approaches to ensure a good balance between high portability and performance.
+      </li>
+      <li class="li">
+       Standard (and defacto standard) libraries provide the highest degree of portability because the programmer can frequently replace only the library used without even changing the source code itself when changing compute architectures.
+      </li>
+      <li class="li">
+       Although libraries can provide both high portability and high performance, few applications are able to use only libraries because of their limited scope.
+      </li>
+      <li class="li">
+       When using industry-backed compiler directives the programmer can write code with a high degree of portability across compilers and architectures.
+      </li>
+      <li class="li">
+       Many developers are willing to give up 10-20% of hand-tuned performance in order to get a high degree of portability to other architectures and to enhance programmer productivity.
+      </li>
+      <li class="li">
+       Code written in these languages is frequently at a lower level than that of other options, but as a result can frequently achieve higher performance.
+      </li>
+      <li class="li">
+       Good software engineering practices can reduce the impact these languages have on portability.
+      </li>
+      <li class="li">
+       An application developer needs to evaluate the priorities of the project and make decisions accordingly.
+      </li>
+      <li class="li">
+       In doing so the programmer can accelerate much of the application very quickly, which is often more beneficial than attempting to get the absolute highest performance out of a particular routine before moving to the next.
+      </li>
+     </ul>
+    </div>
+   </div>
+   <div class="topic concept nested2" id="page_6" xml:lang="en-US">
+    <a name="page_6" shape="rect">
+    </a>
+    <h3 class="title topictitle2">
+     <a href="http://{{host}}:{{port}}/openacc/guide#page_6" name="page_6" shape="rect">
+      What is OpenACC?
+     </a>
+    </h3>
+    <div class="body conbody">
+     <ul class="ul">
+      <li class="li">
+       With the emergence of GPU and many-core architectures in high performance computing, programmers desire the ability to program using a familiar, high level programming model that provides both high performance and portability to a wide range of computing architectures.
+      </li>
+      <li class="li">
+       In order to ensure that OpenACC would be portable to all computing architectures available at the time of its inception and into the future, OpenACC defines an abstract model for accelerated computing.
+      </li>
+      <li class="li">
+       Best Practice: For developers coming to OpenACC from other accelerator programming models, such as CUDA or OpenCL, where host and accelerator memory is frequently represented by two distinct variables (host_A[] and device_A[], for instance), it is important to remember that when using OpenACC a variable should be thought of as a single object, regardless of whether the it is backed by memory in one or more memory spaces.
+      </li>
+      <li class="li">
+       By assuming that you are always accessing a single variable, regardless of how it is stored in memory, the programmer will avoid making mistakes that could cost a significant amount of effort to debug.
+      </li>
+      <li class="li">
+       The same is true for any host or device: certain optimizations are too low-level for a high-level approach like OpenACC.
+      </li>
+      <li class="li">
+       It is up to the developers to determine the cost and benefit of selectively using a lower level programming language for performance critical sections of code.
+      </li>
+     </ul>
+    </div>
+   </div>
+   <div class="topic concept nested2" id="page_7" xml:lang="en-US">
+    <a name="page_7" shape="rect">
+    </a>
+    <h3 class="title topictitle2">
+     <a href="http://{{host}}:{{port}}/openacc/guide#page_7" name="page_7" shape="rect">
+      Accelerating an Application with OpenACC
+     </a>
+    </h3>
+    <div class="body conbody">
+     <ul class="ul">
+      <li class="li">
+       When taking this approach it is beneficial to revisit each step multiple times, checking the results of each step for correctness.
+      </li>
+      <li class="li">
+       Programmers should take an incremental approach to accelerating applications using OpenACC to ensure correctness.
+      </li>
+      <li class="li">
+       This guide will follow the approach of first assessing application performance, then using OpenACC to parallelize important loops in the code, next optimizing data locality to remove unnecessary data migrations between the host and accelerator, and finally optimizing loops within the code to maximize performance on a given architecture.
+      </li>
+      <li class="li">
+       This approach has been successful in many applications because it prioritizes changes that are likely to provide the greatest returns so that the programmer can quickly and productively achieve the acceleration.
+      </li>
+      <li class="li">
+       Developers should not become frustrated if their initial efforts result in a loss of performance.
+      </li>
+      <li class="li">
+       Second, it is critical that developers check the program results for correctness after each change.
+      </li>
+      <li class="li">
+       Some developers may find it beneficial to use a source version control tool to snapshot the code after each successful change so that any breaking changes can be quickly thrown away and the code returned to a known good state.
+      </li>
+      <li class="li">
+       Before one can begin to accelerate an application it is important to understand in which routines and loops an application is spending the bulk of its time and why.
+      </li>
+      <li class="li">
+       It is critical to understand the most time-consuming parts of the application to maximize the benefit of acceleration.
+      </li>
+      <li class="li">
+       In other words, the application will see the most benefit by accelerating as much of the code as possible and by prioritizing the most time-consuming parts.
+      </li>
+      <li class="li">
+       Once important regions of the code have been identified, OpenACC directives should be used to accelerate these regions on the target device.
+      </li>
+      <li class="li">
+       Parallel loops within the code should be decorated with OpenACC directives to provide OpenACC compilers the information necessary to parallelize the code for the target architecture.
+      </li>
+      <li class="li">
+       The programmer can give the compiler additional information about how to manage the memory so that it remains local to the accelerator as long as possible and is only moved between the two memories when absolutely necessary.
+      </li>
+      <li class="li">
+       Programmers will often realize the largest performance gains after optimizing data movement during this step.
+      </li>
+      <li class="li">
+       Sometimes additional performance can be gained by providing the compiler with more information so that it can make better decisions on how to map the parallelism to the accelerator.
+      </li>
+      <li class="li">
+       When coming from a traditional CPU architecture to a more parallel architecture, such as a GPU, it may also be necessary to restructure loops to expose additional parallelism for the accelerator or to reduce the frequency of data movement.
+      </li>
+      <li class="li">
+       Many applications have been written with little or even no parallelism exposed in the code.
+      </li>
+      <li class="li">
+       The applications that do expose parallelism frequently do so in a coarse-grained manner, where a small number of threads or processes execute for a long time and compute a significant amount work each.
+      </li>
+      <li class="li">
+       These parallel architectures achieve high throughput by trading single-threaded performance in favor of several orders in magnitude more parallelism.
+      </li>
+      <li class="li">
+       In many cases these same code changes also benefit more traditional CPU architectures as well by improving cache use and vectorization.
+      </li>
+      <li class="li">
+       For this reason it is important to structure the application code to maximize reuse of arrays regardless of whether the underlying architecture uses discrete or unified memories.
+      </li>
+      <li class="li">
+       When refactoring the code for use with OpenACC it is frequently beneficial to assume a discrete memory, even if the device you are developing on has a unified memory.
+      </li>
+     </ul>
+    </div>
+   </div>
+   <div class="topic concept nested2" id="page_9" xml:lang="en-US">
+    <a name="page_9" shape="rect">
+    </a>
+    <h3 class="title topictitle2">
+     <a href="http://{{host}}:{{port}}/openacc/guide#page_9" name="page_9" shape="rect">
+      Case Study - Jacobi Iteration
+     </a>
+    </h3>
+    <div class="body conbody">
+     <ul class="ul">
+      <li class="li">
+       The first such application will solve the 2D-Laplace equation with the iterative Jacobi solver.
+      </li>
+     </ul>
+    </div>
+   </div>
+  </div>
+  <div class="topic concept nested1" id="page_12" xml:lang="en-US">
+   <a name="page_12" shape="rect">
+   </a>
+   <h2 class="title topictitle1">
+    <a href="http://{{host}}:{{port}}/openacc/guide#page_12" name="page_12" shape="rect">
+     2 Assess Application Performance
+    </a>
+   </h2>
+   <div class="body conbody">
+    <ul class="ul">
+     <li class="li">
+      A variety of tools can be used to evaluate application performance and which are available will depend on your development environment.
+     </li>
+     <li class="li">
+      When accelerator profiling is needed, the application will be run on an Nvidia GPU and the Nvidia Visual Profiler will be used.
+     </li>
+    </ul>
+   </div>
+   <div class="topic concept nested2" id="page_12" xml:lang="en-US">
+    <a name="page_12" shape="rect">
+    </a>
+    <h3 class="title topictitle2">
+     <a href="http://{{host}}:{{port}}/openacc/guide#page_12" name="page_12" shape="rect">
+      Baseline Profiling
+     </a>
+    </h3>
+    <div class="body conbody">
+     <ul class="ul">
+      <li class="li">
+       Before parallelizing an application with OpenACC the programmer must first understand where time is currently being spent in the code.
+      </li>
+      <li class="li">
+       Application performance - How much time does the application take to run?
+      </li>
+      <li class="li">
+       One way to evaluate the performance limiters of a given loop nest is to evaluate its computational intensity, which is a measure of how many operations are performed on a data element per load or store from memory.
+      </li>
+      <li class="li">
+       It's important to choose input that will realistically reﬂect how the application will be used once it has been accelerated.
+      </li>
+      <li class="li">
+       It's tempting to use a known benchmark problem for profiling, but frequently these benchmark problems use a reduced problem size or reduced I/O, which may lead to incorrect assumptions about program performance.
+      </li>
+      <li class="li">
+       Many developers also use the baseline profile to gather the expected output of the application to use for verifying the correctness of the application as it is accelerated.
+      </li>
+     </ul>
+    </div>
+   </div>
+   <div class="topic concept nested2" id="page_13" xml:lang="en-US">
+    <a name="page_13" shape="rect">
+    </a>
+    <h3 class="title topictitle2">
+     <a href="http://{{host}}:{{port}}/openacc/guide#page_13" name="page_13" shape="rect">
+      Additional Profiling
+     </a>
+    </h3>
+    <div class="body conbody">
+     <ul class="ul">
+      <li class="li">
+       When developing on offloading platforms, such as CPU + GPU platforms, it is generally important to use a profiling tool throughout the development process that can evaluate both time spent in computation and time spent performing PCIe data transfers.
+      </li>
+     </ul>
+    </div>
+   </div>
+   <div class="topic concept nested2" id="page_13" xml:lang="en-US">
+    <a name="page_13" shape="rect">
+    </a>
+    <h3 class="title topictitle2">
+     <a href="http://{{host}}:{{port}}/openacc/guide#page_13" name="page_13" shape="rect">
+      Case Study - Analysis
+     </a>
+    </h3>
+    <div class="body conbody">
+     <ul class="ul">
+      <li class="li">
+       To get a better understanding of the case study program we will use the PGProf utility that comes as a part of the PGI Workstation package.
+      </li>
+      <li class="li">
+       Once the executable has been build, the pgcollect command will run the executable and gather information that can be used by PGProf to profile the executable.
+      </li>
+     </ul>
+    </div>
+   </div>
+  </div>
+  <div class="topic concept nested1" id="page_16" xml:lang="en-US">
+   <a name="page_16" shape="rect">
+   </a>
+   <h2 class="title topictitle1">
+    <a href="http://{{host}}:{{port}}/openacc/guide#page_16" name="page_16" shape="rect">
+     3 Parallelize Loops
+    </a>
+   </h2>
+   <div class="body conbody">
+    <ul class="ul">
+     <li class="li">
+      Now that the important hotspots in the application have been identified, the programmer should incrementally accelerate these hotspots by adding OpenACC directives to the important loops within those routines.
+     </li>
+     <li class="li">
+      By focusing solely on the parallelism during this step, the programmer can move as much computation to the device as possible and ensure that the program is still giving correct results before optimizing away data motion in the next step.
+     </li>
+     <li class="li">
+      Even if overall execution time increases during this step, the developer should focus on expressing a significant amount of parallelism in the code before moving on to the next step and realizing a benefit from the directives.
+     </li>
+    </ul>
+   </div>
+   <div class="topic concept nested2" id="page_16" xml:lang="en-US">
+    <a name="page_16" shape="rect">
+    </a>
+    <h3 class="title topictitle2">
+     <a href="http://{{host}}:{{port}}/openacc/guide#page_16" name="page_16" shape="rect">
+      The Kernels Construct
+     </a>
+    </h3>
+    <div class="body conbody">
+     <ul class="ul">
+      <li class="li">
+       Developers will little or no parallel programming experience, or those working on functions containing many loop nests that might be parallelized will find the kernels directive a good starting place for OpenACC acceleration.
+      </li>
+      <li class="li">
+       The compiler is given complete freedom to determine how best to map the parallelism available in these loops to the hardware, meaning that we will be able to use this same code regardless of the accelerator we are building for.
+      </li>
+     </ul>
+    </div>
+   </div>
+   <div class="topic concept nested2" id="page_17" xml:lang="en-US">
+    <a name="page_17" shape="rect">
+    </a>
+    <h3 class="title topictitle2">
+     <a href="http://{{host}}:{{port}}/openacc/guide#page_17" name="page_17" shape="rect">
+      The Parallel Construct
+     </a>
+    </h3>
+    <div class="body conbody">
+     <ul class="ul">
+      <li class="li">
+       By placing this directive on a loop the programmer asserts that the affected loop is safe to parallelize and allows the compiler to select how to schedule the loop iterations on the target accelerator.
+      </li>
+      <li class="li">
+       In this case, the programmer is only identifying the availability of parallelism, but still leaving the decision of how to map that parallelism to the accelerator to the compiler's knowledge about the device.
+      </li>
+      <li class="li">
+       The programmer identifies the parallelism without dictating to the compiler how to exploit that parallelism.
+      </li>
+     </ul>
+    </div>
+   </div>
+   <div class="topic concept nested2" id="page_18" xml:lang="en-US">
+    <a name="page_18" shape="rect">
+    </a>
+    <h3 class="title topictitle2">
+     <a href="http://{{host}}:{{port}}/openacc/guide#page_18" name="page_18" shape="rect">
+      Diﬀerences Between Parallel and Kernels
+     </a>
+    </h3>
+    <div class="body conbody">
+     <ul class="ul">
+      <li class="li">
+       As a result, the programmer may see differences in what different compilers are able to parallelize and how they do so.
+      </li>
+      <li class="li">
+       If the programmer asserts incorrectly that the loop may be parallelized then the resulting application may produce incorrect results.
+      </li>
+      <li class="li">
+       To put things another way: the kernels construct may be thought of as a hint to the compiler of where it should look for parallelism while the parallel directive is an assertion to the compiler of where there is parallelism.
+      </li>
+      <li class="li">
+       In some cases the compiler may not have enough information at compile time to determine whether a loop is safe the parallelize, in which case it will not parallelize the loop, even if the programmer can clearly see that the loop is safely parallel.
+      </li>
+      <li class="li">
+       Best Practice: C programmers should use the restrict keyword (or the __restrict decorator in C++) whenever possible to inform the compiler that the pointers are not aliased, which will frequently give the compiler enough information to then parallelize loops that it would not have otherwise.
+      </li>
+      <li class="li">
+       Use of const and restrict is a good programming practice in general, as it gives the compiler additional information that can be used when optimizing the code.
+      </li>
+      <li class="li">
+       Fortran programmers should also note that an OpenACC compiler will parallelize Fortran array syntax that is contained in a kernels construct.
+      </li>
+      <li class="li">
+       When using parallel instead, it will be necessary to explicitly introduce loops over the elements of the arrays.
+      </li>
+      <li class="li">
+       One more notable benefit that the kernels construct provides is that if data is moved to the device for use in loops contained in the region, that data will remain on the device for the full extent of the region, or until it is needed again on the host within that region.
+      </li>
+      <li class="li">
+       At this point many programmers will be left wondering which directive they should use in their code.
+      </li>
+      <li class="li">
+       More experienced parallel programmers, who may have already identified parallel loops within their code, will likely find the parallel loop approach more desirable.
+      </li>
+      <li class="li">
+       Programmers with less parallel programming experience or whose code contains a large number of loops that need to be analyzed may find the kernels approach much simpler, as it puts more of the burden on the compiler.
+      </li>
+      <li class="li">
+       Both approaches have advantages, so new OpenACC programmers should determine for themselves which approach is a better fit for them.
+      </li>
+      <li class="li">
+       A programmer may even choose to use kernels in one part of the code, but parallel in another if it makes sense to do so.
+      </li>
+     </ul>
+    </div>
+   </div>
+   <div class="topic concept nested2" id="page_19" xml:lang="en-US">
+    <a name="page_19" shape="rect">
+    </a>
+    <h3 class="title topictitle2">
+     <a href="http://{{host}}:{{port}}/openacc/guide#page_19" name="page_19" shape="rect">
+      The Loop Construct
+     </a>
+    </h3>
+    <div class="body conbody">
+     <ul class="ul">
+      <li class="li">
+       The reduction clause works similarly to the private clause in that a private copy of the affected variable is generated for each loop iteration, but reduction goes a step further to reduce all of those private copies into one final result, which is returned from the region.
+      </li>
+      <li class="li">
+       A reduction may only be specified on a scalar variable and only common, specified operations can be performed, such as +, *, min, max, and various bitwise operations (see the OpenACC specification for a complete list).
+      </li>
+      <li class="li">
+       The format of the reduction clause is as follows, where operator should be replaced with the operation of interest and variable should be replaced with the variable being reduced: reduction(operator:variable).
+      </li>
+      <li class="li">
+       An example of using the reduction clause will come in the case study below.
+      </li>
+     </ul>
+    </div>
+   </div>
+   <div class="topic concept nested2" id="page_20" xml:lang="en-US">
+    <a name="page_20" shape="rect">
+    </a>
+    <h3 class="title topictitle2">
+     <a href="http://{{host}}:{{port}}/openacc/guide#page_20" name="page_20" shape="rect">
+      Routine Directive
+     </a>
+    </h3>
+    <div class="body conbody">
+     <ul class="ul">
+     </ul>
+    </div>
+   </div>
+   <div class="topic concept nested2" id="page_21" xml:lang="en-US">
+    <a name="page_21" shape="rect">
+    </a>
+    <h3 class="title topictitle2">
+     <a href="http://{{host}}:{{port}}/openacc/guide#page_21" name="page_21" shape="rect">
+      Case Study - Parallelize
+     </a>
+    </h3>
+    <div class="body conbody">
+     <ul class="ul">
+      <li class="li">
+       As discussed above, this is considered a reduction since we are reducing from all possible values for error down to just the single maximum.
+      </li>
+      <li class="li">
+       This means that it is necessary to indicate a reduction on the first loop nest (the one that calculates error).
+      </li>
+      <li class="li">
+       Best Practice: Some compilers will detect the reduction on error and implicitly insert the reduction clause, but for maximum portability the programmer should always indicate reductions in the code.
+      </li>
+      <li class="li">
+       By placing a loop directive on each loop that I know can be parallelized the programmer ensures that the compiler will understand that the loop is safe the parallelize.
+      </li>
+      <li class="li">
+       When used within a parallel region, the loop directive asserts that the loop iterations are independent of each other and are safe the parallelize and should be used to provide the compiler as much information about the loops as possible.
+      </li>
+      <li class="li">
+       Other clauses to the loop directive that may further benefit the performance of the resulting code will be discussed in a later chapter.
+      </li>
+      <li class="li">
+       Using the kernels construct to accelerate the loops we've identified requires inserting just one directive in the code and allowing the compiler to perform the parallel analysis.
+      </li>
+      <li class="li">
+       Adding a kernels construct around the two computational loop nests results in the following code.
+      </li>
+      <li class="li">
+       The above code demonstrates some of the power that the kernels construct provides, since the compiler will analyze the code and identify both loop nests as parallel and it will automatically discover the reduction on the error variable without programmer intervention.
+      </li>
+      <li class="li">
+       Had the programmer put the kernels construct around the convergence loop, which we have already determined is not parallel, the compiler likely would not have found any available parallelism.
+      </li>
+      <li class="li">
+       This means that the resulting code should perform fewer copies between host and device memory in this version than the version from the previous section.
+      </li>
+      <li class="li">
+       The y axis for figure 3.1 is execution time in seconds, so smaller is better.
+      </li>
+      <li class="li">
+       The OpenACC kernels version performs slightly better than the serial version, but the parallel loop case performs dramaticaly worse than even the slowest CPU version.
+      </li>
+      <li class="li">
+       It should be obvious from the timeline displayed that significantly more time is being spent copying data to and from the accelerator before and after each compute kernel than actually computing on the device.
+      </li>
+     </ul>
+    </div>
+   </div>
+   <div class="topic concept nested2" id="page_27" xml:lang="en-US">
+    <a name="page_27" shape="rect">
+    </a>
+    <h3 class="title topictitle2">
+     <a href="http://{{host}}:{{port}}/openacc/guide#page_27" name="page_27" shape="rect">
+      Atomic Operations
+     </a>
+    </h3>
+    <div class="body conbody">
+     <ul class="ul">
+      <li class="li">
+       In simple cases, such as finding a sum, maximum, or minimum value, a reduction operation will ensure correctness.
+      </li>
+      <li class="li">
+       Use of atomics is sometimes a necessary part of parallelization to ensure correctness.
+      </li>
+     </ul>
+    </div>
+   </div>
+  </div>
+  <div class="topic concept nested1" id="page_29" xml:lang="en-US">
+   <a name="page_29" shape="rect">
+   </a>
+   <h2 class="title topictitle1">
+    <a href="http://{{host}}:{{port}}/openacc/guide#page_29" name="page_29" shape="rect">
+     4 Optimize Data Locality
+    </a>
+   </h2>
+   <div class="body conbody">
+    <ul class="ul">
+     <li class="li">
+      Data locality means that data used in device or host memory should remain local to that memory for as long as it is needed.
+     </li>
+     <li class="li">
+      However you think of it, providing the compiler with the information necessary to only relocate data when it needs to do so is frequently the key to success with OpenACC.
+     </li>
+     <li class="li">
+      A programmer will have knowledge of what data is really needed and when it will be needed.
+     </li>
+     <li class="li">
+      The programmer will also have knowledge of how data may be shared between two functions, something that is difficult for a compiler to determine.
+     </li>
+     <li class="li">
+      Even when does not immediately know how best to optimize data motion, profiling tools may help the programmer identify when excess data movement occurs, as will be shown in the case study at the end of this chapter.
+     </li>
+     <li class="li">
+      It is after this step that most applications will observe the benefit of OpenACC acceleration.
+     </li>
+    </ul>
+   </div>
+   <div class="topic concept nested2" id="page_29" xml:lang="en-US">
+    <a name="page_29" shape="rect">
+    </a>
+    <h3 class="title topictitle2">
+     <a href="http://{{host}}:{{port}}/openacc/guide#page_29" name="page_29" shape="rect">
+      Data Regions
+     </a>
+    </h3>
+    <div class="body conbody">
+     <ul class="ul">
+      <li class="li">
+       In order to provide the information necessary to perform optimal data movement, the programmer can add data clauses to the data region.
+      </li>
+     </ul>
+    </div>
+   </div>
+   <div class="topic concept nested2" id="page_30" xml:lang="en-US">
+    <a name="page_30" shape="rect">
+    </a>
+    <h3 class="title topictitle2">
+     <a href="http://{{host}}:{{port}}/openacc/guide#page_30" name="page_30" shape="rect">
+      Data Clauses
+     </a>
+    </h3>
+    <div class="body conbody">
+     <ul class="ul">
+      <li class="li">
+       create - Create space for the listed variables and release it at the end of the region, but do not copy to or from the device.
+      </li>
+      <li class="li">
+       deviceptr - The listed variables use device memory that has been managed outside of OpenACC, therefore the variables should be used on the device without any address translation.
+      </li>
+      <li class="li">
+       These routines are frequently abbreviated, like pcopyin instead of present_or_copyin.
+      </li>
+      <li class="li">
+       In an upcoming OpenACC specification the behavior of all data directives will be present or, so programmers should begin writing their applications using these directives to ensure correctness with future OpenACC specifications.
+      </li>
+      <li class="li">
+       For the most part, Fortran programmers can rely on the self-describing nature of Fortran arrays, but C/C++ programmers will frequently need to give additional information to the compiler so that it will know how large an array to allocate on the device and how much data needs to be copied.
+      </li>
+      <li class="li">
+       To give this information the programmer adds a shape specification to the data clauses.
+      </li>
+      <li class="li">
+       With these data clauses it is possible to further improve the example shown above by informing the compiler how and when it should perform data transfers.
+      </li>
+      <li class="li">
+       In this simple example above, the programmer knows that both x and y will be populated with data on the device, so neither will need to be copied to the device, but the results of y are significant, so it will need to be copied back to the host at the end of the calculation.
+      </li>
+     </ul>
+    </div>
+   </div>
+   <div class="topic concept nested2" id="page_33" xml:lang="en-US">
+    <a name="page_33" shape="rect">
+    </a>
+    <h3 class="title topictitle2">
+     <a href="http://{{host}}:{{port}}/openacc/guide#page_33" name="page_33" shape="rect">
+      Unstructured Data Lifetimes
+     </a>
+    </h3>
+    <div class="body conbody">
+     <ul class="ul">
+      <li class="li">
+       The enter data and exit data directives can be used to identify precisely when data should be allocated and deallocated on the device.
+      </li>
+      <li class="li">
+       The enter data directive accepts the create and copyin data clauses and may be used to specify when data should be created on the device.
+      </li>
+      <li class="li">
+       The exit data directive accepts the copyout and a special delete data clause to specify when data should be removed from the device.
+      </li>
+      <li class="li">
+       Programmers may choose to use the unstructured data lifetime directives or the OpenACC API to control data locality within a C++ class.
+      </li>
+      <li class="li">
+       Use of the directives is preferable, since they will be safely ignored by non-OpenACC compilers, but the API is also available for times when the directives are not expressive enough to meet the needs of the programmer.
+      </li>
+      <li class="li">
+       It is important to place the enter data directive after the class data has been initialized.
+      </li>
+      <li class="li">
+       It is important to place this directive before array members are freed, because once the host copies are freed the underlying pointer may become invalid, making it impossible to then free the device memory as well.
+      </li>
+      <li class="li">
+       For the same reason the this pointer should not be removed from the device until after all other memory has been released.
+      </li>
+      <li class="li">
+       The same technique used in the class constructor and destructor above can be used in other programming languages as well.
+      </li>
+     </ul>
+    </div>
+   </div>
+   <div class="topic concept nested2" id="page_35" xml:lang="en-US">
+    <a name="page_35" shape="rect">
+    </a>
+    <h3 class="title topictitle2">
+     <a href="http://{{host}}:{{port}}/openacc/guide#page_35" name="page_35" shape="rect">
+      Update Directive
+     </a>
+    </h3>
+    <div class="body conbody">
+     <ul class="ul">
+      <li class="li">
+       Although the above example copies the entire arr array to or from the device, a partial array may also be provided to reduce the data transfer cost when only part of an array needs to be updated, such as when exchanging boundary conditions.
+      </li>
+      <li class="li">
+       Best Practice: As noted earlier in the document, variables in an OpenACC code should always be thought of as a singular object, rather than a host copy and a device copy.
+      </li>
+      <li class="li">
+       Even when developing on a machine with a unified host and device memory it is important to include an update directive whenever accessing data from the host or device that was previous written to by the other, it is important to use an update directive to ensure correctness on all devices.
+      </li>
+     </ul>
+    </div>
+   </div>
+   <div class="topic concept nested2" id="page_36" xml:lang="en-US">
+    <a name="page_36" shape="rect">
+    </a>
+    <h3 class="title topictitle2">
+     <a href="http://{{host}}:{{port}}/openacc/guide#page_36" name="page_36" shape="rect">
+      Best Practice: Offload Inefficient Operations to Maintain Data Locality
+     </a>
+    </h3>
+    <div class="body conbody">
+     <ul class="ul">
+      <li class="li">
+       Due to the high cost of PCIe data transfers on systems with distinct host and device memories, it is often beneficial to move sections of the application to the accelerator device, even when the code lacks sufficient parallelism to see direct benefit.
+      </li>
+      <li class="li">
+       A developer may use a parallel region with just 1 gang as a way to offload a serial section of the code to the accelerator.
+      </li>
+      <li class="li">
+       Both the parallel loop and the second parallel region could be made asynchronous (discussed in a later chapter) to reduce the cost of the second kernel launch.
+      </li>
+      <li class="li">
+       Note: Because the kernels directive instructs the compiler to search for parallelism, there is no similar technique for kernels, but the parallel approach above can be easily placed between kernels regions.
+      </li>
+     </ul>
+    </div>
+   </div>
+   <div class="topic concept nested2" id="page_37" xml:lang="en-US">
+    <a name="page_37" shape="rect">
+    </a>
+    <h3 class="title topictitle2">
+     <a href="http://{{host}}:{{port}}/openacc/guide#page_37" name="page_37" shape="rect">
+      Case Study - Optimize Data Locality
+     </a>
+    </h3>
+    <div class="body conbody">
+     <ul class="ul">
+      <li class="li">
+       Additionally, we'll need to specify how the arrays should be managed by this data region.
+      </li>
+      <li class="li">
+       Using the Nvidia Visual Profiler again, we see that each data transfers now only occur at the beginning and end of the data region and that the time between each iterations is much less.
+      </li>
+      <li class="li">
+       The reader should feel encouraged, however, to revisit this code to see if further improvements are possible on the device of interest to them.
+      </li>
+     </ul>
+    </div>
+   </div>
+  </div>
+  <div class="topic concept nested1" id="page_40" xml:lang="en-US">
+   <a name="page_40" shape="rect">
+   </a>
+   <h2 class="title topictitle1">
+    <a href="http://{{host}}:{{port}}/openacc/guide#page_40" name="page_40" shape="rect">
+     5 Optimize Loops
+    </a>
+   </h2>
+   <div class="body conbody">
+    <ul class="ul">
+     <li class="li">
+      Once data locality has been expressed developers may wish to further tune the code for the hardware of interest.
+     </li>
+     <li class="li">
+      It's important to understand that the more loops are tuned for a particular type of hardware the less performance portable the code becomes to other architecures.
+     </li>
+     <li class="li">
+      For this reason the best practice is to wait to optimize particular loops until after all of the data locality has been expressed in the code, reducing the PCIe transfer time to a minimum.
+     </li>
+    </ul>
+   </div>
+   <div class="topic concept nested2" id="page_40" xml:lang="en-US">
+    <a name="page_40" shape="rect">
+    </a>
+    <h3 class="title topictitle2">
+     <a href="http://{{host}}:{{port}}/openacc/guide#page_40" name="page_40" shape="rect">
+      Eﬃcient Loop Ordering
+     </a>
+    </h3>
+    <div class="body conbody">
+     <ul class="ul">
+      <li class="li">
+       Before changing the way OpenACC maps loops onto the hardware of interest, the developer should examine the important loops to ensure that data arrays are being accessed in an efficient manner.
+      </li>
+      <li class="li">
+       This is achieved by ensuring that the innermost loop of a loop nest iterates on the fastest varying array dimension and each successive loop outward accesses the next fastest varying dimension.
+      </li>
+     </ul>
+    </div>
+   </div>
+   <div class="topic concept nested2" id="page_40" xml:lang="en-US">
+    <a name="page_40" shape="rect">
+    </a>
+    <h3 class="title topictitle2">
+     <a href="http://{{host}}:{{port}}/openacc/guide#page_40" name="page_40" shape="rect">
+      OpenACC’s 3 Levels of Parallelism
+     </a>
+    </h3>
+    <div class="body conbody">
+     <ul class="ul">
+      <li class="li">
+       Within a gang the OpenACC model exposes a cache memory, which can be used by all workers and vectors within the gang, and it is legal to synchronize within a gang, although OpenACC does not expose synchronization to the user.
+      </li>
+      <li class="li">
+       Using these three levels of parallelism, plus sequential, a programmer can map the parallelism in the code to any device.
+      </li>
+      <li class="li">
+       If the programmer chooses not to explicitly map loops to the device of interest the compiler will implicitly perform this mapping using what it knows about the target device.
+      </li>
+      <li class="li">
+       The more explicit mapping of parallelism the programmer adds to the code, however, the less portable they make the code to other architectures.
+      </li>
+     </ul>
+    </div>
+   </div>
+   <div class="topic concept nested2" id="page_41" xml:lang="en-US">
+    <a name="page_41" shape="rect">
+    </a>
+    <h3 class="title topictitle2">
+     <a href="http://{{host}}:{{port}}/openacc/guide#page_41" name="page_41" shape="rect">
+      Mapping Parallelism to the Hardware
+     </a>
+    </h3>
+    <div class="body conbody">
+     <ul class="ul">
+      <li class="li">
+       With some understanding of how the underlying accelerator hardware works it is possible to inform that compiler how it should map the loop iterations into parallelism on the hardware.
+      </li>
+      <li class="li">
+       In addition to the clauses shown before, which were intended to ensure correctness, the clauses below inform the compiler which level of parallelism should be used to for the given loop.
+      </li>
+      <li class="li">
+       Seq clause - do not partition this loop, run it sequentially instead.
+      </li>
+      <li class="li">
+       The programmer may additionally tell the compiler the specific number of gangs, workers, or the vector length to use for the loops.
+      </li>
+      <li class="li">
+       This specific mapping is achieved slightly differently when using the kernels directive or the parallel directive.
+      </li>
+      <li class="li">
+       For example, the code below specifies that a vector length of 128 should be used on devices of type acc_device_nvidia or a vector length of 256 should be used on devices of type acc_device_radeon.
+      </li>
+     </ul>
+    </div>
+   </div>
+   <div class="topic concept nested2" id="page_43" xml:lang="en-US">
+    <a name="page_43" shape="rect">
+    </a>
+    <h3 class="title topictitle2">
+     <a href="http://{{host}}:{{port}}/openacc/guide#page_43" name="page_43" shape="rect">
+      Collapse Clause
+     </a>
+    </h3>
+    <div class="body conbody">
+     <ul class="ul">
+      <li class="li">
+       When a code contains tightly nested loops it is frequently beneficial to collapse these loops into a single loop.
+      </li>
+      <li class="li">
+       How much this optimization will speed-up the code will vary according to the application and the target accelerator, but it is not uncommon to see large speed-ups by using collapse on loop nests.
+      </li>
+     </ul>
+    </div>
+   </div>
+   <div class="topic concept nested2" id="page_44" xml:lang="en-US">
+    <a name="page_44" shape="rect">
+    </a>
+    <h3 class="title topictitle2">
+     <a href="http://{{host}}:{{port}}/openacc/guide#page_44" name="page_44" shape="rect">
+      Routine Parallelism
+     </a>
+    </h3>
+    <div class="body conbody">
+     <ul class="ul">
+      <li class="li">
+       In these cases, the routine directive may have a gang, worker, or vector clause instead of seq to inform the compiler that the routine will contain the specified level of parallelism.
+      </li>
+     </ul>
+    </div>
+   </div>
+   <div class="topic concept nested2" id="page_44" xml:lang="en-US">
+    <a name="page_44" shape="rect">
+    </a>
+    <h3 class="title topictitle2">
+     <a href="http://{{host}}:{{port}}/openacc/guide#page_44" name="page_44" shape="rect">
+      Case Study - Optimize Loops
+     </a>
+    </h3>
+    <div class="body conbody">
+     <ul class="ul">
+      <li class="li">
+       When a compiler has sufficient information about loops to make informed decisions, it is frequently difficult to improve the performance of a given parallel loop by more than a few percent.
+      </li>
+      <li class="li">
+       The developer knows, however, that the number of non-zero elements per row is very small and this detail will be key to achieving high performance.
+      </li>
+      <li class="li">
+       These same techniques may apply on other architectures, particularly those similar to NVIDIA GPUs, but it will be necessary to make certain optimization decisions based on the particular accelerator in use.
+      </li>
+      <li class="li">
+       Notice that I have now explicitly informed the compiler that the innermost loop should be a vector loop, to ensure that the compiler will map the parallelism exactly how I wish.
+      </li>
+      <li class="li">
+       Notice that the best performance comes from the smallest vector length.
+      </li>
+      <li class="li">
+       On this particular hardware, the best performance comes from a vector length of 32 and 32 workers.
+      </li>
+      <li class="li">
+       Best Practice: Although not shown in order to save space, it is generally best to use the device_type clause whenever specifying the sorts of optimizations demonstrated in this section, because these clauses will likely differ from accelerator to accelerator.
+      </li>
+      <li class="li">
+       By using the device_type clause it is possible to provide this information only on accelerators where the optimizations apply and allow the compiler to make its own decisions on other architectures.
+      </li>
+     </ul>
+    </div>
+   </div>
+  </div>
+  <div class="topic concept nested1" id="page_49" xml:lang="en-US">
+   <a name="page_49" shape="rect">
+   </a>
+   <h2 class="title topictitle1">
+    <a href="http://{{host}}:{{port}}/openacc/guide#page_49" name="page_49" shape="rect">
+     6 OpenACC Interoperability
+    </a>
+   </h2>
+   <div class="body conbody">
+    <ul class="ul">
+     <li class="li">
+      The authors of OpenACC recognized that it may sometimes be beneficial to mix OpenACC code with code accelerated using other parallel programming languages, such as CUDA or OpenCL, or accelerated math libraries.
+     </li>
+     <li class="li">
+      This interoperability means that a developer can choose the programming paradigm that makes the most sense in the particular situation and leverage code and libraries that may already be available.
+     </li>
+     <li class="li">
+      Developers don't need to decide at the begining of a project between OpenACC or something else, they can choose to use OpenACC and other technologies.
+     </li>
+    </ul>
+   </div>
+   <div class="topic concept nested2" id="page_49" xml:lang="en-US">
+    <a name="page_49" shape="rect">
+    </a>
+    <h3 class="title topictitle2">
+     <a href="http://{{host}}:{{port}}/openacc/guide#page_49" name="page_49" shape="rect">
+      The Host Data Region
+     </a>
+    </h3>
+    <div class="body conbody">
+     <ul class="ul">
+      <li class="li">
+       The host_data region accepts only the use_device clause, which specifies which device variables should be exposed to the host.
+      </li>
+     </ul>
+    </div>
+   </div>
+   <div class="topic concept nested2" id="page_50" xml:lang="en-US">
+    <a name="page_50" shape="rect">
+    </a>
+    <h3 class="title topictitle2">
+     <a href="http://{{host}}:{{port}}/openacc/guide#page_50" name="page_50" shape="rect">
+      Using Device Pointers
+     </a>
+    </h3>
+    <div class="body conbody">
+     <ul class="ul">
+     </ul>
+    </div>
+   </div>
+   <div class="topic concept nested2" id="page_51" xml:lang="en-US">
+    <a name="page_51" shape="rect">
+    </a>
+    <h3 class="title topictitle2">
+     <a href="http://{{host}}:{{port}}/openacc/guide#page_51" name="page_51" shape="rect">
+      Obtaining Device and Host Pointer Addresses
+     </a>
+    </h3>
+    <div class="body conbody">
+     <ul class="ul">
+     </ul>
+    </div>
+   </div>
+   <div class="topic concept nested2" id="page_51" xml:lang="en-US">
+    <a name="page_51" shape="rect">
+    </a>
+    <h3 class="title topictitle2">
+     <a href="http://{{host}}:{{port}}/openacc/guide#page_51" name="page_51" shape="rect">
+      Additional Vendor-Specific Interoperability Features
+     </a>
+    </h3>
+    <div class="body conbody">
+     <ul class="ul">
+      <li class="li">
+       While imple- mentations are not required to provide the functionality, it is useful to know that these features exist in some implementations.
+      </li>
+      <li class="li">
+       Developers should refer to the OpenACC specification and their compiler's documentation for a full list of supported features.
+      </li>
+      <li class="li">
+       Since developers may need to interoperate between CUDA streams and OpenACC queues, the specification suggests two routines for mapping CUDA streams and OpenACC asynchronous queues.
+      </li>
+      <li class="li">
+       The advantage that managed memory sometimes has it that it is better able to handle complex data structures, such as C++ classes or structures containing pointers, since pointer references are valid on both the host and the device.
+      </li>
+      <li class="li">
+       To use managed memory within an OpenACC program the developer can simply declare pointers to managed memory as device pointers using the deviceptr clause so that the OpenACC runtime will not attempt to create a separate device allocation for the pointers.
+      </li>
+     </ul>
+    </div>
+   </div>
+  </div>
+  <div class="topic concept nested1" id="page_53" xml:lang="en-US">
+   <a name="page_53" shape="rect">
+   </a>
+   <h2 class="title topictitle1">
+    <a href="http://{{host}}:{{port}}/openacc/guide#page_53" name="page_53" shape="rect">
+     7 Advanced OpenACC Features
+    </a>
+   </h2>
+   <div class="body conbody">
+    <ul class="ul">
+     <li class="li">
+      These techniques are considered advanced, so readers should feel comfortable with the features discussed in previous chapters before proceeding to this chapter.
+     </li>
+    </ul>
+   </div>
+   <div class="topic concept nested2" id="page_53" xml:lang="en-US">
+    <a name="page_53" shape="rect">
+    </a>
+    <h3 class="title topictitle2">
+     <a href="http://{{host}}:{{port}}/openacc/guide#page_53" name="page_53" shape="rect">
+      Asynchronous Operation
+     </a>
+    </h3>
+    <div class="body conbody">
+     <ul class="ul">
+      <li class="li">
+       In a previous chapter we discussed the necessity to optimize for data locality to reduce the cost of data transfers on systems where the host and accelerator have physically distinct memories.
+      </li>
+      <li class="li">
+       After minimizing data transfers, it may be possible to further reduce the performance penalty associated with those transfers by overlapping the copies with other operations on the host, device, or both.
+      </li>
+      <li class="li">
+       This can be achieved with OpenACC using the async clause.
+      </li>
+      <li class="li">
+       While this is useful, it would be even more useful to expose dependencies into these asynchronous operations and the associated waits such that independent operations could potentially be executed concurrently.
+      </li>
+      <li class="li">
+       The case study below will demonstrate how to use different work queues to achieve overlapping of computation and data transfers.
+      </li>
+      <li class="li">
+       In addition to being able to place operations in separate queues, it'd be useful to be able to join these queues together at a point where results from both are needed before proceeding.
+      </li>
+      <li class="li">
+       This can be achieved by adding an async clause to an wait.
+      </li>
+      <li class="li">
+       Using this technique we've expressed the dependencies of our loops to maximize concurrency between regions but still give correct results.
+      </li>
+      <li class="li">
+       Once the loops and data transfers within a routine have been tested, it is frequently beneficial to make each parallel region and update asynchrounous and then place a wait directive after the last accelerator directive.
+      </li>
+      <li class="li">
+       This allows the runtime to enqueue all of the work immediately, which will reduce how often the accelerator and host must synchronize and reduce the cost of launching work onto the accelerator.
+      </li>
+      <li class="li">
+       It is criticial when implementing this optimization that the developer not leave off the wait after the last accelerator directive, otherwise the code will be likely to produce incorrect results.
+      </li>
+      <li class="li">
+       The number and size of these smaller chunks of work can be adjusted to find the value that provides the best performance.
+      </li>
+      <li class="li">
+       This will be done in multiple steps to reduce the likelihood of introducing an error.
+      </li>
+      <li class="li">
+       After each step the developer should build and run the code to ensure the resulting image is still correct.
+      </li>
+      <li class="li">
+       To do this, we will need decide how many blocks of work is desired and use that to determine the starting and ending bounds for each block.
+      </li>
+      <li class="li">
+       The performance of this step should not be noticably better than the original code and may be worse.
+      </li>
+      <li class="li">
+       The developer should now experiment with varying block sizes to determine what the optimal value is on the architecture of interest.
+      </li>
+      <li class="li">
+       It's important to note, however, that on some architectures the cost of creating an asynchronous queue the first time its used can be quite expensive.
+      </li>
+      <li class="li">
+       In short-running codes, such as the demonstration code used in this chapter, this cost may outweigh the benefit of the pipelining.
+      </li>
+      <li class="li">
+       Two solutions to this are to introduce a simple block loop at the beginning of the code that pre-creates the asynchronous queues before the timed section, or to use a modulus operation to reuse the same smaller number of queues among all of the blocks.
+      </li>
+      <li class="li">
+       Two queues is generally sufficient to see a gain in performance, since it still allows computation and updates to overlap, but the developer should experiment to find the best value on a given machine.
+      </li>
+      <li class="li">
+       Similar results should be possible on any acclerated platform.
+      </li>
+      <li class="li">
+       Using 64 blocks and two asynchronous queues, as shown below, roughly a 2X performance improvement was observed on the test machine over the performance without pipelining.
+      </li>
+     </ul>
+    </div>
+   </div>
+   <div class="topic concept nested2" id="page_60" xml:lang="en-US">
+    <a name="page_60" shape="rect">
+    </a>
+    <h3 class="title topictitle2">
+     <a href="http://{{host}}:{{port}}/openacc/guide#page_60" name="page_60" shape="rect">
+      Multi-device Programming
+     </a>
+    </h3>
+    <div class="body conbody">
+     <ul class="ul">
+      <li class="li">
+       The acc_set_device_type() specifies to the runtime the type of device that the runtime should use for accelerator operations, but allows the runtime to choose which device of that type to use.
+      </li>
+      <li class="li">
+       Once the data has been created on each device, a call to acc_get_device_type() in the blocking loop, using a simple modulus operation to select which device should receive each block, will sent blocks to different devices.
+      </li>
+      <li class="li">
+       Although this example over-allocates device memory by placing the entire image array on the device, it does serve as a simple example of how the acc_set_device_num() routine can be used to operate on a machine with multiple devices.
+      </li>
+      <li class="li">
+       In production codes the developer will likely want to partition the work such that only the parts of the array needed by a specific device are available there.
+      </li>
+     </ul>
+    </div>
+   </div>
+  </div>
+ </article>
+</div>
+ {% endblock %} 
