@@ -79,7 +79,7 @@ def update_log(query, sim_thr, docname, issues=''):
 		write_log_to_file()
 		app.config['LOG_INFO'] = ''
 		app.config['SEARCH_COUNT']=0
-	print loginfo 	
+	print loginfo, ', SEARCH_COUNT:', app.config['SEARCH_COUNT']
 
 
 def allowed_file(filename):

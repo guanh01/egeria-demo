@@ -1,2 +1,2 @@
-python setup.py
+#python setup.py
 gunicorn -w 4 -b 0.0.0.0:5000 openk:app

@@ -72,7 +72,12 @@
           }
     </script> 
 
-    <div id="logo"> company </div>
+    <div id="logo">
+      <a href="http://{{host}}:{{port}}">
+        <!-- <a href="http://152.14.86.153:5000"> -->
+        <img style="width:100%; height:100%; " src="{{url_for('static', filename='cuda/devzone.png')}}">
+      </a>
+    </div>
 
    <form action="/{{docname}}/search"  method=post enctype=multipart/form-data>
       <div id="upload-file">

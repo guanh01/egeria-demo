@@ -17,7 +17,7 @@ from egeria.keywords import keywords_factory
 from egeria.helper import get_script_path, check_directory
 from config import doc2info  
 
-script_path = get_script_path()
+script_path = './'
 docs = sorted(doc2info.keys())
 print "Setup for docs:", docs
 
