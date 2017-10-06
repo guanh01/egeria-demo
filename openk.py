@@ -33,7 +33,7 @@ app.config['MAX_CONTENT_LENGTH'] = 2 * 1024 * 1024
 LOG_FOLDER = './logs'
 check_directory(LOG_FOLDER)
 app.config['LOG_FOLDER'] = LOG_FOLDER
-app.config['LOG_FREQUENCY'] = 5
+app.config['LOG_FREQUENCY'] = 10
 app.config['LOG_INFO'] = ''
 app.config['SEARCH_COUNT'] = 0
 
@@ -49,7 +49,7 @@ app.config['SIM_THR'] = similarity_threshold # default similarity threshold
 
 
 # setup  query engines
-script_path = get_script_path()
+script_path = './'
 queryEngines = {}
 allowed_docs = sorted(doc2info.keys())
 for doc in allowed_docs:
