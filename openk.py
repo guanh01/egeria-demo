@@ -43,9 +43,9 @@ app.config['PORT'] = port
 app.config['SIM_THR'] = similarity_threshold # default similarity threshold
 #sim_thr = similarity_threshold 
 
-# app.secret_key = 'super secret key'
-# app.config['SESSION_TYPE'] = 'filesystem'
-# app.config['SECRET_KEY'] = 'hard to guess string'
+app.secret_key = 'super secret key'
+app.config['SESSION_TYPE'] = 'filesystem'
+app.config['SECRET_KEY'] = 'hard to guess string'
 
 
 # setup  query engines

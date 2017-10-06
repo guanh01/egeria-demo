@@ -4,11 +4,12 @@ html, body { margin:0; padding:0; background:#fff; font-family:'Trebuchet MS', '
 
 
 /*#header #site-title { position:absolute; text-indent:-2000px; left:220px; top:18px; width:329px; height:16px;}*/
+#header #logo { position:absolute; left:13px; top:15px; width:195px; height:31px; }
 
 
 #search-query #search-text {
-  position:absolute; width:304px; height:28px; top:12px; right:6px;
-  padding-left:26px;
+  position:absolute; width:25%; height:28px; top:12px; right:1%;
+  padding-left:28px;
   font-size:14px; font-family:'Trebuchet MS', 'DIN Pro', sans-serif; line-height:25px;
 
   -webkit-box-sizing:border-box; -moz-box-sizing:border-box; box-sizing:border-box;
@@ -34,11 +35,13 @@ html, body { margin:0; padding:0; background:#fff; font-family:'Trebuchet MS', '
 
 #search-query #submit-button {
   text-indent:-2000px; overflow:hidden;
-  position:absolute; width:20px; height:20px; top:17px; right:286px;
+  position:absolute; width:20px; height:20px; top:17px; left: calc(74% + 8px);
   background:url(magnify.png) no-repeat top left; border:0; padding:0; margin:0;
 }
 
-#header #upload-file { position:absolute; left:230px; top:15px; font-size:14px; font-family:'Trebuchet MS', 'DIN Pro', sans-serif;}
+#header #upload-file { position:absolute; left:calc(2% + 195px); width:20%; top:15px; font-size:14px; font-family:'Trebuchet MS', 'DIN Pro', sans-serif;}
+#header #upload-file #choosed-file {width: 70%;}
+#header #upload-file #upload-button {left: 71%; width: 20%;}
 #header #upload-file #choosed-file { 
 -webkit-box-sizing:border-box; -moz-box-sizing:border-box; box-sizing:border-box;
   -webkit-border-radius: 8px; -moz-border-radius: 8px; border-radius: 8px;
@@ -62,9 +65,9 @@ html, body { margin:0; padding:0; background:#fff; font-family:'Trebuchet MS', '
 }
 /*background-color: lemonchiffon; */
 
-#header #sim-range-bar { position:absolute; left:50%; top:15px; height:18px;}
-#header #sim-range-bar #range-value { position:absolute; left:139px; width: 200px; color: white; top: 2px; font-size:16px; font-family:'Trebuchet MS', 'DIN Pro', sans-serif;}
-
+#header #sim-range-bar { position:absolute; left:calc(25% + 195px); top:15px; height:18px; width: 25%;}
+#header #sim-range-bar #range-value { position:absolute; left:62%; width: 35%; color: white; top: 2px; font-size:16px; font-family:'Trebuchet MS', 'DIN Pro', sans-serif;}
+#header #sim-range-bar input {width: 60%;}
 
 /* online class is added by JS */
 body.online #header #company { left:11px; top:12px; width:181px; height:31px; background:url(logo.png); cursor:pointer; }
