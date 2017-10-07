@@ -79,21 +79,24 @@
     </div>
     <!-- <div id="logo"> company </div> -->
 
-   <form action="{{url_for('search', docname='openacc')}}"  method=post enctype=multipart/form-data>
-      <!-- <div id="upload-file">
+   <form action="{{url_for('search', docname='openacc')}}"  id="form" method=post enctype=multipart/form-data>
+      <div id="upload-file">
       	<input type="file" name="file" id="choosed-file" onchange="removeQuery()" />
 
         
         <input id='upload-button' type=submit value="Upload">
-      </div> -->
+      </div>
 
       <div id="sim-range-bar">
-        <input type="range" name="sim_thr" id="sim-range" min="0" max="0.5" value="{{sim_thr}}" step="0.01" onchange="showValue(this.value)" />
+        <input type="range" name="sim_thr" id="sim-range" min="0" max="0.5" value="{{sim_thr}}" step="0.01" oninput="showValue(this.value)" onchange="submitForm(this.value)"/>
         <span id="range-value">Threshold: {{sim_thr}}</span>
         <script type="text/javascript">
         function showValue(newValue)
         {
           document.getElementById("range-value").innerHTML='Threshold: '+newValue;
+        }
+        function submitForm(newValue){
+          document.getElementById("form").submit()
         }
         </script>
       </div>

@@ -79,7 +79,7 @@
     </div>
     <!-- <div id="logo"> company </div> -->
 
-   <form action="{{url_for('search', docname='opencl')}}"  method=post enctype=multipart/form-data>
+   <form action="{{url_for('search', docname='opencl')}}"  id='form' method=post enctype=multipart/form-data>
       <!-- <div id="upload-file">
       	<input type="file" name="file" id="choosed-file" onchange="removeQuery()" />
 
@@ -88,12 +88,15 @@
       </div> -->
 
       <div id="sim-range-bar">
-        <input type="range" name="sim_thr" id="sim-range" min="0" max="0.5" value="{{sim_thr}}" step="0.01" onchange="showValue(this.value)" />
+        <input type="range" name="sim_thr" id="sim-range" min="0" max="0.5" value="{{sim_thr}}" step="0.01" oninput="showValue(this.value)"  onchange="submitForm(this.value)" />
         <span id="range-value">Threshold: {{sim_thr}}</span>
         <script type="text/javascript">
         function showValue(newValue)
         {
           document.getElementById("range-value").innerHTML='Threshold: '+newValue;
+        }
+        function submitForm(newValue){
+          document.getElementById("form").submit()
         }
         </script>
       </div>
