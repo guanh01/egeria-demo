@@ -130,7 +130,7 @@ class ReadNvvpReport(object):
 
 
     def report2issues(self, dirname, filename):    
-        text = textract.process(os.path.join(dirname, filename),method='pdfminer')
+        text = textract.process(os.path.join(dirname, filename))
         
         #print "---------------------------------"
         #print 'Identify different topics: %s \n' %(filename)

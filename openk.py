@@ -167,7 +167,7 @@ def search(docname):
 				#print '-------------------------------'
 				update_log(fn, sim_thr, docname, issues)
 				# print time.strftime('%y-%m-%d %H:%M:%S') + '\tsearch by file: '+ fn,', threshold:', sim_thr 
-				pprint(issues)
+				#pprint(issues)
 
 				resultsHtml = app.config["queryEngines"][docname].performQuery(issues, sim_thr)
 				#return json.dumps(sents, indent=4, sort_keys = True

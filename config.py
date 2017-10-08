@@ -8,7 +8,7 @@ congiguration
 
 
 port = '5000'
-host = '152.14.86.153'
+host = '152.14.93.113'
 
 
 similarity_threshold = 0.15
