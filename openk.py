@@ -8,7 +8,7 @@ import sys
 # sys.path.insert(0, './egeria')
 
 
-from pprint import pprint
+# from pprint import pprint
 from egeria.helper import check_directory, get_script_path
 from egeria.query_engine import QueryEngineHtml
 from egeria.parse_nvvp_report import ReadNvvpReport
@@ -33,9 +33,9 @@ app.config['MAX_CONTENT_LENGTH'] = 2 * 1024 * 1024
 LOG_FOLDER = './logs'
 check_directory(LOG_FOLDER)
 app.config['LOG_FOLDER'] = LOG_FOLDER
-app.config['LOG_FREQUENCY'] = 10
-app.config['LOG_INFO'] = ''
-app.config['SEARCH_COUNT'] = 0
+app.config['LOG_FREQUENCY'] = 5
+app.config['LOG_COUNT'] = 0
+app.config['LOG_FILE'] = None
 
 # setup host, port number, and default similarity threshold
 app.config['HOST'] = host
@@ -63,23 +63,24 @@ app.config["queryEngines"] = queryEngines
 app.config["reportParser"] = ReadNvvpReport()
 
 
-def write_log_to_file():
-	filename =os.path.join(app.config['LOG_FOLDER'], time.strftime('%y.%m.%d-%H.%M.%S')+'.txt')
-	with open(filename, 'w') as f:
-		f.write(app.config['LOG_INFO'])
-	print 'write log to filename:', filename 
+
+	
 	
 
 def update_log(query, sim_thr, docname, issues=''):
 	loginfo = time.strftime('%y-%m-%d %H:%M:%S') +' Search by query: '+ \
-				query+', threshold:'+ str(sim_thr)+', doc:'+ docname+ ', issues:'+ str(issues) 
-	app.config['LOG_INFO'] += loginfo +'\n'
-	app.config['SEARCH_COUNT'] += 1
-	if app.config['SEARCH_COUNT'] >= app.config['LOG_FREQUENCY']:
-		write_log_to_file()
-		app.config['LOG_INFO'] = ''
-		app.config['SEARCH_COUNT']=0
-	print loginfo, ', SEARCH_COUNT:', app.config['SEARCH_COUNT']
+				query+', threshold: '+ str(sim_thr)+', doc: '+ docname+ ', issues: '+ str(issues) +'\n'
+
+	if app.config['LOG_FILE']==None or app.config['LOG_COUNT'] >= app.config['LOG_FREQUENCY']:
+		app.config['LOG_FILE']=time.strftime('%y.%m.%d-%H.%M.%S')+'.txt'
+		app.config['LOG_COUNT'] = 0
+	filename =os.path.join(app.config['LOG_FOLDER'], app.config['LOG_FILE'])
+	app.config['LOG_COUNT'] += 1
+	with open(filename, 'a') as f:
+		f.write(loginfo)
+	print 'write log to filename:', filename, ', log_count:', app.config['LOG_COUNT']
+
+	# print loginfo, ', SEARCH_COUNT:', app.config['SEARCH_COUNT']
 
 
 def allowed_file(filename):

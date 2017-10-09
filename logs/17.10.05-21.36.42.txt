@@ -1,1 +1,0 @@
-17-10-05 21:36:42 Search by query: memory, threshold:0.14, doc:opencl, issues:
