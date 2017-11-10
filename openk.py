@@ -3,12 +3,11 @@ from flask import Flask, request, redirect, url_for, render_template, flash, ren
 from werkzeug.utils import secure_filename
 from flask_bootstrap import Bootstrap
 import time, os
-
+from datetime import datetime
 import sys
 # sys.path.insert(0, './egeria')
 
 
-# from pprint import pprint
 from egeria.helper import check_directory, get_script_path
 from egeria.query_engine import QueryEngineHtml
 from egeria.parse_nvvp_report import ReadNvvpReport
@@ -33,7 +32,7 @@ app.config['MAX_CONTENT_LENGTH'] = 2 * 1024 * 1024
 LOG_FOLDER = './logs'
 check_directory(LOG_FOLDER)
 app.config['LOG_FOLDER'] = LOG_FOLDER
-app.config['LOG_FREQUENCY'] = 5
+app.config['LOG_FREQUENCY'] = 10
 app.config['LOG_COUNT'] = 0
 app.config['LOG_FILE'] = None
 
@@ -63,13 +62,16 @@ app.config["queryEngines"] = queryEngines
 app.config["reportParser"] = ReadNvvpReport()
 
 
-
-	
-	
-
-def update_log(query, sim_thr, docname, issues=''):
-	loginfo = time.strftime('%y-%m-%d %H:%M:%S') +' Search by query: '+ \
-				query+', threshold: '+ str(sim_thr)+', doc: '+ docname+ ', issues: '+ str(issues) +'\n'
+def update_log(query, client_ip, sim_thr, docname, issues=''):
+	loginfo = str(datetime.now())
+	#time.strftime('%y-%m-%d %H:%M:%S') 
+	loginfo+='\nSearch by query: '+ query
+	loginfo+='\nclient ip: '+ client_ip 
+	loginfo+='\nthreshold: '+ str(sim_thr)
+	loginfo+='\ndoc: '+ docname
+	if len(issues)>0:
+		loginfo+='\nissues: '+ str(issues)
+	loginfo+='\n\n'
 
 	if app.config['LOG_FILE']==None or app.config['LOG_COUNT'] >= app.config['LOG_FREQUENCY']:
 		app.config['LOG_FILE']=time.strftime('%y.%m.%d-%H.%M.%S')+'.txt'
@@ -78,9 +80,7 @@ def update_log(query, sim_thr, docname, issues=''):
 	app.config['LOG_COUNT'] += 1
 	with open(filename, 'a') as f:
 		f.write(loginfo)
-	print 'write log to filename:', filename, ', log_count:', app.config['LOG_COUNT']
-
-	# print loginfo, ', SEARCH_COUNT:', app.config['SEARCH_COUNT']
+	#print 'write log to filename:', filename, ', log_count:', app.config['LOG_COUNT']
 
 
 def allowed_file(filename):
@@ -136,11 +136,12 @@ def search(docname):
 	if docname not in allowed_docs:
 		return redirect(url_for('homepage')) 
 	if request.method== "POST":
+		client_ip = request.remote_addr
 		sim_thr = float(request.form['sim_thr'])
 		query = request.form['search']
 		#print type(sim_thr), sim_thr
 		if len(query):
-			update_log(query, sim_thr, docname)
+			update_log(query, client_ip, sim_thr, docname)
 			issueDict = {'description': query}
 			resultsHtml = app.config["queryEngines"][docname].performQuery([issueDict], sim_thr)
 
@@ -166,7 +167,7 @@ def search(docname):
 
 				issues = app.config["reportParser"].report2issues(app.config['UPLOAD_FOLDER'],fn)
 				#print '-------------------------------'
-				update_log(fn, sim_thr, docname, issues)
+				update_log(fn, client_ip, sim_thr, docname, issues)
 				# print time.strftime('%y-%m-%d %H:%M:%S') + '\tsearch by file: '+ fn,', threshold:', sim_thr 
 				#pprint(issues)
 
